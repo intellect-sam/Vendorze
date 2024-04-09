@@ -1,4 +1,4 @@
-import { _TOKEN_NAME_ } from '@/src/constants';
+import { _TOKEN_NAME_ } from '@/constants';
 const isClient = typeof window != 'undefined';
 
 export const setLocalStorage = (

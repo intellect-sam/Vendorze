@@ -1,33 +1,43 @@
-`use client`;
+'use client';
+
+import { SubmitHandler, useForm } from 'react-hook-form';
 import { Logo, Signup } from '@/assets/images';
 import Image from 'next/image';
-import { FormControl, FormLabel, Input } from '@chakra-ui/react';
+import { FormLabel, Input } from '@chakra-ui/react';
 import { forgot } from '@/assets/icons';
 import Link from 'next/link';
-// import { useForm } from 'react-hook-form';
-// import { yupResolver } from '@hookform/resolvers/yup';
-// import * as yup from 'yup';
+import { z } from 'zod';
+import { zodResolver } from '@hookform/resolvers/zod';
 
-// Define your validation schema with Yup
-// const validationSchema = yup.object().shape({
-//   email: yup.string().email('Invalid email').required('Email is required'),
-//   password: yup
-//     .string()
-//     .required('Password is required')
-//     .min(6, 'Password must be at least 6 characters'),
-// });
+const schema = z.object({
+  email: z.string().email('Invalid email'),
+  password: z
+    .string()
+    .min(8, { message: 'Password must be at least 8 characters' }),
+});
+
+type FormField = z.infer<typeof schema>;
 
 const Login = () => {
-  // const {
-  //   register,
-  //   handleSubmit,
-  //   formState: { errors },
-  // } = useForm({
-  //   resolver: yupResolver(validationSchema),
-  // });
+  const {
+    register,
+    handleSubmit,
+    setError,
+    formState: { errors, isSubmitting },
+  } = useForm<FormField>({
+    resolver: zodResolver(schema),
+  });
 
-  const onSubmit = (data: unknown) => {
-    console.log(data);
+  const onSubmit: SubmitHandler<FormField> = async (data) => {
+    try {
+      await new Promise((resolve) => setTimeout(resolve, 1000));
+      console.log(data);
+      throw new Error();
+    } catch (error) {
+      setError('root', {
+        message: 'This is for another email',
+      });
+    }
   };
 
   return (
@@ -53,24 +63,36 @@ const Login = () => {
         <h1 className="font-bold text-3xl">Login</h1>
         <p>Enter your credentials to login in to your account</p>
 
-        <FormControl className="flex flex-col md:pr-[100px]">
+        <form
+          onSubmit={handleSubmit(onSubmit)}
+          className="flex flex-col md:pr-[100px]">
           <div className="py-3">
             <FormLabel>Email</FormLabel>
             <Input
+              {...register('email')}
               type="email"
               placeholder="Enter Username"
               className="custom-input"
-              // {...register('email')}
             />
+            {errors.email && (
+              <div className="text-error-col font-lighter text-sm py-2 ">
+                {errors.email.message}
+              </div>
+            )}
           </div>
           <div className="py-3">
             <FormLabel>Password</FormLabel>
             <Input
-              type="email"
+              {...register('password')}
+              type="password"
               placeholder="Enter Password"
               className="custom-input"
-              // {...register('password')}
             />
+            {errors.password && (
+              <div className="text-error-col font-lighter text-sm py-2">
+                {errors.password.message}
+              </div>
+            )}
           </div>
           <div className="flex gap-3 text-center items-center">
             <div>
@@ -86,11 +108,12 @@ const Login = () => {
             </p>
           </div>
           <button
+            disabled={isSubmitting}
             type="submit"
             className="bg-second-col p-3 text-primary rounded-lg text-[14px] font-bold my-10">
-            Login
+            {isSubmitting ? 'loading...' : 'Login'}
           </button>
-        </FormControl>
+        </form>
       </div>
     </div>
   );

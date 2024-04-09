@@ -1,11 +1,12 @@
 import * as yup from 'yup';
 
-export const LoginSchema = yup
-  .object({
-    emailOrUsername: yup.string().required('Email or Username is required'),
-    password: yup.string().min(6).max(100).required('Password is required'),
-  })
-  .required();
+export const LoginSchema = yup.object().shape({
+  email: yup.string().email('Invalid email').required('Email is required'),
+  password: yup
+    .string()
+    .min(8, 'Password is too short - should be 8 chars minimum.')
+    .required('Password is required'),
+});
 
 export const VerifyTokenSchema = yup
   .object({
@@ -32,27 +33,6 @@ export const AddUserSchema = yup
     staffNumber: yup.string().required('Staff Number is required'),
   })
   .required();
-
-// export const CreatePasswordSchema = yup
-//   .object({
-//     password: yup
-//       .string()
-//       .required('Password is required')
-//       .min(8)
-//       .max(100)
-//       .matches(
-//         /(?=.*[a-z])(?=.*[A-Z])(?=.*\d)(?=.*[@$!%*?&])[A-Za-z\d@$!%*?&#]{8,}/,
-//         'Appropriate password required'
-//     ),
-
-//     password_confirmation: yup
-//       .string()
-//       .oneOf([yup.ref('password')], 'Password does not match'),
-//     // .required('Password confirmation is required')
-//     // .min(8)
-//     // .max(50)
-//   })
-//   .required();
 
 export const CreatePasswordSchema = yup
   .object({

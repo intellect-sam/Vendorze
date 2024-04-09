@@ -11,6 +11,7 @@ const config: Config = {
       primary: '#D2D2D2',
       'second-col': '#73008F',
       orange: '#ff7849',
+      'error-col': '#b91c1c',
       green: '#13ce66',
       'gray-dark': '#5B5B5B',
       gray: '#FAFAFA',
