@@ -2,13 +2,16 @@ import React from 'react';
 import Image from 'next/image';
 import { img1, img2, img3, star } from '@/assets/images/Reviews';
 import Marquee from 'react-fast-marquee';
+import { FaStar } from 'react-icons/fa6';
 
 const Reviews = () => {
+  const reviews = Array(20).fill(null);
+
   type CustomReviewProps = {
     imageSrc: ''; // Assuming you're using static images
     name: string; //
     title: string;
-    rate: '';
+    rate: string | JSX.Element;
     testimony: string;
   };
 
@@ -29,11 +32,7 @@ const Reviews = () => {
         <div className="text-gray-dark">
           <h1 className=" font-bold text-sm">{name}</h1>
           <h1 className=" font-light text-[10px]">{title}</h1>
-          <Image
-            src={rate}
-            alt={title}
-            width={20}
-          />
+          <p className="flex gap-2 text-str">{rate}</p>
         </div>
         <p className="flex w-full text-[10px] text-left">{testimony}</p>
       </div>
@@ -44,122 +43,42 @@ const Reviews = () => {
       <h1 className="custom-h1 md:text-4xl">Reviews</h1>
       <div className="flex flex-col items-center gap-10">
         <Marquee>
-          <CustomReview
-            imageSrc={img1}
-            name="Akwe Samuel"
-            title="Top-notch packaging"
-            rate={star}
-            testimony="I have been using this product for 5 years now and i must my business has come a long way."
-          />
-          <CustomReview
-            imageSrc={img2}
-            name="Akwe Samuel"
-            title="Top-notch packaging"
-            rate={star}
-            testimony="I have been using this product for 5 years now and i must my business has come a long way."
-          />
-          <CustomReview
-            imageSrc={img3}
-            name="Akwe Samuel"
-            title="Top-notch packaging"
-            rate={star}
-            testimony="I have been using this product for 5 years now and i must my business has come a long way."
-          />
-          <CustomReview
-            imageSrc={img1}
-            name="Akwe Samuel"
-            title="Top-notch packaging"
-            rate={star}
-            testimony="I have been using this product for 5 years now and i must my business has come a long way."
-          />
-          <CustomReview
-            imageSrc={img1}
-            name="Akwe Samuel"
-            title="Top-notch packaging"
-            rate={star}
-            testimony="I have been using this product for 5 years now and i must my business has come a long way."
-          />
-          <CustomReview
-            imageSrc={img1}
-            name="Akwe Samuel"
-            title="Top-notch packaging"
-            rate={star}
-            testimony="I have been using this product for 5 years now and i must my business has come a long way."
-          />
-          <CustomReview
-            imageSrc={img1}
-            name="Akwe Samuel"
-            title="Top-notch packaging"
-            rate={star}
-            testimony="I have been using this product for 5 years now and i must my business has come a long way."
-          />
-          <CustomReview
-            imageSrc={img1}
-            name="Akwe Samuel"
-            title="Top-notch packaging"
-            rate={star}
-            testimony="I have been using this product for 5 years now and i must my business has come a long way."
-          />
+          {[...Array(10)].map((_, index) => (
+            <CustomReview
+              key={index}
+              imageSrc={img2}
+              name="Akwe Samuel"
+              title="Top-notch packaging"
+              rate={
+                <>
+                  {[...Array(5)].map((_, index) => (
+                    <FaStar key={index} />
+                  ))}
+                </>
+              }
+              testimony="I have been using this product for 5 years now and I must say my business has come a long way."
+            />
+          ))}
         </Marquee>
 
         <div className=" max-w-[1350px] hidden md:block">
           <Marquee>
-            <CustomReview
-              imageSrc={img1}
-              name="Akwe Samuel"
-              title="Top-notch packaging"
-              rate={star}
-              testimony="I have been using this product for 5 years now and i must my business has come a long way."
-            />
-            <CustomReview
-              imageSrc={img2}
-              name="Akwe Samuel"
-              title="Top-notch packaging"
-              rate={star}
-              testimony="I have been using this product for 5 years now and i must my business has come a long way."
-            />
-            <CustomReview
-              imageSrc={img3}
-              name="Akwe Samuel"
-              title="Top-notch packaging"
-              rate={star}
-              testimony="I have been using this product for 5 years now and i must my business has come a long way."
-            />
-            <CustomReview
-              imageSrc={img1}
-              name="Akwe Samuel"
-              title="Top-notch packaging"
-              rate={star}
-              testimony="I have been using this product for 5 years now and i must my business has come a long way."
-            />
-            <CustomReview
-              imageSrc={img1}
-              name="Akwe Samuel"
-              title="Top-notch packaging"
-              rate={star}
-              testimony="I have been using this product for 5 years now and i must my business has come a long way."
-            />
-            <CustomReview
-              imageSrc={img1}
-              name="Akwe Samuel"
-              title="Top-notch packaging"
-              rate={star}
-              testimony="I have been using this product for 5 years now and i must my business has come a long way."
-            />
-            <CustomReview
-              imageSrc={img1}
-              name="Akwe Samuel"
-              title="Top-notch packaging"
-              rate={star}
-              testimony="I have been using this product for 5 years now and i must my business has come a long way."
-            />
-            <CustomReview
-              imageSrc={img1}
-              name="Akwe Samuel"
-              title="Top-notch packaging"
-              rate={star}
-              testimony="I have been using this product for 5 years now and i must my business has come a long way."
-            />
+            {[...Array(10)].map((_, index) => (
+              <CustomReview
+                key={index}
+                imageSrc={img2}
+                name="Akwe Samuel"
+                title="Top-notch packaging"
+                rate={
+                  <>
+                    {[...Array(5)].map((_, index) => (
+                      <FaStar key={index} />
+                    ))}
+                  </>
+                }
+                testimony="I have been using this product for 5 years now and I must say my business has come a long way."
+              />
+            ))}
           </Marquee>
         </div>
       </div>

@@ -15,7 +15,9 @@ const config: Config = {
       green: '#13ce66',
       'gray-dark': '#5B5B5B',
       gray: '#FAFAFA',
+      gry: '#F5F5F5',
       'gray-light': '#d3dce6',
+      str: '#FDC83E',
     },
     extend: {
       backgroundImage: {

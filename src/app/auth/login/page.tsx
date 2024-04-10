@@ -3,11 +3,20 @@
 import { SubmitHandler, useForm } from 'react-hook-form';
 import { Logo, Signup } from '@/assets/images';
 import Image from 'next/image';
-import { FormLabel, Input } from '@chakra-ui/react';
+import {
+  FormLabel,
+  Input,
+  InputGroup,
+  InputRightElement,
+  Spinner,
+} from '@chakra-ui/react';
 import { forgot } from '@/assets/icons';
 import Link from 'next/link';
 import { z } from 'zod';
 import { zodResolver } from '@hookform/resolvers/zod';
+import { useState } from 'react';
+import { IoEye, IoEyeOff } from 'react-icons/io5';
+import ShowPasswordText from '@/core/hooks/ShowPasswordText';
 
 const schema = z.object({
   email: z.string().email('Invalid email'),
@@ -19,6 +28,9 @@ const schema = z.object({
 type FormField = z.infer<typeof schema>;
 
 const Login = () => {
+  const [show, setShow] = useState(false);
+
+  const togglePassword = () => setShow(!show);
   const {
     register,
     handleSubmit,
@@ -86,12 +98,18 @@ const Login = () => {
             <label className="text-[10px] font-bold md:text-[15px]">
               Password
             </label>
-            <Input
-              {...register('password')}
-              type="password"
-              placeholder="Enter Password"
-              className="custom-input"
-            />
+            <InputGroup>
+              <Input
+                {...register('password')}
+                type={show ? 'text' : 'password'}
+                placeholder="Enter Password"
+                className="custom-input"
+              />
+              <ShowPasswordText
+                onToggle={togglePassword}
+                showPassword={show}
+              />
+            </InputGroup>
             {errors.password && (
               <div className="text-error-col font-lighter text-[10px]">
                 {errors.password.message}
@@ -115,7 +133,7 @@ const Login = () => {
             disabled={isSubmitting}
             type="submit"
             className="bg-second-col p-3 text-primary rounded-lg text-[14px] font-bold my-10">
-            {isSubmitting ? 'loading...' : 'Login'}
+            {isSubmitting ? <Spinner /> : 'Login'}
           </button>
         </form>
       </div>

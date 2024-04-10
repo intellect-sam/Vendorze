@@ -3,11 +3,21 @@
 import { useForm, SubmitHandler } from 'react-hook-form';
 import { Logo, Signup } from '@/assets/images';
 import Image from 'next/image';
-import { FormLabel, Input, Select } from '@chakra-ui/react';
+import {
+  FormLabel,
+  Input,
+  InputGroup,
+  InputRightElement,
+  Select,
+  Spinner,
+} from '@chakra-ui/react';
 import Link from 'next/link';
 import { z, ZodType } from 'zod';
 import { zodResolver } from '@hookform/resolvers/zod';
 import axios from 'axios';
+import { useState } from 'react';
+import { IoEyeOff, IoEye } from 'react-icons/io5';
+import ShowPasswordText from '@/core/hooks/ShowPasswordText';
 
 interface SignUpData {
   fullName: string;
@@ -41,6 +51,9 @@ const signUpSchema: ZodType<SignUpData> = z
 type signupInput = z.infer<typeof signUpSchema>;
 
 const SignUp = () => {
+  const [showPassword, setShowPassword] = useState(false);
+  const togglePassword = () => setShowPassword(!showPassword);
+
   const {
     register,
     handleSubmit,
@@ -85,7 +98,7 @@ const SignUp = () => {
             className="md:w-[2250px]"
           />
         </div>
-        <div className="w-full px-[35px] h-full flex flex-col h-screen md:px-[100px] justify-center gap-2">
+        <div className="w-full px-[35px] h-full flex flex-col  md:px-[100px] justify-center gap-2">
           <div className="py-3 flex w-full">
             <Link href="/">
               <Image
@@ -138,12 +151,18 @@ const SignUp = () => {
               <label className="text-[10px] font-bold md:text-[15px]">
                 Password
               </label>
-              <Input
-                type="password"
-                placeholder="Enter Password"
-                className="custom-input  md:py-5"
-                {...register('password')}
-              />
+              <InputGroup>
+                <Input
+                  type={showPassword ? 'text' : 'password'}
+                  placeholder="Enter Password"
+                  className="custom-input  md:py-5"
+                  {...register('password')}
+                />
+                <ShowPasswordText
+                  onToggle={togglePassword}
+                  showPassword={showPassword}
+                />
+              </InputGroup>
               {errors.password && (
                 <div className="text-error-col font-lighter text-[10px] ">
                   {errors.password.message}
@@ -154,12 +173,18 @@ const SignUp = () => {
               <label className="text-[10px] font-bold md:text-[15px]">
                 Confirm Password
               </label>
-              <Input
-                type="password"
-                placeholder="Enter Password"
-                className="custom-input  md:py-5"
-                {...register('confirmPassword')}
-              />
+              <InputGroup>
+                <Input
+                  type={showPassword ? 'text' : 'password'}
+                  placeholder="Enter Password"
+                  className="custom-input  md:py-5"
+                  {...register('confirmPassword')}
+                />
+                <ShowPasswordText
+                  onToggle={togglePassword}
+                  showPassword={showPassword}
+                />
+              </InputGroup>
               {errors.confirmPassword && (
                 <div className="text-error-col font-lighter text-[10px] ">
                   {errors.confirmPassword.message}
@@ -189,7 +214,7 @@ const SignUp = () => {
               disabled={isSubmitting}
               type="submit"
               className="bg-second-col p-3 text-[#fff] rounded-lg text-[14px] font-bold">
-              {isSubmitting ? 'submitting...' : 'Sign Up'}
+              {isSubmitting ? <Spinner /> : 'Sign Up'}
             </button>
           </form>
         </div>
