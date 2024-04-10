@@ -77,7 +77,7 @@ const SignUp = () => {
   };
   return (
     <>
-      <div className="max-w-[1600px] flex flex-col md:flex-row justify-between items-center">
+      <div className="max-w-[1600px] flex flex-col  md:flex-row justify-between items-center">
         <div className="hidden md:block">
           <Image
             src={Signup}
@@ -85,7 +85,7 @@ const SignUp = () => {
             className="md:w-[2250px]"
           />
         </div>
-        <div className="w-full px-[35px] flex flex-col h-screen md:px-[100px] justify-center gap-2">
+        <div className="w-full px-[35px] h-full flex flex-col h-screen md:px-[100px] justify-center gap-2">
           <div className="py-3 flex w-full">
             <Link href="/">
               <Image
@@ -101,9 +101,11 @@ const SignUp = () => {
 
           <form
             onSubmit={handleSubmit(onSubmit)}
-            className="flex flex-col md:pr-[100px] ">
-            <div className="py-3">
-              <FormLabel>Full Name</FormLabel>
+            className="flex flex-col md:pr-[100px] md:gap-4 ">
+            <div className="py-1">
+              <label className="text-[10px] font-bold md:text-[15px]">
+                Full Name
+              </label>
               <Input
                 type="text"
                 placeholder="Enter Full Name"
@@ -116,8 +118,10 @@ const SignUp = () => {
                 </div>
               )}
             </div>
-            <div className="py-3">
-              <FormLabel>Email</FormLabel>
+            <div className="py-1">
+              <label className="text-[10px] font-bold md:text-[15px]">
+                Email
+              </label>
               <Input
                 type="email"
                 placeholder="Enter Email"
@@ -130,8 +134,10 @@ const SignUp = () => {
                 </div>
               )}
             </div>
-            <div className="py-3">
-              <FormLabel>Password</FormLabel>
+            <div className="py-1">
+              <label className="text-[10px] font-bold md:text-[15px]">
+                Password
+              </label>
               <Input
                 type="password"
                 placeholder="Enter Password"
@@ -144,8 +150,10 @@ const SignUp = () => {
                 </div>
               )}
             </div>
-            <div className="py-3">
-              <FormLabel>Confirm Password</FormLabel>
+            <div className="py-1">
+              <label className="text-[10px] font-bold md:text-[15px]">
+                Confirm Password
+              </label>
               <Input
                 type="password"
                 placeholder="Enter Password"
@@ -158,13 +166,15 @@ const SignUp = () => {
                 </div>
               )}
             </div>
-            <div className="md:py-5 py-3">
-              <FormLabel>Are you a vendor or a buyer?</FormLabel>
+            <div className="md:py-5 py-1 mb-7">
+              <label className="text-[10px] font-bold md:text-[15px]  ">
+                Are you a vendor or a buyer
+              </label>
 
               <Select
                 placeholder="Choose"
                 {...register('buyerOrVendor')}
-                className="bg-primary">
+                className="bg-primary text-[10px] font-light md:text-[15px] ">
                 <option>Vendor</option>
                 <option>Buyer</option>
               </Select>

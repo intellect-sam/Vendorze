@@ -67,7 +67,9 @@ const Login = () => {
           onSubmit={handleSubmit(onSubmit)}
           className="flex flex-col md:pr-[100px]">
           <div className="py-3">
-            <FormLabel>Email</FormLabel>
+            <label className="text-[10px] font-bold md:text-[15px]">
+              Email
+            </label>
             <Input
               {...register('email')}
               type="email"
@@ -75,13 +77,15 @@ const Login = () => {
               className="custom-input"
             />
             {errors.email && (
-              <div className="text-error-col font-lighter text-sm py-2 ">
+              <div className="text-error-col font-lighter text-[10px] ">
                 {errors.email.message}
               </div>
             )}
           </div>
           <div className="py-3">
-            <FormLabel>Password</FormLabel>
+            <label className="text-[10px] font-bold md:text-[15px]">
+              Password
+            </label>
             <Input
               {...register('password')}
               type="password"
@@ -89,7 +93,7 @@ const Login = () => {
               className="custom-input"
             />
             {errors.password && (
-              <div className="text-error-col font-lighter text-sm py-2">
+              <div className="text-error-col font-lighter text-[10px]">
                 {errors.password.message}
               </div>
             )}

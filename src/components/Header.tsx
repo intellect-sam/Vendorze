@@ -44,7 +44,7 @@ const Header = () => {
                 <Link href="#">About</Link>
               </li>
               <li>
-                <Link href="/pages/businesses">Businesses</Link>
+                <Link href="/businesses">Businesses</Link>
               </li>
             </ul>
             <div className="md:flex md:gap-10">
@@ -80,9 +80,8 @@ const Header = () => {
                 <DrawerCloseButton />
                 <nav className="min-h-screen flex flex-col p-5 justify-center gap-5">
                   <Link href="#">About</Link>
-                  <Link href="#">Businesses</Link>
-                  <Link href="#">About</Link>
-                  <Link href="#">Businesses</Link>
+                  <Link href="/businesses">Businesses</Link>
+
                   <Button
                     className="bg-second-col text-primary rounded-md"
                     onClick={() => console.log('Clicked!')}>
