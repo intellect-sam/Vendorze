@@ -18,7 +18,7 @@ const Profile = () => {
         <div className="container">
           <div className="w-full text-[12px] text-[#CD5FD4] font-bold py-2">
             <Link
-              href="#"
+              href="/businesses"
               className="flex items-center gap-1">
               <IoChevronBack /> Go back
             </Link>
@@ -59,7 +59,7 @@ const Profile = () => {
               </div>
             </div>
           </div>
-          <div className="flex flex-col md:flex-row w-full md:gap-20 md:mt-10">
+          <div className="flex flex-col md:flex-row w-full md:gap-20 md:mt-5">
             <div className="flex text-[10px] md:text-[13px] text-[#727272] justify-between md:justify-normal md:gap-12 w-full h-full p-4 md:p-7 shadow-lg rounded-md mt-8">
               <div className="biz-parent">
                 <h1 className="text-[13px] md:text-[18px] font-bold text-second-col">

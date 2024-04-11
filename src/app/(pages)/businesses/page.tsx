@@ -4,6 +4,7 @@ import Image from 'next/image';
 import { b1, b2, b3, b4, b5, b6 } from '@/assets/images';
 import { FaStar } from 'react-icons/fa6';
 import SearchBar from '@/components/SearchBar';
+import Link from 'next/link';
 
 const Businesses = () => {
   type BuzCardProps = {
@@ -22,27 +23,29 @@ const Businesses = () => {
     rate,
   }) => {
     return (
-      <div className="w-[350px] shadow-xl p-4 flex flex-col items-left gap-2 ">
-        <Image
-          src={imgSrc}
-          alt={name}
-          width={339}
-        />
-        <h1 className=" font-bold text-sm text-[#0E538C]">{name}</h1>
-        <div className="text-gray-dark flex gap-5 text-[10px] ">
-          <div>
-            <p>category: </p>
-            <p>location: </p>
-            <p>rate: </p>
-          </div>
-          <div>
-            <p>{category} </p>
-            <p>{location} </p>
+      <Link href="/businesses/profile">
+        <div className="w-[350px] shadow-xl p-4 flex flex-col items-left gap-2 ">
+          <Image
+            src={imgSrc}
+            alt={name}
+            width={339}
+          />
+          <h1 className=" font-bold text-sm text-[#0E538C]">{name}</h1>
+          <div className="text-gray-dark flex gap-5 text-[10px] ">
+            <div>
+              <p>category: </p>
+              <p>location: </p>
+              <p>rate: </p>
+            </div>
+            <div>
+              <p>{category} </p>
+              <p>{location} </p>
 
-            <p className="flex gap-2 text-str">{rate}</p>
+              <p className="flex gap-2 text-str">{rate}</p>
+            </div>
           </div>
         </div>
-      </div>
+      </Link>
     );
   };
   return (
