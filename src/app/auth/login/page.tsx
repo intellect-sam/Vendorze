@@ -72,16 +72,14 @@ const Login = () => {
           </Link>
         </div>
 
-        <h1 className="font-bold text-3xl">Login</h1>
+        <h1 className="font-bold text-2xl">Login</h1>
         <p>Enter your credentials to login in to your account</p>
 
         <form
           onSubmit={handleSubmit(onSubmit)}
           className="flex flex-col md:pr-[100px]">
           <div className="py-3">
-            <label className="text-[10px] font-bold md:text-[15px]">
-              Email
-            </label>
+            <label className="input-label">Email</label>
             <Input
               {...register('email')}
               type="email"
@@ -95,9 +93,7 @@ const Login = () => {
             )}
           </div>
           <div className="py-3">
-            <label className="text-[10px] font-bold md:text-[15px]">
-              Password
-            </label>
+            <label className="input-label">Password</label>
             <InputGroup>
               <Input
                 {...register('password')}

@@ -12,6 +12,21 @@ body {
     rgb(var(--background-start-rgb));
 }
 
+@layer components {
+  .container {
+    @apply max-w-[1166px] mx-auto py-4 flex flex-col justify-between items-center p-4;
+  }
+  .biz-details {
+    @apply flex items-center gap-1;
+  }
+  .biz-parent {
+    @apply flex flex-col gap-3 md:gap-5;
+  }
+  .input-label {
+    @apply text-[10px] md:text-[15px];
+  }
+}
+
 @layer utilities {
   .text-balance {
     text-wrap: balance;
@@ -20,7 +35,7 @@ body {
 
 .custom-h1 {
   font-weight: bold;
-  font-size: 2rem;
+  font-size: 1.5rem;
   line-height: 1.5;
   text-align: center;
   color: #4a4a4a;

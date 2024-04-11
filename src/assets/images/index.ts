@@ -15,6 +15,8 @@ import b3 from './biz3.png';
 import b4 from './biz4.png';
 import b5 from './biz5.png';
 import b6 from './biz6.png';
+import pic1 from './pic1.svg';
+import bgg from './bggg.png';
 
 export {
   Logo,
@@ -34,4 +36,6 @@ export {
   b4,
   b5,
   b6,
+  pic1,
+  bgg,
 };

@@ -109,16 +109,14 @@ const SignUp = () => {
             </Link>
           </div>
 
-          <h1 className="font-bold text-3xl">Sign Up</h1>
+          <h1 className="font-bold text-2xl">Sign Up</h1>
           <p>Enter your credentials to sign up as a user. </p>
 
           <form
             onSubmit={handleSubmit(onSubmit)}
             className="flex flex-col md:pr-[100px] md:gap-4 ">
             <div className="py-1">
-              <label className="text-[10px] font-bold md:text-[15px]">
-                Full Name
-              </label>
+              <label className="input-label">Full Name</label>
               <Input
                 type="text"
                 placeholder="Enter Full Name"
@@ -132,9 +130,7 @@ const SignUp = () => {
               )}
             </div>
             <div className="py-1">
-              <label className="text-[10px] font-bold md:text-[15px]">
-                Email
-              </label>
+              <label className="input-label">Email</label>
               <Input
                 type="email"
                 placeholder="Enter Email"
@@ -148,9 +144,7 @@ const SignUp = () => {
               )}
             </div>
             <div className="py-1">
-              <label className="text-[10px] font-bold md:text-[15px]">
-                Password
-              </label>
+              <label className="input-label">Password</label>
               <InputGroup>
                 <Input
                   type={showPassword ? 'text' : 'password'}
@@ -170,9 +164,7 @@ const SignUp = () => {
               )}
             </div>
             <div className="py-1">
-              <label className="text-[10px] font-bold md:text-[15px]">
-                Confirm Password
-              </label>
+              <label className="input-label">Confirm Password</label>
               <InputGroup>
                 <Input
                   type={showPassword ? 'text' : 'password'}
@@ -192,9 +184,7 @@ const SignUp = () => {
               )}
             </div>
             <div className="md:py-5 py-1 mb-7">
-              <label className="text-[10px] font-bold md:text-[15px]  ">
-                Are you a vendor or a buyer
-              </label>
+              <label className="input-label">Are you a vendor or a buyer</label>
 
               <Select
                 placeholder="Choose"

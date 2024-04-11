@@ -47,90 +47,92 @@ const Businesses = () => {
   };
   return (
     <>
-      <Header />
-      <div className="max-w-[1166px] mx-auto py-4 flex flex-col justify-between items-center p-4">
-        <SearchBar />
-        <div className="grid grid-cols md:grid-cols-3 md:gap-10 gap-4">
-          <BuzCard
-            imgSrc={b1}
-            name="Obiz Closet"
-            category="Clothing and Accesories"
-            location="Ibadan, Nigeria"
-            rate={
-              <>
-                {[...Array(5)].map((_, index) => (
-                  <FaStar key={index} />
-                ))}
-              </>
-            }
-          />
-          <BuzCard
-            imgSrc={b2}
-            name="Rayz Clothings"
-            category="Clothing and Accesories"
-            location="Ibadan, Nigeria"
-            rate={
-              <>
-                {[...Array(5)].map((_, index) => (
-                  <FaStar key={index} />
-                ))}
-              </>
-            }
-          />
-          <BuzCard
-            imgSrc={b3}
-            name="VFK Phones and Accessories"
-            category="Gadgets"
-            location="Ibadan, Nigeria"
-            rate={
-              <>
-                {[...Array(5)].map((_, index) => (
-                  <FaStar key={index} />
-                ))}
-              </>
-            }
-          />
-          <BuzCard
-            imgSrc={b4}
-            name="Better Life Restaurant"
-            category="Services"
-            location="Ibadan, Nigeria"
-            rate={
-              <>
-                {[...Array(5)].map((_, index) => (
-                  <FaStar key={index} />
-                ))}
-              </>
-            }
-          />
-          <BuzCard
-            imgSrc={b5}
-            name="Tunde Gadgets"
-            category="Electronics"
-            location="Ibadan, Nigeria"
-            rate={
-              <>
-                {[...Array(5)].map((_, index) => (
-                  <FaStar key={index} />
-                ))}
-              </>
-            }
-          />
-          <BuzCard
-            imgSrc={b6}
-            name="B’s Cuisine"
-            category="Food"
-            location="Ibadan, Nigeria"
-            rate={
-              <>
-                {[...Array(5)].map((_, index) => (
-                  <FaStar key={index} />
-                ))}
-              </>
-            }
-          />
+      <section className="bg-gray min-h-screen">
+        <Header />
+        <div className="container">
+          <SearchBar />
+          <div className="grid grid-cols md:grid-cols-3 md:gap-10 gap-4">
+            <BuzCard
+              imgSrc={b1}
+              name="Obiz Closet"
+              category="Clothing and Accesories"
+              location="Ibadan, Nigeria"
+              rate={
+                <>
+                  {[...Array(5)].map((_, index) => (
+                    <FaStar key={index} />
+                  ))}
+                </>
+              }
+            />
+            <BuzCard
+              imgSrc={b2}
+              name="Rayz Clothings"
+              category="Clothing and Accesories"
+              location="Ibadan, Nigeria"
+              rate={
+                <>
+                  {[...Array(5)].map((_, index) => (
+                    <FaStar key={index} />
+                  ))}
+                </>
+              }
+            />
+            <BuzCard
+              imgSrc={b3}
+              name="VFK Phones and Accessories"
+              category="Gadgets"
+              location="Ibadan, Nigeria"
+              rate={
+                <>
+                  {[...Array(5)].map((_, index) => (
+                    <FaStar key={index} />
+                  ))}
+                </>
+              }
+            />
+            <BuzCard
+              imgSrc={b4}
+              name="Better Life Restaurant"
+              category="Services"
+              location="Ibadan, Nigeria"
+              rate={
+                <>
+                  {[...Array(5)].map((_, index) => (
+                    <FaStar key={index} />
+                  ))}
+                </>
+              }
+            />
+            <BuzCard
+              imgSrc={b5}
+              name="Tunde Gadgets"
+              category="Electronics"
+              location="Ibadan, Nigeria"
+              rate={
+                <>
+                  {[...Array(5)].map((_, index) => (
+                    <FaStar key={index} />
+                  ))}
+                </>
+              }
+            />
+            <BuzCard
+              imgSrc={b6}
+              name="B’s Cuisine"
+              category="Food"
+              location="Ibadan, Nigeria"
+              rate={
+                <>
+                  {[...Array(5)].map((_, index) => (
+                    <FaStar key={index} />
+                  ))}
+                </>
+              }
+            />
+          </div>
         </div>
-      </div>
+      </section>
     </>
   );
 };
