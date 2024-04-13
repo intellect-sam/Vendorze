@@ -1,3 +1,4 @@
+import { _BASE_API_URL } from '@/constants';
 import {
   useDisclosure,
   Button,
@@ -8,12 +9,17 @@ import {
   ModalBody,
   Input,
   Spinner,
+  HStack,
+  PinInput,
+  PinInputField,
 } from '@chakra-ui/react';
 import { zodResolver } from '@hookform/resolvers/zod';
 import axios from 'axios';
+import router from 'next/router';
 import React, { forwardRef, useState } from 'react';
 import { SubmitHandler, useForm } from 'react-hook-form';
 import { z, ZodType } from 'zod';
+import VerifyEmail from './VerifyEmail';
 
 export interface SignUpModalRef {
   onOpen: () => void;
@@ -51,6 +57,7 @@ const SignUpModal = forwardRef((props, ref) => {
   const { isOpen, onOpen, onClose } = useDisclosure();
   const [showPassword, setShowPassword] = useState(false);
   const togglePassword = () => setShowPassword(!showPassword);
+  const [showPinInput, setShowPinInput] = useState(false);
 
   const {
     register,
@@ -64,11 +71,12 @@ const SignUpModal = forwardRef((props, ref) => {
   const onSubmit: SubmitHandler<signUpIn> = async (data) => {
     try {
       const response = await axios.post(
-        'https://vendorze.com/api/ExternalUser/create-user',
+        `${_BASE_API_URL}/api/ExternalUser/create-user`,
         data
       );
       // Handle successful response here
       console.log(response.data);
+      setShowPinInput(true);
     } catch (error: any) {
       if (error.response && error.response.data) {
         const serverResponse = error.response.data;
@@ -97,9 +105,13 @@ const SignUpModal = forwardRef((props, ref) => {
         <ModalContent className="text-[#727272]">
           <ModalHeader>
             <div>
-              <h1 className="text-[20px]">Sign Up</h1>
+              <h1 className="text-[20px]">
+                {!showPinInput ? 'Sign Up' : 'Verify your mail'}
+              </h1>
               <p className="text-[10px] font-light">
-                Kindly sign up to finish the process
+                {!showPinInput
+                  ? 'Kindly sign up to finish the process'
+                  : 'Verification code has been sent to your email address'}
               </p>
             </div>
             {errors.serverError && (
@@ -110,59 +122,65 @@ const SignUpModal = forwardRef((props, ref) => {
           </ModalHeader>
           <hr />
           <ModalBody>
-            <form
-              onSubmit={handleSubmit(onSubmit)}
-              className="flex flex-col gap-3 ">
-              <div>
-                <label className="input-label">Email Address</label>
-                <Input
-                  type="email"
-                  placeholder="Enter email address"
-                  className="custom-input md:py-5"
-                  {...register('email')}
-                />
-                {errors.email && (
-                  <div className="text-error-col font-lighter text-[10px] ">
-                    {errors.email.message}
-                  </div>
-                )}
-              </div>
-              <div>
-                <label className="input-label">Password</label>
-                <Input
-                  type="password"
-                  placeholder="***********"
-                  className="custom-input md:py-5"
-                  {...register('password')}
-                />
-                {errors.password && (
-                  <div className="text-error-col font-lighter text-[10px] ">
-                    {errors.password.message}
-                  </div>
-                )}
-              </div>
-              <div>
-                <label className="input-label">Confirm Password</label>
-                <Input
-                  type="password"
-                  placeholder="***********"
-                  className="custom-input md:py-5"
-                  {...register('confirmPassword')}
-                />
-                {errors.confirmPassword && (
-                  <div className="text-error-col font-lighter text-[10px] ">
-                    {errors.confirmPassword.message}
-                  </div>
-                )}
-              </div>
+            {!showPinInput ? (
+              <form
+                onSubmit={handleSubmit(onSubmit)}
+                className="flex flex-col gap-3 ">
+                <div>
+                  <label className="input-label">Email Address</label>
+                  <Input
+                    type="email"
+                    placeholder="Enter email address"
+                    className="custom-input md:py-5"
+                    {...register('email')}
+                  />
+                  {errors.email && (
+                    <div className="text-error-col font-lighter text-[10px] ">
+                      {errors.email.message}
+                    </div>
+                  )}
+                </div>
+                <div>
+                  <label className="input-label">Password</label>
+                  <Input
+                    type="password"
+                    placeholder="***********"
+                    className="custom-input md:py-5"
+                    {...register('password')}
+                  />
+                  {errors.password && (
+                    <div className="text-error-col font-lighter text-[10px] ">
+                      {errors.password.message}
+                    </div>
+                  )}
+                </div>
+                <div>
+                  <label className="input-label">Confirm Password</label>
+                  <Input
+                    type="password"
+                    placeholder="***********"
+                    className="custom-input md:py-5"
+                    {...register('confirmPassword')}
+                  />
+                  {errors.confirmPassword && (
+                    <div className="text-error-col font-lighter text-[10px] ">
+                      {errors.confirmPassword.message}
+                    </div>
+                  )}
+                </div>
 
-              <button
-                disabled={isSubmitting}
-                type="submit"
-                className="bg-second-col p-3 text-[#fff] rounded-lg text-[14px] font-bold mb-10">
-                {isSubmitting ? <Spinner /> : 'Submit'}
-              </button>
-            </form>
+                <button
+                  disabled={isSubmitting}
+                  type="submit"
+                  className="bg-second-col p-3 text-[#fff] rounded-lg text-[14px] font-bold mb-10">
+                  {isSubmitting ? <Spinner /> : 'Submit'}
+                </button>
+              </form>
+            ) : (
+              <div>
+                <VerifyEmail />
+              </div>
+            )}
           </ModalBody>
         </ModalContent>
       </Modal>

@@ -18,6 +18,7 @@ import axios from 'axios';
 import { useState } from 'react';
 import { IoEyeOff, IoEye } from 'react-icons/io5';
 import ShowPasswordText from '@/core/hooks/ShowPasswordText';
+import { _BASE_API_URL } from '@/constants';
 
 interface SignUpData {
   fullName: string;
@@ -66,7 +67,7 @@ const SignUp = () => {
   const onSubmit: SubmitHandler<signupInput> = async (data) => {
     try {
       const response = await axios.post(
-        'https://vendorze.com/api/ExternalUser/add-waitlist',
+        `${_BASE_API_URL}api/ExternalUser/add-waitlist`,
         data
       );
       // Handle successful response here
@@ -135,7 +136,7 @@ const SignUp = () => {
             </div>
 
             {/* Password disable */}
-            {/* <div className="py-1">
+            <div className="py-1">
               <label className="input-label">Password</label>
               <InputGroup>
                 <Input
@@ -174,7 +175,7 @@ const SignUp = () => {
                   {errors.confirmPassword.message}
                 </div>
               )}
-            </div> */}
+            </div>
             <div className="md:py-5 py-1 mb-7">
               <label className="input-label">Are you a vendor or a buyer</label>
 
