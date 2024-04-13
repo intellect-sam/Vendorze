@@ -64,29 +64,19 @@ const SignUp = () => {
   });
 
   const onSubmit: SubmitHandler<signupInput> = async (data) => {
-    // with axios
     try {
       const response = await axios.post(
-        'https://vendorze.com/api/ExternalUser/create-user',
+        'https://vendorze.com/api/ExternalUser/add-waitlist',
         data
       );
+      // Handle successful response here
       console.log(response.data);
-      console.log(data);
     } catch (error) {
       console.error('There was a problem with the Axios request:', error);
       setError('root', {
         message: 'This is for another email',
       });
     }
-    // try {
-    //   await new Promise((resolve) => setTimeout(resolve, 1000));
-    //   console.log(data);
-    //   throw new Error();
-    // } catch (error) {
-    //   setError('root', {
-    //     message: 'This is for another email',
-    //   });
-    // }
   };
   return (
     <>
@@ -98,7 +88,7 @@ const SignUp = () => {
             className="md:w-[2250px]"
           />
         </div>
-        <div className="w-full px-[35px] h-full flex flex-col  md:px-[100px] justify-center gap-2">
+        <div className="w-full px-[35px] h-screen  flex flex-col  md:px-[100px] justify-center gap-2">
           <div className="py-3 flex w-full">
             <Link href="/">
               <Image
@@ -143,7 +133,9 @@ const SignUp = () => {
                 </div>
               )}
             </div>
-            <div className="py-1">
+
+            {/* Password disable */}
+            {/* <div className="py-1">
               <label className="input-label">Password</label>
               <InputGroup>
                 <Input
@@ -182,7 +174,7 @@ const SignUp = () => {
                   {errors.confirmPassword.message}
                 </div>
               )}
-            </div>
+            </div> */}
             <div className="md:py-5 py-1 mb-7">
               <label className="input-label">Are you a vendor or a buyer</label>
 

@@ -114,7 +114,7 @@ const Profile = () => {
                 </div>
               </div>
             </div>
-            <div className="flex text-[10px] md:text-[13px] text-[#727272] justify-between w-full p-4 md:p-7 shadow-lg rounded-md mt-8">
+            <div className="flex text-[10px] md:text-[13px] text-[#727272] justify-between w-full p-4 md:px-7 shadow-lg rounded-md mt-8 md:justify-start">
               <WriteReview />
             </div>
           </div>
