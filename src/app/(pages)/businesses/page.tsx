@@ -23,29 +23,30 @@ const Businesses = () => {
     rate,
   }) => {
     return (
-      <div className="w-[350px] shadow-xl p-4 flex flex-col items-left gap-2 ">
-        <Link href="/businesses/profile">
+      <Link href="/businesses/profile">
+        <div className="w-[350px] shadow-xl p-4 flex flex-col items-left gap-2 ">
           <Image
             src={imgSrc}
             alt={name}
             width={339}
           />
-        </Link>
-        <h1 className=" font-bold text-sm text-[#0E538C]">{name}</h1>
-        <div className="text-gray-dark flex gap-5 text-[10px] ">
-          <div>
-            <p>Category: </p>
-            <p>Location: </p>
-            <p>Rate: </p>
-          </div>
-          <div>
-            <p>{category} </p>
-            <p>{location} </p>
 
-            <p className="flex gap-2 text-str">{rate}</p>
+          <h1 className=" font-bold text-sm text-[#0E538C]">{name}</h1>
+          <div className="text-gray-dark flex gap-5 text-[10px] ">
+            <div>
+              <p>Category: </p>
+              <p>Location: </p>
+              <p>Rate: </p>
+            </div>
+            <div>
+              <p>{category} </p>
+              <p>{location} </p>
+
+              <p className="flex gap-2 text-str">{rate}</p>
+            </div>
           </div>
         </div>
-      </div>
+      </Link>
     );
   };
   return (

@@ -21,53 +21,33 @@ import ShowPasswordText from '@/core/hooks/ShowPasswordText';
 import { _BASE_API_URL } from '@/constants';
 
 interface SignUpData {
-  fullName: string;
-  email: string;
-  password: string;
-  confirmPassword: string;
-  buyerOrVendor: string;
+  fullname: 'string';
+  emailAddress: 'string';
+  type: 'string';
 }
 
-const signUpSchema: ZodType<SignUpData> = z
-  .object({
-    fullName: z.string().min(3, { message: 'Enter a full name' }),
-    email: z.string().email('Invalid email address'),
-    password: z
-      .string()
-      .min(8, { message: 'Password must be at least 8 characters' }),
-    confirmPassword: z
-      .string()
-      .min(8, { message: 'Password must be at least 8 characters' }),
-    buyerOrVendor: z.string().min(1, { message: 'Please select an option' }),
-  })
-  .superRefine(({ confirmPassword, password }, ctx) => {
-    if (confirmPassword !== password) {
-      ctx.addIssue({
-        code: 'custom',
-        message: 'Passwords do not match',
-      });
-    }
-  });
+const signUpSchema: ZodType<SignUpData> = z.object({
+  fullname: z.string().min(3, { message: 'Enter a full name' }),
+  emailAddress: z.string().email('Invalid email address'),
+  type: z.string().min(1, { message: 'Please select an option' }),
+});
 
-type signupInput = z.infer<typeof signUpSchema>;
+type SignupInput = z.infer<typeof signUpSchema>;
 
 const SignUp = () => {
-  const [showPassword, setShowPassword] = useState(false);
-  const togglePassword = () => setShowPassword(!showPassword);
-
   const {
     register,
     handleSubmit,
     setError,
     formState: { errors, isSubmitting },
-  } = useForm<signupInput>({
+  } = useForm<SignupInput>({
     resolver: zodResolver(signUpSchema),
   });
 
-  const onSubmit: SubmitHandler<signupInput> = async (data) => {
+  const onSubmit: SubmitHandler<SignupInput> = async (data) => {
     try {
       const response = await axios.post(
-        `${_BASE_API_URL}api/ExternalUser/add-waitlist`,
+        `${_BASE_API_URL}/api/ExternalUser/add-waitlist`,
         data
       );
       // Handle successful response here
@@ -106,89 +86,48 @@ const SignUp = () => {
           <form
             onSubmit={handleSubmit(onSubmit)}
             className="flex flex-col md:pr-[100px] md:gap-4 ">
-            <div className="py-1">
+            <div>
               <label className="input-label">Full Name</label>
               <Input
                 type="text"
                 placeholder="Enter Full Name"
                 className="custom-input md:py-5"
-                {...register('fullName')}
+                {...register('fullname')}
               />
-              {errors.fullName && (
+              {errors.fullname && (
                 <div className="text-error-col font-lighter text-[10px] ">
-                  {errors.fullName.message}
+                  {errors.fullname.message}
                 </div>
               )}
             </div>
-            <div className="py-1">
+            <div>
               <label className="input-label">Email</label>
               <Input
                 type="email"
                 placeholder="Enter Email"
                 className="custom-input  md:py-5"
-                {...register('email')}
+                {...register('emailAddress')}
               />
-              {errors.email && (
+              {errors.emailAddress && (
                 <div className="text-error-col font-lighter text-[10px] ">
-                  {errors.email.message}
+                  {errors.emailAddress.message}
                 </div>
               )}
             </div>
 
-            {/* Password disable */}
-            <div className="py-1">
-              <label className="input-label">Password</label>
-              <InputGroup>
-                <Input
-                  type={showPassword ? 'text' : 'password'}
-                  placeholder="Enter Password"
-                  className="custom-input  md:py-5"
-                  {...register('password')}
-                />
-                <ShowPasswordText
-                  onToggle={togglePassword}
-                  showPassword={showPassword}
-                />
-              </InputGroup>
-              {errors.password && (
-                <div className="text-error-col font-lighter text-[10px] ">
-                  {errors.password.message}
-                </div>
-              )}
-            </div>
-            <div className="py-1">
-              <label className="input-label">Confirm Password</label>
-              <InputGroup>
-                <Input
-                  type={showPassword ? 'text' : 'password'}
-                  placeholder="Enter Password"
-                  className="custom-input  md:py-5"
-                  {...register('confirmPassword')}
-                />
-                <ShowPasswordText
-                  onToggle={togglePassword}
-                  showPassword={showPassword}
-                />
-              </InputGroup>
-              {errors.confirmPassword && (
-                <div className="text-error-col font-lighter text-[10px] ">
-                  {errors.confirmPassword.message}
-                </div>
-              )}
-            </div>
-            <div className="md:py-5 py-1 mb-7">
+            <div>
               <label className="input-label">Are you a vendor or a buyer</label>
 
               <Select
                 placeholder="Choose"
-                {...register('buyerOrVendor')}
+                {...register('type')}
                 className="bg-primary text-[10px] font-light md:text-[15px] ">
                 <option>Vendor</option>
                 <option>Buyer</option>
               </Select>
-              {errors.buyerOrVendor && (
+              {errors.type && (
                 <div className="text-error-col font-lighter text-[10px] ">
-                  {errors.buyerOrVendor.message}
+                  {errors.type.message}
                 </div>
               )}
             </div>
