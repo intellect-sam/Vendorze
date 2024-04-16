@@ -19,14 +19,9 @@ import { useState } from 'react';
 import { IoEyeOff, IoEye } from 'react-icons/io5';
 import ShowPasswordText from '@/core/hooks/ShowPasswordText';
 import { _BASE_API_URL } from '@/constants';
+import Notification from '@/components/Notification';
 
-interface SignUpData {
-  fullname: 'string';
-  emailAddress: 'string';
-  type: 'string';
-}
-
-const signUpSchema: ZodType<SignUpData> = z.object({
+const signUpSchema = z.object({
   fullname: z.string().min(3, { message: 'Enter a full name' }),
   emailAddress: z.string().email('Invalid email address'),
   type: z.string().min(1, { message: 'Please select an option' }),
@@ -35,6 +30,7 @@ const signUpSchema: ZodType<SignUpData> = z.object({
 type SignupInput = z.infer<typeof signUpSchema>;
 
 const SignUp = () => {
+  const [errorMessage, setErrorMessage] = useState<string | null>(null);
   const {
     register,
     handleSubmit,
@@ -51,12 +47,18 @@ const SignUp = () => {
         data
       );
       // Handle successful response here
-      console.log(response.data);
+      console.log('response', response.data.message);
     } catch (error) {
-      console.error('There was a problem with the Axios request:', error);
-      setError('root', {
-        message: 'This is for another email',
-      });
+      // console.error('There was a problem with the Axios request:', error);
+      console.error(error);
+      if (axios.isAxiosError(error) && error.response) {
+        console.log(error.response.data.message);
+        setErrorMessage(error.response.data.message);
+      } else {
+        setErrorMessage(
+          'An unexpected error occurred. Please try again later.'
+        );
+      }
     }
   };
   return (
@@ -86,6 +88,7 @@ const SignUp = () => {
           <form
             onSubmit={handleSubmit(onSubmit)}
             className="flex flex-col md:pr-[100px] md:gap-4 ">
+            {errorMessage && <Notification message={errorMessage} />}
             <div>
               <label className="input-label">Full Name</label>
               <Input
@@ -136,7 +139,7 @@ const SignUp = () => {
               disabled={isSubmitting}
               type="submit"
               className="bg-second-col p-3 text-[#fff] rounded-lg text-[14px] font-bold">
-              {isSubmitting ? <Spinner /> : 'Sign Up'}
+              {isSubmitting ? <Spinner /> : 'Add to waiting list'}
             </button>
           </form>
         </div>

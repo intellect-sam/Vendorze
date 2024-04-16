@@ -9,9 +9,6 @@ import {
   ModalBody,
   Input,
   Spinner,
-  HStack,
-  PinInput,
-  PinInputField,
 } from '@chakra-ui/react';
 import { zodResolver } from '@hookform/resolvers/zod';
 import axios from 'axios';
