@@ -12,6 +12,7 @@ const config: Config = {
       'second-col': '#73008F',
       orange: '#ff7849',
       'error-col': '#b91c1c',
+      'success-col': '#16a34a',
       green: '#13ce66',
       'gray-dark': '#5B5B5B',
       gray: '#FAFAFA',

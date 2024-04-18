@@ -31,10 +31,12 @@ type SignupInput = z.infer<typeof signUpSchema>;
 
 const SignUp = () => {
   const [errorMessage, setErrorMessage] = useState<string | null>(null);
+  const [successMessage, setSuccessMessage] = useState<string | null>(null);
   const {
     register,
     handleSubmit,
     setError,
+    reset,
     formState: { errors, isSubmitting },
   } = useForm<SignupInput>({
     resolver: zodResolver(signUpSchema),
@@ -46,14 +48,16 @@ const SignUp = () => {
         `${_BASE_API_URL}/api/ExternalUser/add-waitlist`,
         data
       );
-      // Handle successful response here
-      console.log('response', response.data.message);
+      console.log(response.data);
+      setSuccessMessage('You have been successfully added to the waitlist');
+      setErrorMessage(null);
+      reset();
     } catch (error) {
-      // console.error('There was a problem with the Axios request:', error);
       console.error(error);
       if (axios.isAxiosError(error) && error.response) {
         console.log(error.response.data.message);
         setErrorMessage(error.response.data.message);
+        setSuccessMessage(null);
       } else {
         setErrorMessage(
           'An unexpected error occurred. Please try again later.'
@@ -88,7 +92,18 @@ const SignUp = () => {
           <form
             onSubmit={handleSubmit(onSubmit)}
             className="flex flex-col md:pr-[100px] md:gap-4 ">
-            {errorMessage && <Notification message={errorMessage} />}
+            {errorMessage && (
+              <Notification
+                message={errorMessage}
+                type="error"
+              />
+            )}
+            {successMessage && (
+              <Notification
+                message={successMessage}
+                type="success"
+              />
+            )}
             <div>
               <label className="input-label">Full Name</label>
               <Input
