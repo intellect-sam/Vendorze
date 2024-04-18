@@ -9,11 +9,10 @@ import { z, ZodType } from 'zod';
 import { zodResolver } from '@hookform/resolvers/zod';
 import axios from 'axios';
 import { useEffect, useState } from 'react';
-import { IoEyeOff, IoEye } from 'react-icons/io5';
-import ShowPasswordText from '@/core/hooks/ShowPasswordText';
 import { _BASE_API_URL } from '@/constants';
 import Notification from '@/components/Notification';
 import { useRouter } from 'next/navigation';
+import SuccessModal from '@/components/SuccessModal';
 
 const signUpSchema = z.object({
   fullname: z.string().min(3, { message: 'Enter a full name' }),
@@ -27,6 +26,8 @@ const SignUp = () => {
   const [errorMessage, setErrorMessage] = useState<string | null>(null);
   const [successMessage, setSuccessMessage] = useState<string | null>(null);
   const [shouldRedirect, setShouldRedirect] = useState(false);
+  const [showModal, setShowModal] = useState(false);
+
   const {
     register,
     handleSubmit,
@@ -51,6 +52,7 @@ const SignUp = () => {
       );
       setErrorMessage(null);
       reset();
+      setShowModal(true);
       setShouldRedirect(true);
     } catch (error) {
       console.error(error);
@@ -65,17 +67,23 @@ const SignUp = () => {
       }
     }
   };
-  useEffect(() => {
+
+  const closeModal = () => {
     if (shouldRedirect) {
       const timer = setTimeout(() => {
         router.push('/');
-      }, 2000);
+      }, 1000);
 
       return () => clearTimeout(timer);
     }
-  }, [shouldRedirect]);
+  };
+
   return (
     <>
+      <SuccessModal
+        isOpen={showModal}
+        onClose={closeModal}
+      />
       <div className="max-w-[1600px] flex flex-col  md:flex-row justify-between items-center">
         <div className="hidden md:block">
           <Image
