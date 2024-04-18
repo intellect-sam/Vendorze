@@ -103,8 +103,10 @@ const SignUp = () => {
             </Link>
           </div>
 
-          <h1 className="font-bold text-2xl">Sign Up</h1>
-          <p>Enter your credentials to sign up as a user. </p>
+          <h1 className="font-bold text-lg">Sign Up</h1>
+          <p className="text-[6px] md:text-[15px]">
+            Enter your credentials to sign up as a user.{' '}
+          </p>
 
           <form
             onSubmit={handleSubmit(onSubmit)}

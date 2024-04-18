@@ -62,7 +62,7 @@ const Login = () => {
         />
       </div>
       <div className="w-full px-[35px] flex flex-col h-screen md:px-[100px] justify-center gap-2">
-        <div className="py-10 flex w-full  ">
+        <div className="py-3 flex w-full  ">
           <Link href="/">
             <Image
               src={Logo}
@@ -72,13 +72,15 @@ const Login = () => {
           </Link>
         </div>
 
-        <h1 className="font-bold text-2xl">Login</h1>
-        <p>Enter your credentials to login in to your account</p>
+        <h1 className="font-bold text-lg">Login</h1>
+        <p className="text-[6px] md:text-[15px]">
+          Enter your credentials to login in to your account
+        </p>
 
         <form
           onSubmit={handleSubmit(onSubmit)}
           className="flex flex-col md:pr-[100px]">
-          <div className="py-3">
+          <div>
             <label className="input-label">Email</label>
             <Input
               {...register('email')}
@@ -92,7 +94,7 @@ const Login = () => {
               </div>
             )}
           </div>
-          <div className="py-3">
+          <div>
             <label className="input-label">Password</label>
             <InputGroup>
               <Input
@@ -112,23 +114,23 @@ const Login = () => {
               </div>
             )}
           </div>
-          <div className="flex gap-3 text-center items-center">
+          <div className="flex gap-1 text-center items-center py-4">
             <div>
               <Image
                 src={forgot}
                 alt=""
-                className="w-[20px]"
+                className="w-[10px] md:w-[15px]"
               />
             </div>
 
-            <p>
+            <p className="text-[5px] md:text-[12px]">
               <Link href="#"> Forgot Password?</Link>
             </p>
           </div>
           <button
             disabled={isSubmitting}
             type="submit"
-            className="bg-second-col p-3 text-primary rounded-lg text-[14px] font-bold my-10">
+            className="bg-second-col p-3 text-primary rounded-lg text-[14px] font-bold">
             {isSubmitting ? <Spinner /> : 'Login'}
           </button>
         </form>
