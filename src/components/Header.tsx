@@ -48,15 +48,19 @@ const Header = () => {
               </li>
             </ul>
             <div className="md:flex md:gap-10">
-              <button
-                className="bg-second-col text-primary md:w-[120px] rounded-[7px] text-sm md:text-[12px] py-3"
-                onClick={() => console.log('Clicked!')}>
-                <Link href="/auth/signup"> Sign Up</Link>
-              </button>
+              <Link href="/auth/signup">
+                <button
+                  className="bg-second-col text-primary md:w-[120px] rounded-[7px] text-sm md:text-[12px] py-3"
+                  onClick={() => console.log('Clicked!')}>
+                  Sign Up
+                </button>
+              </Link>
 
-              <button className="border-2 border-second-col text-second-col md:w-[120px] rounded-[7px] text-sm text-center justify-center py-3  md:text-[12px] ">
-                <Link href="/auth/login"> Login</Link>
-              </button>
+              <Link href="/auth/login">
+                <button className="border-2 border-second-col text-second-col md:w-[120px] rounded-[7px] text-sm text-center justify-center py-[0.6rem]  md:text-[12px] ">
+                  Login
+                </button>
+              </Link>
             </div>
           </div>
 
@@ -82,17 +86,21 @@ const Header = () => {
                   <Link href="#">About</Link>
                   <Link href="/businesses">Businesses</Link>
 
-                  <Button
-                    className="bg-second-col text-primary rounded-md"
-                    onClick={() => console.log('Clicked!')}>
-                    <Link href="/auth/signup">Sign Up</Link>
-                  </Button>
+                  <Link href="/auth/signup">
+                    <button
+                      className="bg-second-col text-primary rounded-md w-[280px] py-2"
+                      onClick={() => console.log('Clicked!')}>
+                      Sign Up
+                    </button>
+                  </Link>
 
-                  <Button
-                    className="border-2 border-second-col rounded-md"
-                    onClick={() => console.log('')}>
-                    <Link href="/auth/login">Login</Link>
-                  </Button>
+                  <Link href="/auth/login">
+                    <button
+                      className="border-[1px] border-second-col rounded-md w-[280px] py-2"
+                      onClick={() => console.log('')}>
+                      Login
+                    </button>
+                  </Link>
                 </nav>
               </DrawerContent>
             </Drawer>

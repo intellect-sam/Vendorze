@@ -3,23 +3,17 @@
 import { useForm, SubmitHandler } from 'react-hook-form';
 import { Logo, Signup } from '@/assets/images';
 import Image from 'next/image';
-import {
-  FormLabel,
-  Input,
-  InputGroup,
-  InputRightElement,
-  Select,
-  Spinner,
-} from '@chakra-ui/react';
+import { Input, Select, Spinner } from '@chakra-ui/react';
 import Link from 'next/link';
 import { z, ZodType } from 'zod';
 import { zodResolver } from '@hookform/resolvers/zod';
 import axios from 'axios';
-import { useState } from 'react';
+import { useEffect, useState } from 'react';
 import { IoEyeOff, IoEye } from 'react-icons/io5';
 import ShowPasswordText from '@/core/hooks/ShowPasswordText';
 import { _BASE_API_URL } from '@/constants';
 import Notification from '@/components/Notification';
+import { useRouter } from 'next/navigation';
 
 const signUpSchema = z.object({
   fullname: z.string().min(3, { message: 'Enter a full name' }),
@@ -32,6 +26,7 @@ type SignupInput = z.infer<typeof signUpSchema>;
 const SignUp = () => {
   const [errorMessage, setErrorMessage] = useState<string | null>(null);
   const [successMessage, setSuccessMessage] = useState<string | null>(null);
+  const [shouldRedirect, setShouldRedirect] = useState(false);
   const {
     register,
     handleSubmit,
@@ -42,6 +37,8 @@ const SignUp = () => {
     resolver: zodResolver(signUpSchema),
   });
 
+  const router = useRouter();
+
   const onSubmit: SubmitHandler<SignupInput> = async (data) => {
     try {
       const response = await axios.post(
@@ -49,9 +46,12 @@ const SignUp = () => {
         data
       );
       console.log(response.data);
-      setSuccessMessage('You have been successfully added to the waitlist');
+      setSuccessMessage(
+        'You have been successfully added to the waitlist and you will will be redirected to the home page in 2s.'
+      );
       setErrorMessage(null);
       reset();
+      setShouldRedirect(true);
     } catch (error) {
       console.error(error);
       if (axios.isAxiosError(error) && error.response) {
@@ -65,6 +65,15 @@ const SignUp = () => {
       }
     }
   };
+  useEffect(() => {
+    if (shouldRedirect) {
+      const timer = setTimeout(() => {
+        router.push('/');
+      }, 2000);
+
+      return () => clearTimeout(timer);
+    }
+  }, [shouldRedirect]);
   return (
     <>
       <div className="max-w-[1600px] flex flex-col  md:flex-row justify-between items-center">
@@ -153,7 +162,7 @@ const SignUp = () => {
             <button
               disabled={isSubmitting}
               type="submit"
-              className="bg-second-col p-3 text-[#fff] rounded-lg text-[14px] font-bold">
+              className="bg-second-col p-3 text-[#fff] rounded-lg text-[14px] font-bold mt-5">
               {isSubmitting ? <Spinner /> : 'Add to waiting list'}
             </button>
           </form>
