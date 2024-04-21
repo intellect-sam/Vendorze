@@ -13,6 +13,7 @@ import { _BASE_API_URL } from '@/constants';
 import Notification from '@/components/Notification';
 import { useRouter } from 'next/navigation';
 import SuccessModal from '@/components/SuccessModal';
+import { usePostRequest } from '@/core/hooks/usePostRequest';
 
 const signUpSchema = z.object({
   fullname: z.string().min(3, { message: 'Enter a full name' }),
@@ -38,27 +39,30 @@ const SignUp = () => {
     resolver: zodResolver(signUpSchema),
   });
 
+  const { postData, isLoading, error, response } = usePostRequest<any>(
+    `${_BASE_API_URL}/api/ExternalUser/add-waitlist`
+  );
+
   const router = useRouter();
 
   const onSubmit: SubmitHandler<SignupInput> = async (data) => {
     try {
-      const response = await axios.post(
-        `${_BASE_API_URL}/api/ExternalUser/add-waitlist`,
-        data
-      );
-      console.log(response.data);
-      setSuccessMessage(
-        'You have been successfully added to the waitlist and you will will be redirected to the home page in 2s.'
-      );
+      await postData(data);
+
+      if (response) {
+        console.log(response.data);
+        setSuccessMessage(
+          'You have been successfully added to the waitlist and you will will be redirected to the home page in 2s.'
+        );
+      }
       setErrorMessage(null);
       reset();
       setShowModal(true);
       setShouldRedirect(true);
     } catch (error) {
       console.error(error);
-      if (axios.isAxiosError(error) && error.response) {
-        console.log(error.response.data.message);
-        setErrorMessage(error.response.data.message);
+      if (error) {
+        setErrorMessage(errorMessage);
         setSuccessMessage(null);
       } else {
         setErrorMessage(
