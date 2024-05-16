@@ -52,7 +52,7 @@ const Header = () => {
                 <button
                   className="bg-second-col text-primary md:w-[120px] rounded-[7px] text-sm md:text-[12px] py-3"
                   onClick={() => console.log('Clicked!')}>
-                  Sign Up
+                  Join
                 </button>
               </Link>
 
@@ -90,7 +90,7 @@ const Header = () => {
                     <button
                       className="bg-second-col text-primary rounded-md w-[280px] py-2"
                       onClick={() => console.log('Clicked!')}>
-                      Sign Up
+                      Join
                     </button>
                   </Link>
 

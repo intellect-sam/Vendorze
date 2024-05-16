@@ -17,7 +17,7 @@ const VerifyEmail = () => {
       </div>
       <button
         type="submit"
-        className="bg-second-col p-3 text-[#fff] rounded-lg text-[14px] font-bold mb-10">
+        className="bg-second-col p-3 text-[#fff] rounded-lg text-[14px] font-bold mb-10 w-full">
         {' '}
         Verify
         {/* {isSubmitting ? <Spinner /> : 'Submit'} */}

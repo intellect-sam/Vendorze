@@ -94,7 +94,7 @@ const Login = () => {
               </div>
             )}
           </div>
-          <div>
+          <div className="pt-4">
             <label className="input-label">Password</label>
             <InputGroup>
               <Input

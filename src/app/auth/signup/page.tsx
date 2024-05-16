@@ -3,7 +3,7 @@
 import { useForm, SubmitHandler } from 'react-hook-form';
 import { Logo, Signup } from '@/assets/images';
 import Image from 'next/image';
-import { Input, Select, Spinner } from '@chakra-ui/react';
+import { Input, InputGroup, Select, Spinner } from '@chakra-ui/react';
 import Link from 'next/link';
 import { z, ZodType } from 'zod';
 import { zodResolver } from '@hookform/resolvers/zod';
@@ -14,10 +14,15 @@ import Notification from '@/components/Notification';
 import { useRouter } from 'next/navigation';
 import SuccessModal from '@/components/SuccessModal';
 import { usePostRequest } from '@/core/hooks/usePostRequest';
+import ShowPasswordText from '@/core/hooks/ShowPasswordText';
 
 const signUpSchema = z.object({
   fullname: z.string().min(3, { message: 'Enter a full name' }),
   emailAddress: z.string().email('Invalid email address'),
+  password: z
+    .string()
+    .min(8, { message: 'Password must be at least 8 characters' }),
+
   type: z.string().min(1, { message: 'Please select an option' }),
 });
 
@@ -26,6 +31,8 @@ type SignupInput = z.infer<typeof signUpSchema>;
 const SignUp = () => {
   const [errorMessage, setErrorMessage] = useState<string | null>(null);
   const [successMessage, setSuccessMessage] = useState<string | null>(null);
+  const [show, setShow] = useState(false);
+  const togglePassword = () => setShow(!show);
   const [shouldRedirect, setShouldRedirect] = useState(false);
   const [showModal, setShowModal] = useState(false);
 
@@ -39,15 +46,17 @@ const SignUp = () => {
     resolver: zodResolver(signUpSchema),
   });
 
-  const { postData, isLoading, error, response } = usePostRequest<any>(
-    `${_BASE_API_URL}/api/ExternalUser/add-waitlist`
-  );
-
   const router = useRouter();
 
   const onSubmit: SubmitHandler<SignupInput> = async (data) => {
     try {
-      await postData(data);
+      const response = await axios.post(
+        `${_BASE_API_URL}/api/ExternalUser/add-waitlist`,
+        data
+      );
+      // Handle successful response here
+      console.log(response.data);
+      console.log('Hello');
 
       if (response) {
         console.log(response.data);
@@ -152,6 +161,26 @@ const SignUp = () => {
               {errors.emailAddress && (
                 <div className="text-error-col font-lighter text-[10px] ">
                   {errors.emailAddress.message}
+                </div>
+              )}
+            </div>
+            <div>
+              <label className="input-label">Password</label>
+              <InputGroup>
+                <Input
+                  {...register('password')}
+                  type={show ? 'text' : 'password'}
+                  placeholder="Enter Password"
+                  className="custom-input"
+                />
+                <ShowPasswordText
+                  onToggle={togglePassword}
+                  showPassword={show}
+                />
+              </InputGroup>
+              {errors.password && (
+                <div className="text-error-col font-lighter text-[10px]">
+                  {errors.password.message}
                 </div>
               )}
             </div>
