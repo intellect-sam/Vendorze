@@ -19,6 +19,7 @@ interface SuccessModalProps {
 const SuccessModal: React.FC<SuccessModalProps> = ({ isOpen, onClose }) => {
   return (
     <Modal
+      closeOnOverlayClick={false}
       isOpen={isOpen}
       onClose={onClose}
       isCentered>

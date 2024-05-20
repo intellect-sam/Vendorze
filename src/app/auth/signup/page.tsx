@@ -15,6 +15,7 @@ import { useRouter } from 'next/navigation';
 import SuccessModal from '@/components/SuccessModal';
 import { usePostRequest } from '@/core/hooks/usePostRequest';
 import ShowPasswordText from '@/core/hooks/ShowPasswordText';
+import { useBackendResponse } from '@/contexts/VerifyContext';
 
 const signUpSchema = z.object({
   fullname: z.string().min(3, { message: 'Enter a full name' }),
@@ -47,6 +48,7 @@ const SignUp = () => {
   });
 
   const router = useRouter();
+  const { setBackendResponse } = useBackendResponse();
 
   const onSubmit: SubmitHandler<SignupInput> = async (data) => {
     try {
@@ -54,12 +56,8 @@ const SignUp = () => {
         `${_BASE_API_URL}/api/ExternalUser/add-waitlist`,
         data
       );
-      // Handle successful response here
-      console.log(response.data);
-      console.log('Hello');
-
       if (response) {
-        console.log(response.data);
+        setBackendResponse(response.data);
         setSuccessMessage(
           'You have been successfully added to the waitlist and you will will be redirected to the home page in 2s.'
         );
@@ -69,7 +67,6 @@ const SignUp = () => {
       setShowModal(true);
       setShouldRedirect(true);
     } catch (error) {
-      console.error(error);
       if (error) {
         setErrorMessage(errorMessage);
         setSuccessMessage(null);
