@@ -1,5 +1,5 @@
 // components/AuthLayout.tsx
-import { BackendResponseProvider } from '@/contexts/VerifyContext';
+import { VerifyResponseProvider } from '@/contexts/VerifyContext';
 import React from 'react';
 
 interface AuthLayoutProps {
@@ -8,9 +8,9 @@ interface AuthLayoutProps {
 
 const AuthLayout: React.FC<AuthLayoutProps> = ({ children }) => {
   return (
-    <BackendResponseProvider>
+    <VerifyResponseProvider>
       <div>{children}</div>
-    </BackendResponseProvider>
+    </VerifyResponseProvider>
   );
 };
 

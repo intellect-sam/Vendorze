@@ -5,7 +5,7 @@ import { Logo, Signup } from '@/assets/images';
 import Image from 'next/image';
 import { Input, InputGroup, Select, Spinner } from '@chakra-ui/react';
 import Link from 'next/link';
-import { z, ZodType } from 'zod';
+import { unknown, z, ZodType } from 'zod';
 import { zodResolver } from '@hookform/resolvers/zod';
 import axios from 'axios';
 import { useEffect, useState } from 'react';
@@ -15,7 +15,7 @@ import { useRouter } from 'next/navigation';
 import SuccessModal from '@/components/SuccessModal';
 import { usePostRequest } from '@/core/hooks/usePostRequest';
 import ShowPasswordText from '@/core/hooks/ShowPasswordText';
-import { useBackendResponse } from '@/contexts/VerifyContext';
+import { useVerifyResponse } from '@/contexts/VerifyContext';
 
 const signUpSchema = z.object({
   fullname: z.string().min(3, { message: 'Enter a full name' }),
@@ -48,7 +48,7 @@ const SignUp = () => {
   });
 
   const router = useRouter();
-  const { setBackendResponse } = useBackendResponse();
+  const { setVerifyResponse } = useVerifyResponse();
 
   const onSubmit: SubmitHandler<SignupInput> = async (data) => {
     try {
@@ -56,21 +56,24 @@ const SignUp = () => {
         `${_BASE_API_URL}/api/ExternalUser/add-waitlist`,
         data
       );
-      if (response) {
-        setBackendResponse(response.data);
-        setSuccessMessage(
-          'You have been successfully added to the waitlist and you will will be redirected to the home page in 2s.'
-        );
+      if (response.status === 200) {
+        setVerifyResponse(response.data);
+        setSuccessMessage(response.data.message);
+      } else {
+        throw new Error('Unexpected response status');
       }
       setErrorMessage(null);
       reset();
       setShowModal(true);
       setShouldRedirect(true);
-    } catch (error) {
-      if (error) {
-        setErrorMessage(errorMessage);
-        setSuccessMessage(null);
+    } catch (error: unknown) {
+      setSuccessMessage(null);
+
+      if (error instanceof Error) {
+        setErrorMessage(error.message);
+        console.error(error.message);
       } else {
+        // Handle cases where no response was received
         setErrorMessage(
           'An unexpected error occurred. Please try again later.'
         );

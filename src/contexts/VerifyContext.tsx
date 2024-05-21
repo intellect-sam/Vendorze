@@ -2,7 +2,7 @@
 
 import React, { useContext, createContext, ReactNode, useState } from 'react';
 
-interface BackendResponse {
+interface VerifyResponse {
   data: {
     verificationCode: string;
     retrievalCode: string;
@@ -11,39 +11,40 @@ interface BackendResponse {
   message: string;
 }
 
-interface BackendResponseContextType {
-  backendResponse: BackendResponse | null;
-  setBackendResponse: (response: BackendResponse | null) => void;
+interface VerifyResponseContextType {
+  verifyResponse: VerifyResponse | null;
+  setVerifyResponse: (response: VerifyResponse | null) => void;
 }
 
-const BackendResponseContext = createContext<
-  BackendResponseContextType | undefined
+const VerifyResponseContext = createContext<
+  VerifyResponseContextType | undefined
 >(undefined);
 
-export const useBackendResponse = (): BackendResponseContextType => {
-  const context = useContext(BackendResponseContext);
+export const useVerifyResponse = (): VerifyResponseContextType => {
+  const context = useContext(VerifyResponseContext);
   if (!context) {
     throw new Error(
-      'useBackendResponse must be used within a BackendResponseProvider'
+      'useVerifyResponse must be used within a VerifyResponseProvider'
     );
   }
   return context;
 };
 
-interface BackendResponseProviderProps {
+interface VerifyResponseProviderProps {
   children: ReactNode;
 }
 
-export const BackendResponseProvider: React.FC<
-  BackendResponseProviderProps
-> = ({ children }) => {
-  const [backendResponse, setBackendResponse] =
-    useState<BackendResponse | null>(null);
+export const VerifyResponseProvider: React.FC<VerifyResponseProviderProps> = ({
+  children,
+}) => {
+  const [verifyResponse, setVerifyResponse] = useState<VerifyResponse | null>(
+    null
+  );
 
   return (
-    <BackendResponseContext.Provider
-      value={{ backendResponse, setBackendResponse }}>
+    <VerifyResponseContext.Provider
+      value={{ verifyResponse, setVerifyResponse }}>
       {children}
-    </BackendResponseContext.Provider>
+    </VerifyResponseContext.Provider>
   );
 };

@@ -1,37 +1,49 @@
 'use client';
 
-import { useBackendResponse } from '@/contexts/VerifyContext';
+import { _BASE_API_URL } from '@/constants';
+import { useVerifyResponse } from '@/contexts/VerifyContext';
 import { PinInput, PinInputField, Spinner, useToast } from '@chakra-ui/react';
+import axios from 'axios';
 import { useRouter } from 'next/navigation';
 import { useState } from 'react';
+import Notification from './Notification';
 
 const VerifyEmail = () => {
-  const { backendResponse } = useBackendResponse();
+  const [errorMessage, setErrorMessage] = useState<string | null>(null);
+  const { verifyResponse } = useVerifyResponse();
   const [pin, setPin] = useState<string>('');
   const [isSubmitting, setIsSubmitting] = useState<boolean>(false);
   const toast = useToast();
   const router = useRouter();
 
-  const handleVerify = () => {
-    // console.log(backendResponse);
-    // console.log(pin);
-    // console.log(backendResponse?.data.verificationCode);
-
-    if (backendResponse?.data.verificationCode === pin) {
-      toast({
-        title: 'verification successful',
-        status: 'success',
-        duration: 3000,
-        isClosable: true,
-      });
-      router.push('/');
-    } else {
-      toast({
-        title: 'Invalid verification code.',
-        status: 'error',
-        duration: 2000,
-        isClosable: true,
-      });
+  const handleVerify = async () => {
+    setIsSubmitting(true);
+    try {
+      const retrievalCode = verifyResponse?.data.retrievalCode;
+      const response = await axios.post(
+        `${_BASE_API_URL}/api/ExternalUser/verify-email-waitlist`,
+        { verificationCode: pin, retrievalCode }
+      );
+      console.log(response);
+      if (response.status === 200) {
+        toast({
+          title: 'verification successful',
+          status: 'success',
+          duration: 3000,
+          isClosable: true,
+        });
+        router.push('/');
+      } else {
+        toast({
+          title: 'Invalid verification code.',
+          status: 'error',
+          duration: 2000,
+          isClosable: true,
+        });
+      }
+      setIsSubmitting(false);
+    } catch (error) {
+      setErrorMessage('An unexpected error occurred. Please try again later.');
     }
   };
 
@@ -40,29 +52,40 @@ const VerifyEmail = () => {
       <p className="">
         Check your inbox, We have sent an activation code to your email
       </p>
-      <div className="flex  gap-5">
-        <PinInput
-          otp
-          placeholder=""
-          value={pin}
-          onChange={(value) => setPin(value)}>
-          <PinInputField />
-          <PinInputField />
-          <PinInputField />
-          <PinInputField />
-          <PinInputField />
-          <PinInputField />
-        </PinInput>
-      </div>
-      <div className="px-3 w-full">
+      <form
+        action=""
+        onSubmit={handleVerify}
+        className="flex flex-col gap-5">
+        <div className="flex  gap-5">
+          <PinInput
+            otp
+            placeholder=""
+            value={pin}
+            onChange={(value) => setPin(value)}>
+            <PinInputField />
+            <PinInputField />
+            <PinInputField />
+            <PinInputField />
+            <PinInputField />
+            <PinInputField />
+          </PinInput>
+        </div>
+
         <button
-          type="button"
+          type="submit"
           onClick={handleVerify}
           className="bg-second-col p-3 text-[#fff] rounded-lg text-[14px] font-bold w-full "
           disabled={isSubmitting}>
           {isSubmitting ? <Spinner /> : 'Verify'}
         </button>
-      </div>
+
+        {errorMessage && (
+          <Notification
+            message={errorMessage}
+            type="error"
+          />
+        )}
+      </form>
     </div>
   );
 };
