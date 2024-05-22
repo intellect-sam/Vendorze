@@ -15,8 +15,8 @@ const HeroPage = () => {
         />
       </div>
 
-      <div className="p-4 md:p-0 md:mt-[200px] md:ml-[150px] flex flex-col gap-5  md:gap-0 md:flex-row text-gray-dark  md:justify-center my-16">
-        <div className="md:max-w-[500px] md:pr-[30px] ">
+      <div className=" w-full p-4 md:py-[200px] flex flex-col  md:gap-0 md:flex-row text-gray-dark  md:justify-center my-16">
+        <div className="md:w-full">
           <h2 className="custom-h1 md:text-4xl md:leading-tight md:text-left">
             Show your Trust Score. Write Reviews. Find Trustworthy Business.
           </h2>
@@ -25,11 +25,11 @@ const HeroPage = () => {
             their trust score before sliding into their DM
           </p>
         </div>
-        <div className="md:w-[1000px] md:px-0 ">
+        <div className="md:px-0 md:min-w-[700px]">
           <Image
             src={phone}
             alt=""
-            className="w-full md:w-[1700px]"
+            className="w-full "
           />
         </div>
       </div>

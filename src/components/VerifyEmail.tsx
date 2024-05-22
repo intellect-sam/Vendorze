@@ -3,7 +3,7 @@
 import { _BASE_API_URL } from '@/constants';
 import { useVerifyResponse } from '@/contexts/VerifyContext';
 import { PinInput, PinInputField, Spinner, useToast } from '@chakra-ui/react';
-import axios from 'axios';
+import axios, { AxiosError } from 'axios';
 import { useRouter } from 'next/navigation';
 import { useState } from 'react';
 import Notification from './Notification';
@@ -41,10 +41,19 @@ const VerifyEmail = () => {
           isClosable: true,
         });
       }
-      setIsSubmitting(false);
-    } catch (error) {
-      setErrorMessage('An unexpected error occurred. Please try again later.');
+    } catch (error: unknown) {
+      if (error instanceof AxiosError) {
+        if (error.response) {
+          const errorData = error.response.data;
+          if (errorData.isSuccessful === false && errorData.message) {
+            setErrorMessage(errorData.message);
+          } else {
+            setErrorMessage('An error occurred. Please try again.');
+          }
+        }
+      }
     }
+    setIsSubmitting(false);
   };
 
   return (

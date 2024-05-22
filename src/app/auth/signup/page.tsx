@@ -7,7 +7,7 @@ import { Input, InputGroup, Select, Spinner } from '@chakra-ui/react';
 import Link from 'next/link';
 import { unknown, z, ZodType } from 'zod';
 import { zodResolver } from '@hookform/resolvers/zod';
-import axios from 'axios';
+import axios, { AxiosError } from 'axios';
 import { useEffect, useState } from 'react';
 import { _BASE_API_URL } from '@/constants';
 import Notification from '@/components/Notification';
@@ -69,14 +69,27 @@ const SignUp = () => {
     } catch (error: unknown) {
       setSuccessMessage(null);
 
-      if (error instanceof Error) {
+      if (error instanceof AxiosError) {
+        if (error.response) {
+          const errorData = error.response.data;
+          if (errorData.isSuccessful === false && errorData.message) {
+            setErrorMessage(errorData.message);
+          } else {
+            setErrorMessage('An error occurred. Please try again.');
+          }
+        } else if (error.request) {
+          setErrorMessage('No response received. Please try again later.');
+        } else {
+          setErrorMessage(error.message);
+        }
+        console.error('Axios error:', error.message);
+      } else if (error instanceof Error) {
         setErrorMessage(error.message);
-        console.error(error.message);
       } else {
-        // Handle cases where no response was received
         setErrorMessage(
           'An unexpected error occurred. Please try again later.'
         );
+        console.error('Unknown error:', error);
       }
     }
   };

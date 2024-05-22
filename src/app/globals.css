@@ -14,7 +14,7 @@ body {
 
 @layer components {
   .container {
-    @apply max-w-[1166px] mx-auto py-4 flex flex-col justify-between items-center p-4;
+    @apply max-w-[1024px] mx-auto py-4 flex flex-col justify-between items-center p-4;
   }
   .biz-details {
     @apply flex items-center gap-1;
