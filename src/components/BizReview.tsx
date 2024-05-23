@@ -8,12 +8,12 @@ const BizReview = () => {
         <Image
           src={BizRev}
           alt=""
-          className="max-w-[350px] tablet:max-w-[250px]"
+          className="laptop:max-w-[550px] tablet:max-w-[250px]"
         />
       </div>
-      <div className="flex laptop:h-[496px] w-screen items-center tablet:items-end flex-col text-gray-dark p-5 gap-5 py-10">
+      <div className="flex laptop:h-[496px] w-screen items-center laptop:items-center tablet:items-end flex-col text-gray-dark p-5 gap-5 py-10">
         <div className="flex tablet:px-[100px]">
-          <div className="tablet:w-[300px]  ">
+          <div className="tablet:w-[300px] laptop:w-full  ">
             <div className="laptop:w-[400px]  laptop:flex laptop:flex-col laptop:gap-5">
               <h1 className="custom-h1 laptop:text-4xl  laptop:text-left  laptop:leading-[50px]">
                 Write Reviews For Business.
