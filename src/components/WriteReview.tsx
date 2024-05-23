@@ -67,8 +67,8 @@ const WriteReview = () => {
     <>
       <SignUpModal ref={signUpModalRef} />
       <div>
-        <div className="py-5 md:py-3 text-[13px]">
-          <h1 className="text-[13px] md:text-[18px] font-bold text-second-col">
+        <div className="py-5 laptop:py-3 tablet:py-0 text-[13px]">
+          <h1 className="text-[13px] laptop:text-[18px] font-bold text-second-col">
             Write Review
           </h1>
           <p>Write your experience with the business here</p>
@@ -81,7 +81,7 @@ const WriteReview = () => {
             <Input
               type="text"
               placeholder="Enter Full Name"
-              className="custom-input md:py-5"
+              className="custom-input laptop:py-5"
               {...register('fullName')}
             />
             {errors.fullName && (
@@ -97,7 +97,7 @@ const WriteReview = () => {
             <Input
               type="text"
               placeholder="Enter name of Business"
-              className="custom-input md:py-5"
+              className="custom-input laptop:py-5"
               {...register('businessOrVendorName')}
             />
             {errors.businessOrVendorName && (

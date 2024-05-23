@@ -51,11 +51,11 @@ const Businesses = () => {
   };
   return (
     <>
-      <section className="bg-gray min-h-screen">
+      <section className="container">
         <Header />
-        <div className="container">
+        <div className="laptop:mt-10">
           <SearchBar />
-          <div className="grid grid-cols md:grid-cols-3 md:gap-10 gap-4">
+          <div className="grid grid-cols laptop:grid-cols-3 tablet:grid-cols-2 laptop:gap-10 gap-4">
             <BuzCard
               imgSrc={b1}
               name="Obiz Closet"

@@ -6,19 +6,19 @@ import React from 'react';
 const DownloadApp = () => {
   return (
     <section className=" flex bg-[#FAFAFA]">
-      <div className="flex text-gray-dark w-screen md:justify-center  md:items-center  p-5 gap-5 md:gap-0 md:p-0 py-20 m-5 md:m-0 md:px-32">
-        <div className="hidden md:block">
+      <div className="flex text-gray-dark w-screen laptop:justify-center  laptop:items-center  p-5 gap-5 laptop:gap-0 laptop:p-0 py-20 m-5 laptop:m-0 laptop:px-32">
+        <div className="hidden laptop, tablet:block">
           <Image
             src={phone2}
             alt=""
           />
         </div>
-        <div className="flex flex-col md:h-full md:items-left justify-center md:gap-20">
-          <div className="flex flex-col md:w-[400px] md:gap-5 ">
-            <h1 className="custom-h1 md:text-4xl md:text-left md:leading-snug">
+        <div className="flex flex-col laptop:h-full laptop:items-left justify-center laptop:gap-20">
+          <div className="flex flex-col laptop, tablet:w-[400px] laptop, tablet:gap-5 ">
+            <h1 className="custom-h1 laptop:text-4xl laptop:text-left laptop:leading-snug">
               More Businesses are Gaining Tractions
             </h1>
-            <p className="custom-p md:text-left md:text-lg md:p-0">
+            <p className="custom-p laptop:text-left laptop:text-lg laptop:p-0">
               Our team of experienced business strategists works with you to
               identify opportunities for growth and develop a customized plan to
               help you achieve your goals

@@ -13,9 +13,9 @@ import Link from 'next/link';
 const Profile = () => {
   return (
     <>
-      <section className="bg-gray min-h-screen">
+      <section className="container">
         <Header />
-        <div className="container">
+        <div className="laptop:mt-10">
           <div className="w-full text-[12px] text-[#CD5FD4] font-bold py-2">
             <Link
               href="/businesses"
@@ -23,8 +23,8 @@ const Profile = () => {
               <IoChevronBack /> Go back
             </Link>
           </div>
-          <div className="bg-[#F0CFF2] w-full p-4 md:p-7 flex flex-col md:flex-row justify-between rounded-md bg-cover bg-center">
-            {/* <div className="absolute left-0 md:w-full ">
+          <div className="bg-[#F0CFF2] w-full p-4 laptop:p-7 flex flex-col  laptop, tablet:flex-row justify-between rounded-laptop bg-cover bg-center">
+            {/* <div className="absolute left-0 laptop:w-full ">
               <Image
                 className=" object-contain "
                 src={bgg}
@@ -39,19 +39,19 @@ const Profile = () => {
                 />
               </div>
               <div className=" flex flex-col ">
-                <h1 className="font-bold md:text-[24px]">Rayz Clothings</h1>
-                <p className="font-light text-[10px] md:text-[18px]">
+                <h1 className="font-bold laptop:text-[24px]">Rayz Clothings</h1>
+                <p className="font-light text-[10px] laptop:text-[18px]">
                   Jonathan Duroyilu
                 </p>
               </div>
             </div>
-            <div className="py-4 flex flex-col md:gap-7 md:items-end">
-              <h1 className="text-second-col font-bold md:text-[28px]">
+            <div className="py-4 flex flex-col laptop:gap-7 laptop:items-end">
+              <h1 className="text-second-col font-bold laptop:text-[28px]">
                 Trust Score: 78%
               </h1>
-              <div className="flex text-[10px] md:text-[18px] items-center md:gap-5 gap-2">
+              <div className="flex text-[10px] laptop:text-[18px] items-center laptop:gap-5 gap-2">
                 <p className="font-light">Average Rating:</p>
-                <p className="flex text-second-col gap-1 md:gap-2">
+                <p className="flex text-second-col gap-1 laptop:gap-2">
                   {[...Array(5)].map((_, index) => (
                     <FaStar key={index} />
                   ))}
@@ -59,10 +59,10 @@ const Profile = () => {
               </div>
             </div>
           </div>
-          <div className="flex flex-col md:flex-row w-full md:gap-20 md:mt-5">
-            <div className="flex text-[10px] md:text-[13px] text-[#727272] justify-between md:justify-normal md:gap-12 w-full h-full p-4 md:p-7 shadow-lg rounded-md mt-8">
+          <div className="flex flex-col laptop, tablet:flex-row w-full laptop:gap-20  laptop:mt-5 tablet:mt-5">
+            <div className="flex text-[10px] laptop:text-[13px] text-[#727272] justify-between laptop:justify-normal laptop:gap-12 w-full h-full p-4 laptop:p-7 shadow-lg rounded-laptop mt-8 tablet:mt-0">
               <div className="biz-parent">
-                <h1 className="text-[13px] md:text-[18px] font-bold text-second-col">
+                <h1 className="text-[13px] laptop:text-[18px] font-bold text-second-col">
                   About Vendor
                 </h1>
                 <div>
@@ -95,7 +95,7 @@ const Profile = () => {
                 </div>
               </div>
               <div className="biz-parent">
-                <h1 className="text-[13px] md:text-[18px] font-bold text-second-col">
+                <h1 className="text-[13px] laptop:text-[18px] font-bold text-second-col">
                   About Business
                 </h1>
                 <div>
@@ -114,7 +114,7 @@ const Profile = () => {
                 </div>
               </div>
             </div>
-            <div className="flex text-[10px] md:text-[13px] text-[#727272] justify-between w-full p-4 md:px-7 shadow-lg rounded-md mt-8 md:justify-start">
+            <div className="flex text-[10px] laptop:text-[13px] text-[#727272] justify-between w-full p-4 laptop:px-7 shadow-lg rounded-laptop mt-8  tablet:mt-0 laptop:justify-start">
               <WriteReview />
             </div>
           </div>

@@ -38,8 +38,8 @@ const Header = () => {
           </div>
 
           {/* larger screen */}
-          <div className="hidden md:flex gap-20 md:text-[12px]">
-            <ul className="items-center text-gray-dark md:flex gap-10">
+          <div className="hidden laptop, tablet:flex gap-20 laptop, tablet:text-[12px]">
+            <ul className="items-center text-gray-dark laptop, tablet:flex gap-10">
               <li>
                 <Link href="#">About</Link>
               </li>
@@ -47,17 +47,17 @@ const Header = () => {
                 <Link href="/businesses">Businesses</Link>
               </li>
             </ul>
-            <div className="md:flex md:gap-10">
+            <div className="laptop, tablet:flex laptop, tablet:gap-10">
               <Link href="/auth/signup">
                 <button
-                  className="bg-second-col text-primary md:w-[120px] rounded-[7px] text-sm md:text-[12px] py-3"
+                  className="bg-second-col text-primary laptop, tablet:w-[120px] rounded-[7px] text-sm laptop, tablet:text-[12px] py-3"
                   onClick={() => console.log('Clicked!')}>
                   Join
                 </button>
               </Link>
 
               <Link href="/auth/login">
-                <button className="border-2 border-second-col text-second-col md:w-[120px] rounded-[7px] text-sm text-center justify-center py-[0.6rem]  md:text-[12px] ">
+                <button className="border-2 border-second-col text-second-col laptop, tablet:w-[120px] rounded-[7px] text-sm text-center justify-center py-[0.6rem]  laptop, tablet:text-[12px] ">
                   Login
                 </button>
               </Link>
@@ -66,7 +66,7 @@ const Header = () => {
 
           <div
             onClick={handleSmallScreen}
-            className="flex md:hidden">
+            className="flex laptop, tablet:hidden">
             {
               <button onClick={onOpen}>
                 <GiHamburgerMenu

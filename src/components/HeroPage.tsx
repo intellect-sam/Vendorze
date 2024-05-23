@@ -11,21 +11,21 @@ const HeroPage = () => {
         <Image
           src={circle}
           alt=""
-          className="w-80 md:w-[750px]"
+          className="w-80 laptop:w-[750px]"
         />
       </div>
 
-      <div className=" w-full p-4 md:py-[200px] flex flex-col  md:gap-0 md:flex-row text-gray-dark  md:justify-center my-16">
-        <div className="md:w-full">
-          <h2 className="custom-h1 md:text-4xl md:leading-tight md:text-left">
+      <div className="w-full p-4 laptop:py-[200px] flex flex-col  laptop:gap-0 laptop:flex-row text-gray-dark  laptop:justify-center my-16">
+        <div className="laptop:min-w-[500px]">
+          <h2 className="custom-h1 laptop:text-4xl laptop:leading-tight laptop:text-left">
             Show your Trust Score. Write Reviews. Find Trustworthy Business.
           </h2>
-          <p className="custom-p sm:py-5 md:px-0 md:max-w-[400px] md:text-left leading-relaxed md:leading-[35px]  md:text-lg md:font-[2px]">
+          <p className="custom-p sm:py-5 laptop:px-0 laptop:max-w-[400px] laptop:text-left leading-relaxed laptop:leading-[35px]  laptop:text-lg laptop:font-[2px]">
             Never get scammed again. Ask for their trust worthy vendors. Check
             their trust score before sliding into their DM
           </p>
         </div>
-        <div className="md:px-0 md:min-w-[700px]">
+        <div className="laptop:px-0 laptop:min-w-[700px]">
           <Image
             src={phone}
             alt=""

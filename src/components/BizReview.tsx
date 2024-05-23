@@ -4,32 +4,32 @@ import Image from 'next/image';
 const BizReview = () => {
   return (
     <section className="bg-[#FAFAFA] ">
-      <div className="absolute hidden md:block left-0">
+      <div className="absolute hidden laptop, tablet:block left-0">
         <Image
           src={BizRev}
           alt=""
-          className="max-w-[350px]"
+          className="max-w-[350px] tablet:max-w-[250px]"
         />
       </div>
-      <div className="flex md:h-[496px] w-screen items-center flex-col text-gray-dark p-5 gap-5 py-10">
-        <div className="flex">
-          <div className=" ">
-            <div className="md:w-[400px]  md:flex md:flex-col md:gap-5">
-              <h1 className="custom-h1 md:text-4xl  md:text-left  md:leading-[50px]">
+      <div className="flex laptop:h-[496px] w-screen items-center tablet:items-end flex-col text-gray-dark p-5 gap-5 py-10">
+        <div className="flex tablet:px-[100px]">
+          <div className="tablet:w-[300px]  ">
+            <div className="laptop:w-[400px]  laptop:flex laptop:flex-col laptop:gap-5">
+              <h1 className="custom-h1 laptop:text-4xl  laptop:text-left  laptop:leading-[50px]">
                 Write Reviews For Business.
               </h1>
-              <p className="custom-p  md:p-0  md:text-lg md:font-extralight md:w-[400px] md:leading-snug">
+              <p className="custom-p  laptop:p-0  laptop:text-lg laptop:font-extralight laptop:w-[400px] laptop:leading-snug">
                 Write reviews for businesses you made contact with to improve
                 their trust score and their credibility. Your reviews also help
                 other users to find trustworthy businesses easily.
               </p>
             </div>
           </div>
-          <div className="md:absolute right-0  hidden md:block">
+          <div className="laptop:absolute right-0  hidden laptop:block">
             <Image
               src={review}
               alt=""
-              className="w-100 md:w-[353px]"
+              className="w-100 laptop:w-[353px]"
             />
           </div>
         </div>

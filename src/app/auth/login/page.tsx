@@ -53,15 +53,15 @@ const Login = () => {
   };
 
   return (
-    <div className="max-w-[1600px] flex flex-col md:flex-row justify-between items-center">
-      <div className="hidden md:block">
+    <div className="max-w-[1600px] flex flex-col laptop:flex-row justify-between items-center">
+      <div className="hidden laptop:block">
         <Image
           src={Signup}
           alt=""
-          className="md:w-[2250px]"
+          className="laptop:w-[2250px]"
         />
       </div>
-      <div className="w-full px-[35px] flex flex-col h-screen md:px-[100px] justify-center gap-2">
+      <div className="w-full px-[35px] flex flex-col h-screen laptop:px-[100px] justify-center gap-2 tablet:w-[400px]">
         <div className="py-3 flex w-full  ">
           <Link href="/">
             <Image
@@ -73,13 +73,13 @@ const Login = () => {
         </div>
 
         <h1 className="font-bold text-lg">Login</h1>
-        <p className="text-[6px] md:text-[15px]">
+        <p className="text-[6px] laptop:text-[15px]">
           Enter your credentials to login in to your account
         </p>
 
         <form
           onSubmit={handleSubmit(onSubmit)}
-          className="flex flex-col md:pr-[100px]">
+          className="flex flex-col laptop:pr-[100px]">
           <div>
             <label className="input-label">Email</label>
             <Input
@@ -119,11 +119,11 @@ const Login = () => {
               <Image
                 src={forgot}
                 alt=""
-                className="w-[10px] md:w-[15px]"
+                className="w-[10px] laptop:w-[15px]"
               />
             </div>
 
-            <p className="text-[5px] md:text-[12px]">
+            <p className="text-[5px] laptop:text-[12px]">
               <Link href="#"> Forgot Password?</Link>
             </p>
           </div>
