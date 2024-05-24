@@ -1,6 +1,6 @@
 import Header from '@/components/Header';
 import React from 'react';
-import Image from 'next/image';
+import Image, { StaticImageData } from 'next/image';
 import { b1, b2, b3, b4, b5, b6 } from '@/assets/images';
 import { FaStar } from 'react-icons/fa6';
 import SearchBar from '@/components/SearchBar';
@@ -8,7 +8,7 @@ import Link from 'next/link';
 
 const Businesses = () => {
   type BuzCardProps = {
-    imgSrc: string;
+    imgSrc: StaticImageData;
     name: string;
     category: string;
     location: string;

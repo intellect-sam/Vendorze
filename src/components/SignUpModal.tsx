@@ -50,7 +50,7 @@ const signUpdataSchema: ZodType<SignUpData> = z
 
 type signUpIn = z.infer<typeof signUpdataSchema>;
 
-const SignUpModal = forwardRef((props, ref) => {
+const SignUpModal = React.forwardRef((props, ref) => {
   const { isOpen, onOpen, onClose } = useDisclosure();
   const [showPassword, setShowPassword] = useState(false);
   const togglePassword = () => setShowPassword(!showPassword);
@@ -184,5 +184,7 @@ const SignUpModal = forwardRef((props, ref) => {
     </div>
   );
 });
+
+SignUpModal.displayName = 'SignUpModal';
 
 export default SignUpModal;

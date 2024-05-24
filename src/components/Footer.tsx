@@ -7,12 +7,12 @@ import { FaSquareXTwitter, FaInstagram, FaRegCopyright } from 'react-icons/fa6';
 const Footer = () => {
   return (
     <div className="bg-second-col text-primary w-screen">
-      <div className=" flex flex-col laptop, tablet:flex-row gap-5 rounded-t-[25px]  laptop, tablet:justify-center laptop:gap-20 tablet:gap-10 laptop:py-40 tablet:py-20 p-5">
-        <div className="flex flex-col items-center gap-4">
+      <div className=" flex flex-col laptop, tablet:flex-row gap-5 rounded-t-[25px]  laptop, tablet:justify-center laptop:gap-20 tablet:gap-10 laptop:py-20 tablet:py-20 p-5">
+        <div className="flex flex-col w-1/6 gap-4">
           <Image
             src={logoWhite}
             alt="footer-logo"
-            className="w-1/4 laptop:w-[130px]"
+            className="laptop:w-[130px]"
           />
           <div>
             <div className="flex gap-3 text-primary">

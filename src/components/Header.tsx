@@ -26,7 +26,7 @@ const Header = () => {
   return (
     <>
       <header className="w-full ease-in duration-300 top-0 left-0 z-10">
-        <nav className="mx-auto py-4 flex justify-between items-center p-4">
+        <nav className="mx-auto py-4 flex justify-between items-center p-4 tablet:mx-[25px]">
           <div>
             <Link href="/">
               <Image

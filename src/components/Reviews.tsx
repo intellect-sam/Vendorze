@@ -39,7 +39,7 @@ const Reviews = () => {
     );
   };
   return (
-    <div className="flex flex-col gap-10 m-5 w-screen laptop, tablet:py-40">
+    <div className="flex flex-col gap-10 m-5 w-screen laptop, tablet:my-20 ">
       <h1 className="custom-h1 laptop, tablet:text-4xl">Reviews</h1>
       <div className="flex flex-col items-center gap-10">
         <Marquee>
@@ -61,7 +61,7 @@ const Reviews = () => {
           ))}
         </Marquee>
 
-        <div className=" max-w-[1350px] hidden laptop, tablet:block">
+        <div className=" max-w-[1350px] hidden laptop:block">
           <Marquee>
             {[...Array(10)].map((_, index) => (
               <CustomReview

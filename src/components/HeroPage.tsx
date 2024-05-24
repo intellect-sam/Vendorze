@@ -11,12 +11,12 @@ const HeroPage = () => {
         <Image
           src={circle}
           alt=""
-          className="w-80 laptop:w-[750px]"
+          className="w-80 laptop, tablet:w-[750px]"
         />
       </div>
 
-      <div className="w-full p-4 laptop:py-[200px] flex flex-col  laptop:gap-0 laptop:flex-row text-gray-dark  laptop:justify-center my-16">
-        <div className="laptop:min-w-[500px]">
+      <div className="w-full p-4 laptop, tablet:py-[200px] flex flex-col  laptop:gap-0 laptop, tablet:flex-row text-gray-dark  laptop:justify-center my-16">
+        <div className="laptop, tablet:min-w-[500px]">
           <h2 className="custom-h1 laptop:text-4xl laptop:leading-tight laptop:text-left">
             Show your Trust Score. Write Reviews. Find Trustworthy Business.
           </h2>
