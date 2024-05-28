@@ -23,14 +23,14 @@ const Profile = () => {
               <IoChevronBack /> Go back
             </Link>
           </div>
-          <div className="bg-[#F0CFF2] w-full p-4 laptop:p-7 flex flex-col  laptop, tablet:flex-row justify-between rounded-laptop bg-cover bg-center">
-            {/* <div className="absolute left-0 laptop:w-full ">
+          <div className="bg-[#F0CFF2] w-full p-4 laptop:p-7 flex flex-col rounded-md  laptop, tablet:flex-row justify-between rounded-laptop bg-cover bg-center">
+            <div className="absolute right-0 laptop:w-full ">
               <Image
                 className=" object-contain "
                 src={bgg}
                 alt=""
               />
-            </div> */}
+            </div>
             <div className="flex gap-5 items-center">
               <div className="w-[100px]">
                 <Image
