@@ -61,6 +61,7 @@ const VerifyEmail = () => {
       <p className="">
         Check your inbox, We have sent an activation code to your email
       </p>
+
       <form
         action=""
         onSubmit={handleVerify}
