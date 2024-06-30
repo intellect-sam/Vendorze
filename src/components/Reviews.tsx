@@ -39,7 +39,7 @@ const Reviews = () => {
     );
   };
   return (
-    <div className="flex flex-col gap-10 m-5 w-screen laptop, tablet:my-20 ">
+    <div className="flex flex-col gap-10 m-5 w-screen laptop, tablet:py-[30px]">
       <h1 className="custom-h1 laptop, tablet:text-4xl">Reviews</h1>
       <div className="flex flex-col items-center gap-10">
         <Marquee>

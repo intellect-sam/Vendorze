@@ -6,7 +6,7 @@ import React from 'react';
 const DownloadApp = () => {
   return (
     <section className=" flex bg-[#FAFAFA] w-screen">
-      <div className="flex text-gray-dark w-screen laptop:justify-center  laptop:items-center  p-5 gap-5 laptop:gap-0 laptop:p-0 py-20 m-5 laptop:m-0 laptop:px-32">
+      <div className="flex text-gray-dark w-screen laptop:justify-center  laptop:items-center  p-5 gap-5 laptop:gap-0 laptop:p-0  m-5 laptop:m-0">
         <div className="hidden laptop, tablet:block">
           <Image
             src={phone2}

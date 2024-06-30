@@ -31,7 +31,7 @@ const Features = () => {
     );
   };
   return (
-    <section className="laptop, tablet:my-[170px]">
+    <section className="laptop:pt-[100px] tablet:mt-[170px]">
       <div className="custom-section items-center">
         <h3 className="custom-h1 laptop:text-4xl ">
           Features that you will love

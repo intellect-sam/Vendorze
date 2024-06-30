@@ -8,7 +8,7 @@ const BizReview = () => {
         <Image
           src={BizRev}
           alt=""
-          className="laptop:max-w-[550px] tablet:max-w-[250px]"
+          className="laptop:max-w-[400px] tablet:max-w-[250px]"
         />
       </div>
       <div className="flex laptop:h-[496px] w-screen items-center laptop:items-center tablet:items-end flex-col text-gray-dark p-5 gap-5 py-10">
