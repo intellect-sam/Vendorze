@@ -32,7 +32,7 @@ const Header = () => {
               <Image
                 src={Logo}
                 alt="logo"
-                className="md:w-[110px] w-16"
+                className="laptop:w-[100px] w-16"
               />
             </Link>
           </div>
