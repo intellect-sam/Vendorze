@@ -1,6 +1,6 @@
 'use client';
 
-import React, { useState } from 'react';
+import React, { useEffect, useState } from 'react';
 import { GiHamburgerMenu } from 'react-icons/gi';
 
 import {
@@ -18,14 +18,34 @@ import Link from 'next/link';
 const Header = () => {
   const [menuIcon, setIcon] = useState(false);
   const { isOpen, onOpen, onClose } = useDisclosure();
+  const [header, setHeader] = useState(false);
 
   const handleSmallScreen = () => {
     setIcon(!menuIcon);
   };
 
+  const scrollHeader = () => {
+    if (window.scrollY >= 20) {
+      setHeader(true);
+    } else {
+      setHeader(false);
+    }
+  };
+
+  useEffect(() => {
+    window.addEventListener('scroll', scrollHeader);
+
+    return () => {
+      window.addEventListener('scroll', scrollHeader);
+    };
+  }, []);
+
   return (
-    <>
-      <header className="w-full ease-in duration-300 top-0 left-0 z-10">
+    <div
+      className={`w-screen flex items-center justify-center ${
+        header ? 'bg-[#FFFFFF] fixed z-40 shadow-md ease-in-out' : 'bg-none'
+      }`}>
+      <header className="w-[1025px] ease-in duration-300 top-0 left-0 z-10 ">
         <nav className="mx-auto py-4 flex justify-between items-center p-4 tablet:mx-[25px]">
           <div>
             <Link href="/">
@@ -57,7 +77,7 @@ const Header = () => {
               </Link>
 
               <Link href="/auth/login">
-                <button className="border-2 border-second-col text-second-col laptop, tablet:w-[120px] rounded-[7px] text-sm text-center justify-center py-[0.6rem]  laptop, tablet:text-[12px] ">
+                <button className="border-[1px] border-second-col text-second-col laptop, tablet:w-[120px] rounded-[7px] text-sm text-center justify-center py-[0.6rem]  laptop, tablet:text-[12px] ">
                   Login
                 </button>
               </Link>
@@ -107,7 +127,7 @@ const Header = () => {
           </div>
         </nav>
       </header>
-    </>
+    </div>
   );
 };
 

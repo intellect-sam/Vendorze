@@ -4,7 +4,7 @@ import Image from 'next/image';
 const BizReview = () => {
   return (
     <section className="bg-[#FAFAFA] ">
-      <div className="absolute hidden laptop, tablet:block left-0">
+      <div className="absolute hidden laptop, tablet:block left-0 z-0">
         <Image
           src={BizRev}
           alt=""
