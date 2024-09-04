@@ -11,25 +11,27 @@ const HeroPage = () => {
         <Image
           src={circle}
           alt=""
-          className="w-80 laptop:w-[900px] tablet:w-[600px]"
+          className="min-w-80 lg:min-w-[800px] md:max-w-[400px]"
         />
       </div>
 
-      <div className="w-full p-4 laptop:py-[240px] flex flex-col  laptop:gap-0 laptop, tablet:flex-row text-gray-dark  laptop:justify-center py-[80px] laptop:mt-0 tablet:mt-[50px]">
-        <div className="laptop:min-w-[500px] laptop, tablet:relative left-[120px]">
-          <h2 className="custom-h1 laptop:text-4xl laptop:font-bold laptop:leading-[50px] laptop, tablet:text-left tablet:max-text-2xl">
-            Show your Trust Score. Write Reviews. Find Trustworthy Business.
+      <div className="w-full p-4  flex flex-col space-y-5  text-gray-dark  md:flex-row py-[80px] lg:my-[100px] ">
+        <div className=" flex flex-col md:items-start  space-y-3 lg, md:w-1/2  ">
+          <h2 className="text-center  text-2xl font-bold leading-relaxed md:text-start md:text-3xl md:leading-normal lg:text-5xl lg:leading-normal">
+            Show your Trust Score.
+            <br /> Write Reviews. <br />
+            Find Trustworthy Business.
           </h2>
-          <p className="custom-p sm:py-5 laptop, tablet:px-0 laptop:max-w-[400px] laptop, tablet:text-left leading-relaxed laptop:leading-[35px]  laptop:text-[20px] laptop:font-[1px]">
+          <p className="text-center text-sm  md:text-start lg:text-2xl lg:max-w-[500px] md:max-w-[250px] lg:font-extralight lg:leading-normal">
             Never get scammed again. Ask for their trust worthy vendors. Check
             their trust score before sliding into their DM
           </p>
         </div>
-        <div className="laptop:px-0 laptop:min-w-[700px] tablet:min-w-[500px]">
+        <div className="lg, md:w-1/2 ">
           <Image
             src={phone}
             alt=""
-            className="w-full "
+            className="w-full img-shadow md:w-full"
           />
         </div>
       </div>

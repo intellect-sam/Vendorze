@@ -110,33 +110,34 @@ const SignUp = () => {
         isOpen={showModal}
         onClose={closeModal}
       />
-      <div className="max-w-[1600px] flex flex-col  laptop:flex-row justify-between items-center overflow-hidden">
-        <div className="hidden laptop:block">
+      <div className="container flex flex-col gap-5 justify-between items-center overflow-hidden px-5 text-[#5B5B5B] md:w-1/2 lg:flex-row lg:w-full">
+        <div className="hidden lg:block lg:w-1/2">
           <Image
             src={Signup}
             alt=""
-            className="laptop:w-[860px]"
+            className=""
           />
         </div>
-        <div className="w-full px-[35px] h-screen  flex flex-col laptop:w-1/3 justify-center gap-2 tablet:w-[400px]">
-          <div className="py-3 flex w-full">
+        <div className="w-full  h-screen flex flex-col  justify-center gap-2  text-[14px] lg:w-1/2">
+          <div className=" flex w-full">
             <Link href="/">
               <Image
                 src={Logo}
                 alt=""
-                className="w-[100px]"
+                className=""
               />
             </Link>
           </div>
-
-          <h1 className="font-bold text-lg">Sign Up</h1>
-          <p className="text-[6px] laptop:text-[15px]">
-            Enter your credentials to sign up as a user.{' '}
-          </p>
+          <div className="flex flex-col space-y-2">
+            <h1 className="font-bold text-lg">Sign Up</h1>
+            <p className="text-[14px]">
+              Enter your credentials to sign up as a user.{' '}
+            </p>
+          </div>
 
           <form
             onSubmit={handleSubmit(onSubmit)}
-            className="flex flex-col laptop:pr-[100px] laptop:gap-4 ">
+            className="flex flex-col space-y-5 py-5 text-[12px]">
             {errorMessage && (
               <Notification
                 message={errorMessage}
@@ -154,7 +155,7 @@ const SignUp = () => {
               <Input
                 type="text"
                 placeholder="Enter Full Name"
-                className="custom-input laptop:py-5"
+                className="custom-input placeholder:text-[10px]"
                 {...register('fullname')}
               />
               {errors.fullname && (
@@ -168,7 +169,7 @@ const SignUp = () => {
               <Input
                 type="email"
                 placeholder="Enter Email"
-                className="custom-input  laptop:py-5"
+                className="custom-input  placeholder:text-[10px]"
                 {...register('emailAddress')}
               />
               {errors.emailAddress && (
@@ -184,7 +185,7 @@ const SignUp = () => {
                   {...register('password')}
                   type={show ? 'text' : 'password'}
                   placeholder="Enter Password"
-                  className="custom-input"
+                  className="custom-input placeholder:text-[10px]"
                 />
                 <ShowPasswordText
                   onToggle={togglePassword}
@@ -204,7 +205,7 @@ const SignUp = () => {
               <Select
                 placeholder="Choose"
                 {...register('type')}
-                className="bg-primary text-[10px] font-light laptop:text-[15px] ">
+                className="bg-primary text-[10px] font-light placeholder:text-[10px]">
                 <option>Vendor</option>
                 <option>Buyer</option>
               </Select>

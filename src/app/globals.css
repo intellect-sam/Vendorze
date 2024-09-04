@@ -12,24 +12,21 @@ body {
     rgb(var(--background-start-rgb));
 }
 
-@layer components {
-  .container {
-    @apply max-w-[1024px] mx-auto flex flex-col justify-between items-center;
+@layer utilities {
+  .text-balance {
+    text-wrap: balance;
   }
-  .biz-details {
-    @apply flex items-center gap-1;
-  }
-  .biz-parent {
-    @apply flex flex-col gap-3 tablet:gap-5;
-  }
-  .input-label {
-    @apply text-[10px] tablet:text-[15px];
+}
+
+@layer base {
+  .text-shadow {
+    text-shadow: -6px 6px 10px rgba(0, 0, 0, 0.4);
   }
 }
 
 @layer utilities {
-  .text-balance {
-    text-wrap: balance;
+  .img-shadow {
+    filter: drop-shadow(-6px 8px 15px rgba(0, 0, 0, 0.4));
   }
 }
 

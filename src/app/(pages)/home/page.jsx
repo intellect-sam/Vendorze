@@ -9,7 +9,7 @@ import Reviews from '@/components/Reviews';
 
 export default function Hero() {
   return (
-    <main className="max-w-[1025px] mx-auto flex flex-col justify-between items-center">
+    <main className="container placeholder:mx-auto flex flex-col justify-between items-center">
       <Header />
       <HeroPage />
       <BizReview />

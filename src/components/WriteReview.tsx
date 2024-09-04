@@ -66,9 +66,9 @@ const WriteReview = () => {
   return (
     <>
       <SignUpModal ref={signUpModalRef} />
-      <div>
-        <div className="py-5 laptop:py-3 tablet:py-0 text-[13px]">
-          <h1 className="text-[13px] laptop:text-[18px] font-bold text-second-col">
+      <div className="flex flex-col text-[14px]  text-[#727272] w-full p-4  shadow-lg  md:w-1/2 mt-8 max-w-[514px] space-y-5 lg:p-10">
+        <div className="text-[14px] ">
+          <h1 className="text-[13px] lg:text-[28px] font-bold text-[#B40FBF] ">
             Write Review
           </h1>
           <p>Write your experience with the business here</p>
@@ -76,8 +76,8 @@ const WriteReview = () => {
         <form
           onSubmit={handleSubmit(onSubmit)}
           className="flex flex-col gap-5 ">
-          <div className="py-1">
-            <label className="input-label">Full Name</label>
+          <div className="py-1 space-y-3">
+            <label className="">Full Name</label>
             <Input
               type="text"
               placeholder="Enter Full Name"
@@ -92,7 +92,7 @@ const WriteReview = () => {
           </div>
 
           <div className="py-1">
-            <label className="input-label">Name of Vendor and Business</label>
+            <label className="">Name of Vendor and Business</label>
 
             <Input
               type="text"
@@ -107,7 +107,7 @@ const WriteReview = () => {
             )}
           </div>
           <div className="py-1">
-            <label className="input-label">Enter Review</label>
+            <label className="">Enter Review</label>
             <Textarea
               placeholder="Enter Review"
               {...register('review')}

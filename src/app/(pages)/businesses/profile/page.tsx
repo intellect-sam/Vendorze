@@ -13,9 +13,9 @@ import Link from 'next/link';
 const Profile = () => {
   return (
     <>
-      <section className="container">
-        <Header />
-        <div className="laptop:mt-10">
+      <Header />
+      <section className="container h-screen">
+        <div className="">
           <div className="w-full text-[12px] text-[#CD5FD4] font-bold py-2">
             <Link
               href="/businesses"
@@ -31,82 +31,86 @@ const Profile = () => {
                 alt=""
               />
             </div>
-            <div className="flex gap-5 items-center">
-              <div className="w-[100px]">
-                <Image
-                  src={pic1}
-                  alt=""
-                />
+            <div className="md:flex md:items-center md:justify-between lg:p-7">
+              <div className="flex gap-5 items-center">
+                <div className="w-[100px]">
+                  <Image
+                    src={pic1}
+                    alt=""
+                  />
+                </div>
+                <div className=" flex flex-col space-y-2 ">
+                  <h1 className="font-bold  md:text-xl lg:text-[24px]">
+                    Rayz Clothings
+                  </h1>
+                  <p className="font-light text-[10px] lg:text-[18px]">
+                    Jonathan Duroyilu
+                  </p>
+                </div>
               </div>
-              <div className=" flex flex-col ">
-                <h1 className="font-bold laptop:text-[24px]">Rayz Clothings</h1>
-                <p className="font-light text-[10px] laptop:text-[18px]">
-                  Jonathan Duroyilu
-                </p>
-              </div>
-            </div>
-            <div className="py-4 flex flex-col laptop:gap-7 laptop:items-end">
-              <h1 className="text-second-col font-bold laptop:text-[28px]">
-                Trust Score: 78%
-              </h1>
-              <div className="flex text-[10px] laptop:text-[18px] items-center laptop:gap-5 gap-2">
-                <p className="font-light">Average Rating:</p>
-                <p className="flex text-second-col gap-1 laptop:gap-2">
-                  {[...Array(5)].map((_, index) => (
-                    <FaStar key={index} />
-                  ))}
-                </p>
+              <div className="py-4 flex flex-col ">
+                <h1 className="text-second-col font-bold md:text-xl lg:text-[28px]">
+                  Trust Score: 78%
+                </h1>
+                <div className="flex text-[14px]  items-center gap-2">
+                  <p className="font-light">Average Rating:</p>
+                  <p className="flex text-second-col gap-1 laptop:gap-2">
+                    {[...Array(5)].map((_, index) => (
+                      <FaStar key={index} />
+                    ))}
+                  </p>
+                </div>
               </div>
             </div>
           </div>
-          <div className="flex flex-col laptop, tablet:flex-row w-full laptop:gap-20  laptop:mt-5 tablet:mt-5">
-            <div className="flex text-[10px] laptop:text-[13px] text-[#727272] justify-between laptop:justify-normal laptop:gap-12 w-full h-full p-4 laptop:p-7 shadow-lg rounded-laptop mt-8 tablet:mt-0">
-              <div className="biz-parent">
-                <h1 className="text-[13px] laptop:text-[18px] font-bold text-second-col">
+          <div className="flex flex-col  w-full md:flex-row md:justify-between md:space-x-5">
+            <div className="flex text-[10px] lg:text-[18px]  text-[#727272] justify-between   w-full md:w-1/2  h-full p-4 shadow-lg rounded-lg mt-8 lg:p-10 ">
+              <div className="flex flex-col space-y-5 lg:space-y-10">
+                <h1 className="text-[13px] font-bold text-[#B40FBF]  lg:text-[24px]">
                   About Vendor
                 </h1>
                 <div>
-                  <div className="biz-details">
+                  <div className="flex gap-2 items-center">
                     <FaUser />
                     <p>Vendor’s Name</p>
                   </div>
                   <p className="font-bold">Jonathan Duroyilu</p>
                 </div>
                 <div>
-                  <div className="biz-details">
+                  <div className="flex gap-2 items-center">
                     <FaMapMarkerAlt />
                     <p>Address</p>
                   </div>
                   <p className="font-bold">8, Campus road, Ikoyi, Lagos</p>
                 </div>
                 <div>
-                  <div className="biz-details">
+                  <div className="flex gap-2 items-center">
                     <MdEmail />
                     <p>Email</p>
                   </div>
                   <p className="font-bold">johnathand@gmail.com</p>
                 </div>
                 <div>
-                  <div className="biz-details">
+                  <div className="flex gap-2 items-center">
                     <IoCall />
                     <p>Phone Number</p>
                   </div>
                   <p className="font-bold">09132455678</p>
                 </div>
               </div>
-              <div className="biz-parent">
-                <h1 className="text-[13px] laptop:text-[18px] font-bold text-second-col">
+              <div className="flex flex-col space-y-5 lg:space-y-10">
+                <h1 className="text-[13px] lg:text-[24px] font-bold text-[#B40FBF] ">
                   About Business
                 </h1>
                 <div>
-                  <div className="biz-details">
+                  <div className="flex gap-2 items-center">
                     <FaUser />
                     <p>Category</p>
                   </div>
                   <p className="font-bold">Women’s Wears</p>
                 </div>
                 <div>
-                  <div className="biz-details">
+                  <div className="flex gap-2 items-center">
                     <FaUser />
                     <p>Business Contact</p>
                   </div>
@@ -114,9 +118,8 @@ const Profile = () => {
                 </div>
               </div>
             </div>
-            <div className="flex text-[10px] laptop:text-[13px] text-[#727272] justify-between w-full p-4 laptop:px-7 shadow-lg rounded-laptop mt-8  tablet:mt-0 laptop:justify-start">
-              <WriteReview />
-            </div>
+
+            <WriteReview />
           </div>
         </div>
       </section>

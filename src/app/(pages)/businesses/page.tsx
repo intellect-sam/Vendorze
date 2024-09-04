@@ -6,6 +6,45 @@ import { FaStar } from 'react-icons/fa6';
 import SearchBar from '@/components/SearchBar';
 import Link from 'next/link';
 
+const business = [
+  {
+    imgSrc: b1,
+    name: 'Obiz Closet',
+    category: 'Clothing and Accesories',
+    location: 'Ibadan, Nigeria',
+  },
+  {
+    imgSrc: b2,
+    name: 'Rayz Clothings',
+    category: 'Clothing and Accesories',
+    location: 'Ibadan, Nigeria',
+  },
+  {
+    imgSrc: b3,
+    name: 'VFK Phones and Accessories',
+    category: 'Gadgets',
+    location: 'Ibadan, Nigeria',
+  },
+  {
+    imgSrc: b4,
+    name: 'Better Life Restaurant',
+    category: 'Services',
+    location: 'Ibadan, Nigeria',
+  },
+  {
+    imgSrc: b5,
+    name: 'Tunde Gadgets',
+    category: 'Electronics',
+    location: 'Ibadan, Nigeria',
+  },
+  {
+    imgSrc: b6,
+    name: 'B’s Cuisine',
+    category: 'Food',
+    location: 'Ibadan, Nigeria',
+  },
+];
+
 const Businesses = () => {
   type BuzCardProps = {
     imgSrc: StaticImageData;
@@ -24,11 +63,11 @@ const Businesses = () => {
   }) => {
     return (
       <Link href="/businesses/profile">
-        <div className="w-[350px] shadow-xl p-4 flex flex-col items-left gap-2 ">
+        <div className="max-w-[387px] shadow-xl p-4 flex flex-col items-left gap-2 ">
           <Image
             src={imgSrc}
             alt={name}
-            width={339}
+            className="w-full"
           />
 
           <h1 className=" font-bold text-sm text-[#0E538C]">{name}</h1>
@@ -49,91 +88,31 @@ const Businesses = () => {
       </Link>
     );
   };
+
+  const renderStars = () => (
+    <>
+      {[...Array(5)].map((_, index) => (
+        <FaStar key={index} />
+      ))}
+    </>
+  );
   return (
     <>
-      <section className="container">
+      <section>
         <Header />
-        <div className="laptop:mt-10">
+        <div className="container">
           <SearchBar />
-          <div className="grid grid-cols laptop:grid-cols-3 tablet:grid-cols-2 laptop:gap-10 gap-4">
-            <BuzCard
-              imgSrc={b1}
-              name="Obiz Closet"
-              category="Clothing and Accesories"
-              location="Ibadan, Nigeria"
-              rate={
-                <>
-                  {[...Array(5)].map((_, index) => (
-                    <FaStar key={index} />
-                  ))}
-                </>
-              }
-            />
-            <BuzCard
-              imgSrc={b2}
-              name="Rayz Clothings"
-              category="Clothing and Accesories"
-              location="Ibadan, Nigeria"
-              rate={
-                <>
-                  {[...Array(5)].map((_, index) => (
-                    <FaStar key={index} />
-                  ))}
-                </>
-              }
-            />
-            <BuzCard
-              imgSrc={b3}
-              name="VFK Phones and Accessories"
-              category="Gadgets"
-              location="Ibadan, Nigeria"
-              rate={
-                <>
-                  {[...Array(5)].map((_, index) => (
-                    <FaStar key={index} />
-                  ))}
-                </>
-              }
-            />
-            <BuzCard
-              imgSrc={b4}
-              name="Better Life Restaurant"
-              category="Services"
-              location="Ibadan, Nigeria"
-              rate={
-                <>
-                  {[...Array(5)].map((_, index) => (
-                    <FaStar key={index} />
-                  ))}
-                </>
-              }
-            />
-            <BuzCard
-              imgSrc={b5}
-              name="Tunde Gadgets"
-              category="Electronics"
-              location="Ibadan, Nigeria"
-              rate={
-                <>
-                  {[...Array(5)].map((_, index) => (
-                    <FaStar key={index} />
-                  ))}
-                </>
-              }
-            />
-            <BuzCard
-              imgSrc={b6}
-              name="B’s Cuisine"
-              category="Food"
-              location="Ibadan, Nigeria"
-              rate={
-                <>
-                  {[...Array(5)].map((_, index) => (
-                    <FaStar key={index} />
-                  ))}
-                </>
-              }
-            />
+          <div className="grid grid-cols md:grid-cols-2 lg:grid-cols-3  gap-4 lg:py-10">
+            {business.map((biz, index) => (
+              <BuzCard
+                key={index}
+                imgSrc={biz.imgSrc}
+                name={biz.name}
+                category={biz.category}
+                location={biz.location}
+                rate={renderStars()}
+              />
+            ))}
           </div>
         </div>
       </section>

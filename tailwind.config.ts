@@ -7,12 +7,9 @@ const config: Config = {
     './src/app/**/*.{js,ts,jsx,tsx,mdx}',
   ],
   theme: {
-    screens: {
-      tablet: '690px',
-      laptop: '1024px',
-    },
     colors: {
       primary: '#D2D2D2',
+      'text-col': '#727272',
       'second-col': '#73008F',
       orange: '#ff7849',
       'error-col': '#b91c1c',
@@ -24,11 +21,14 @@ const config: Config = {
       'gray-light': '#d3dce6',
       str: '#FDC83E',
     },
-    extend: {
-      backgroundImage: {
-        'gradient-radial': 'radial-gradient(var(--tw-gradient-stops))',
-        'gradient-conic':
-          'conic-gradient(from 180deg at 50% 50%, var(--tw-gradient-stops))',
+    container: {
+      center: true,
+      padding: {
+        DEFAULT: '1rem',
+        sm: '2rem',
+        lg: '4rem',
+        xl: '5rem',
+        '2xl': '6rem',
       },
     },
   },

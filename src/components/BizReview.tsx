@@ -3,34 +3,36 @@ import Image from 'next/image';
 
 const BizReview = () => {
   return (
-    <section className="bg-[#FAFAFA] ">
-      <div className="absolute hidden laptop, tablet:block left-0 z-0">
-        <Image
-          src={BizRev}
-          alt=""
-          className="laptop:max-w-[400px] tablet:max-w-[250px]"
-        />
-      </div>
-      <div className="flex laptop:h-[496px] w-screen items-center laptop:items-center tablet:items-end flex-col text-gray-dark p-5 gap-5 py-10">
-        <div className="flex tablet:px-[100px]">
-          <div className="tablet:w-[300px] laptop:w-full  ">
-            <div className="laptop:w-[400px]  laptop:flex laptop:flex-col laptop:gap-5">
-              <h1 className="custom-h1 laptop:text-4xl  laptop:text-left  laptop:leading-[50px]">
-                Write Reviews For Business.
-              </h1>
-              <p className="custom-p  laptop:p-0  laptop:text-lg laptop:font-extralight laptop:w-[400px] laptop:leading-snug">
-                Write reviews for businesses you made contact with to improve
-                their trust score and their credibility. Your reviews also help
-                other users to find trustworthy businesses easily.
-              </p>
+    <section className="max-h-[100%]">
+      <div className="bg-[#FAFAFA] lg:min-h-[696px] ">
+        <div className="lg, md:absolute left-0 z-0 md:max-w-[300px] lg:min-w-[544px]">
+          <Image
+            src={BizRev}
+            alt=""
+            className="w-full"
+          />
+        </div>
+        <div className="flex  w-screen items-center  flex-col text-gray-dark p-5 gap-5 py-10">
+          <div className="flex flex-col md:flex-row tablet:px-[100px]">
+            <div className="py-10 md:max-w-[250px] lg:max-w-[569px] lg:px-10 ">
+              <div className="md:items-center flex flex-col md:justify-center w-full space-y-4">
+                <h1 className="text-center text-lg lg:text-5xl font-semibold md:text-2xl md:text-start lg:leading-normal">
+                  Write Reviews For Business.
+                </h1>
+                <p className="text-text-col text-sm text-justify lg:text-2xl">
+                  Write reviews for businesses you made contact with to improve
+                  their trust score and their credibility. Your reviews also
+                  help other users to find trustworthy businesses easily.
+                </p>
+              </div>
             </div>
-          </div>
-          <div className="laptop:absolute right-0  hidden laptop:block">
-            <Image
-              src={review}
-              alt=""
-              className="w-100 laptop:w-[353px]"
-            />
+            <div className="lg:absolute md:absolute right-0  md:min-w-[150px] lg:min-w-[353px]">
+              <Image
+                src={review}
+                alt=""
+                className="w-full "
+              />
+            </div>
           </div>
         </div>
       </div>
