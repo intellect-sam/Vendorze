@@ -110,16 +110,16 @@ const SignUp = () => {
         isOpen={showModal}
         onClose={closeModal}
       />
-      <div className="container flex flex-col gap-5 justify-between items-center overflow-hidden px-5 text-[#5B5B5B] md:w-1/2 lg:flex-row lg:w-full">
+      <div className="flex flex-col gap-5 justify-between items-center overflow-hidden text-[#5B5B5B] md:w-1/2 lg:flex-row lg:w-full">
         <div className="hidden lg:block lg:w-1/2">
           <Image
             src={Signup}
             alt=""
-            className=""
+            className="lg:w-[1500px]"
           />
         </div>
-        <div className="w-full  h-screen flex flex-col  justify-center gap-2  text-[14px] lg:w-1/2">
-          <div className=" flex w-full">
+        <div className="w-full  h-screen flex flex-col  justify-center items-center gap-2  text-[14px] lg:w-1/3">
+          <div className=" flex item-start w-full">
             <Link href="/">
               <Image
                 src={Logo}
@@ -128,7 +128,7 @@ const SignUp = () => {
               />
             </Link>
           </div>
-          <div className="flex flex-col space-y-2">
+          <div className="flex flex-col space-y-2 item-start w-full">
             <h1 className="font-bold text-lg">Sign Up</h1>
             <p className="text-[14px]">
               Enter your credentials to sign up as a user.{' '}
@@ -137,7 +137,7 @@ const SignUp = () => {
 
           <form
             onSubmit={handleSubmit(onSubmit)}
-            className="flex flex-col space-y-5 py-5 text-[12px]">
+            className="flex flex-col space-y-5 py-5 text-[12px] item-start w-full">
             {errorMessage && (
               <Notification
                 message={errorMessage}

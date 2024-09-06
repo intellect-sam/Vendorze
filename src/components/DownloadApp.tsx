@@ -16,7 +16,7 @@ const DownloadApp = () => {
         </div>
         <div className="flex flex-col md:w-1/2 lg:max-w-[500px]">
           <div className="flex flex-col items-center justify-center text-center space-y-5 md:text-start">
-            <h1 className="text-lg md:text-2xl lg:text-5xl font-semibold lg:leading-normal">
+            <h1 className="text-lg md:text-2xl lg:text-5xl font-semibold lg:leading-normal text-shadow">
               More Businesses are Gaining Tractions
             </h1>
             <p className="text-[12px] md:text-[14px] text-center text-text-col lg:text-[18px] md:text-start ">

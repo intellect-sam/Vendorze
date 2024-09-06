@@ -24,26 +24,26 @@ const Header = () => {
     setIcon(!menuIcon);
   };
 
-  // const scrollHeader = () => {
-  //   if (window.scrollY >= 20) {
-  //     setHeader(true);
-  //   } else {
-  //     setHeader(false);
-  //   }
-  // };
+  const scrollHeader = () => {
+    if (window.scrollY >= 20) {
+      setHeader(true);
+    } else {
+      setHeader(false);
+    }
+  };
 
-  // useEffect(() => {
-  //   window.addEventListener('scroll', scrollHeader);
+  useEffect(() => {
+    window.addEventListener('scroll', scrollHeader);
 
-  //   return () => {
-  //     window.addEventListener('scroll', scrollHeader);
-  //   };
-  // }, []);
+    return () => {
+      window.addEventListener('scroll', scrollHeader);
+    };
+  }, []);
 
   return (
     <div
       className={`w-screen flex items-center justify-center ${
-        header ? 'bg-[#FFFFFF] fixed z-40 shadow-md ease-in-out' : 'bg-none'
+        header ? 'bg-[#FAFAFA] fixed z-40 shadow-md ease-in-out' : 'bg-none'
       }`}>
       <header className="container ease-in duration-300 top-0 left-0 z-10 ">
         <nav className="mx-auto py-4 flex justify-between items-center p-4">

@@ -36,7 +36,7 @@ const Features = () => {
     <section className=" container md:my-[100px] text-gray-dark lg:mt-[400px]">
       <div className="flex flex-col justify-center items-center space-y-3 lg:gap-[40px]">
         <div className="flex w-full items-center justify-center flex-col max-w-[679px] md:max-w-[679px] space-y-2">
-          <h3 className="text-lg md:text-2xl lg:text-5xl font-semibold ">
+          <h3 className="text-lg md:text-2xl lg:text-5xl font-semibold text-shadow">
             Features that you will love
           </h3>
           <p className="text-[12px] md:text-[14px] text-center text-text-col md:px-[100px] lg:text-[18px]">

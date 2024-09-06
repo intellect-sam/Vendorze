@@ -39,8 +39,8 @@ const Reviews = () => {
     );
   };
   return (
-    <div className=" container lex flex-col gap-10 justify-center items-center md:py-[30px] lg:space-y-5">
-      <h1 className="text-lg md:text-2xl lg:text-5xl font-semibold text-center">
+    <div className=" container lex flex-col gap-10 justify-center items-center md:py-[30px] lg:space-y-5 text-gray-dark">
+      <h1 className="text-lg md:text-2xl lg:text-5xl font-semibold text-center text-shadow">
         Reviews
       </h1>
       <div className="flex flex-col items-center gap-10">

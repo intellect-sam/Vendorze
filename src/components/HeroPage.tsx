@@ -17,7 +17,7 @@ const HeroPage = () => {
 
       <div className="w-full p-4  flex flex-col space-y-5  text-gray-dark  md:flex-row py-[80px] lg:my-[100px] ">
         <div className=" flex flex-col md:items-start  space-y-3 lg, md:w-1/2  ">
-          <h2 className="text-center  text-2xl font-bold leading-relaxed md:text-start md:text-3xl md:leading-normal lg:text-5xl lg:leading-normal">
+          <h2 className="text-center  text-2xl font-bold leading-relaxed md:text-start md:text-3xl md:leading-normal lg:text-5xl lg:leading-[60px] text-shadow">
             Show your Trust Score.
             <br /> Write Reviews. <br />
             Find Trustworthy Business.

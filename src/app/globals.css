@@ -20,7 +20,7 @@ body {
 
 @layer base {
   .text-shadow {
-    text-shadow: -6px 6px 10px rgba(0, 0, 0, 0.4);
+    text-shadow: -6px 6px 10px rgba(45, 43, 43, 0.2);
   }
 }
 

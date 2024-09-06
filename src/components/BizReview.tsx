@@ -16,7 +16,7 @@ const BizReview = () => {
           <div className="flex flex-col md:flex-row tablet:px-[100px]">
             <div className="py-10 md:max-w-[250px] lg:max-w-[569px] lg:px-10 ">
               <div className="md:items-center flex flex-col md:justify-center w-full space-y-4">
-                <h1 className="text-center text-lg lg:text-5xl font-semibold md:text-2xl md:text-start lg:leading-normal">
+                <h1 className="text-center text-lg lg:text-5xl font-semibold md:text-2xl md:text-start lg:leading-normal text-shadow">
                   Write Reviews For Business.
                 </h1>
                 <p className="text-text-col text-sm text-justify lg:text-2xl">
