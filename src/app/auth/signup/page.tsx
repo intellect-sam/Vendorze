@@ -1,7 +1,7 @@
 'use client';
 
 import { useForm, SubmitHandler } from 'react-hook-form';
-import { Logo, Signup } from '@/assets/images';
+import { logo, Signup } from '@/assets/images';
 import Image from 'next/image';
 import { Input, InputGroup, Select, Spinner } from '@chakra-ui/react';
 import Link from 'next/link';
@@ -122,7 +122,7 @@ const SignUp = () => {
           <div className=" flex item-start w-full">
             <Link href="/">
               <Image
-                src={Logo}
+                src={logo}
                 alt=""
                 className=""
               />

@@ -1,4 +1,4 @@
-import Logo from './logo.svg';
+import logo from './logo.svg';
 import circle from './circle.svg';
 import phone from './phone.png';
 import review from './review.png';
@@ -19,7 +19,7 @@ import pic1 from './pic1.svg';
 import bgg from './bggg.png';
 
 export {
-  Logo,
+  logo,
   circle,
   phone,
   review,

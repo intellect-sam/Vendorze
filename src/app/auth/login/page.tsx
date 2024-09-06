@@ -1,7 +1,7 @@
 'use client';
 
 import { SubmitHandler, useForm } from 'react-hook-form';
-import { Logo, Signup } from '@/assets/images';
+import { logo, Signup } from '@/assets/images';
 import Image from 'next/image';
 import {
   FormLabel,
@@ -65,7 +65,7 @@ const Login = () => {
         <div className="py-3 flex w-full  ">
           <Link href="/">
             <Image
-              src={Logo}
+              src={logo}
               alt=""
               className="w-[100px]"
             />

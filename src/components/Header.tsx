@@ -12,7 +12,7 @@ import {
   useDisclosure, // Import Box from Chakra UI
 } from '@chakra-ui/react';
 import Image from 'next/image';
-import { Logo } from '@/assets/images';
+import { logo } from '@/assets/images';
 import Link from 'next/link';
 
 const Header = () => {
@@ -50,7 +50,7 @@ const Header = () => {
           <div className="max-w-[110px]">
             <Link href="/">
               <Image
-                src={Logo}
+                src={logo}
                 alt="logo"
                 className="w-1/2 md:w-full"
               />
