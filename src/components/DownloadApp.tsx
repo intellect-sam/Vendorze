@@ -1,4 +1,8 @@
+'use client';
+
 import { google, iphone, phone2 } from '@/assets/images';
+import { fadeUp } from '@/utils/animation';
+import { AnimatePresence, easeInOut, motion } from 'framer-motion';
 import Image from 'next/image';
 import Link from 'next/link';
 import React from 'react';
@@ -7,15 +11,35 @@ const DownloadApp = () => {
   return (
     <section className="flex bg-[#FAFAFA] w-screen">
       <div className=" container flex-col-reverse flex text-gray-dark my-10 items-center justify-center w-full md:flex-row">
-        <div className="max-w-[560px] md:w-1/2">
-          <Image
-            src={phone2}
-            alt=""
-            className="img-shadow"
-          />
-        </div>
+        <AnimatePresence mode="wait">
+          <motion.div
+            initial={{ opacity: 0, x: -100 }}
+            animate={{ opacity: 1, x: 0 }}
+            transition={{ duration: 0.4, delay: 0, ease: easeInOut }}
+            exit={{
+              opacity: 0,
+              // scale: 0.9,
+              x: -100,
+
+              transition: {
+                duration: 0.4,
+              },
+            }}
+            className="max-w-[560px] md:w-1/2">
+            <Image
+              src={phone2}
+              alt=""
+              className="img-shadow"
+            />
+          </motion.div>
+        </AnimatePresence>
+
         <div className="flex flex-col md:w-1/2 lg:max-w-[500px]">
-          <div className="flex flex-col items-center justify-center text-center space-y-5 md:text-start">
+          <motion.div
+            variants={fadeUp(0.2)}
+            initial="hidden"
+            whileInView={'show'}
+            className="flex flex-col items-center justify-center text-center space-y-5 md:text-start">
             <h1 className="text-lg md:text-2xl lg:text-5xl font-semibold lg:leading-normal text-shadow">
               More Businesses are Gaining Tractions
             </h1>
@@ -40,7 +64,7 @@ const DownloadApp = () => {
                 />
               </Link>
             </div>
-          </div>
+          </motion.div>
         </div>
       </div>
     </section>

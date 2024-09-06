@@ -1,8 +1,11 @@
+'use client';
 import React from 'react';
 import Image from 'next/image';
 import { img1, img2, img3, star } from '@/assets/images/Reviews';
 import Marquee from 'react-fast-marquee';
 import { FaStar } from 'react-icons/fa6';
+import { fadeUp } from '@/utils/animation';
+import { motion } from 'framer-motion';
 
 const Reviews = () => {
   const reviews = Array(20).fill(null);
@@ -39,7 +42,11 @@ const Reviews = () => {
     );
   };
   return (
-    <div className=" container lex flex-col gap-10 justify-center items-center md:py-[30px] lg:space-y-5 text-gray-dark">
+    <motion.div
+      variants={fadeUp(0.2)}
+      initial="hidden"
+      whileInView={'show'}
+      className=" container lex flex-col gap-10 justify-center items-center md:py-[30px] lg:space-y-5 text-gray-dark">
       <h1 className="text-lg md:text-2xl lg:text-5xl font-semibold text-center text-shadow">
         Reviews
       </h1>
@@ -84,7 +91,7 @@ const Reviews = () => {
           </Marquee>
         </div>
       </div>
-    </div>
+    </motion.div>
   );
 };
 

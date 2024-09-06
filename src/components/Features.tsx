@@ -1,6 +1,9 @@
+'use client';
 import React from 'react';
 import Image from 'next/image';
 import { write, rate, review } from '@/assets/icons';
+import { motion } from 'framer-motion';
+import { fadeUp } from '@/utils/animation';
 
 const Features = () => {
   // Define a type for the props
@@ -16,13 +19,13 @@ const Features = () => {
     description,
   }) => {
     return (
-      <div className="shadow-lg p-5 flex flex-col items-center  gap-3 max-w-[250px] md:max-w-[373px] hover:bg-second-col rounded-lg hover:text-[#fff] ">
+      <div className="shadow-lg p-5 flex flex-col items-center lg:max-p-9 lg:space-y-5  gap-3 max-w-[250px] md:max-w-[373px] md:min-h-[279px] hover:bg-second-col rounded-lg hover:text-[#fff] ">
         <Image
           src={imageSrc}
           alt={title}
-          width={15}
+          className="md:w-[24px]"
         />
-        <h1 className="text-[#8F2396] hover:text-[#fff] font-bold text-[14px] ">
+        <h1 className="text-[#8F2396] hover:text-[#fff] font-bold text-[14px] lg:text-[24px] ">
           {title}
         </h1>
 
@@ -35,7 +38,11 @@ const Features = () => {
   return (
     <section className=" container md:my-[100px] text-gray-dark lg:mt-[400px]">
       <div className="flex flex-col justify-center items-center space-y-3 lg:gap-[40px]">
-        <div className="flex w-full items-center justify-center flex-col max-w-[679px] md:max-w-[679px] space-y-2">
+        <motion.div
+          variants={fadeUp(0.2)}
+          initial="hidden"
+          whileInView={'show'}
+          className="flex w-full items-center justify-center flex-col max-w-[679px] md:max-w-[679px] space-y-2">
           <h3 className="text-lg md:text-2xl lg:text-5xl font-semibold text-shadow">
             Features that you will love
           </h3>
@@ -43,23 +50,38 @@ const Features = () => {
             The most important benefit of a business plan is that it can help
             you to get more investors.
           </p>
-        </div>
+        </motion.div>
         <div className="grid grid-cols-1 md:grid-cols-3 md:grid- gap-5 md:flex-row lg:py-[50px] ">
-          <CustomCard
-            imageSrc={write}
-            title="Product Score"
-            description="The product score reveals the authenticity of a vendor or business. This helps customers make right decisions."
-          />
-          <CustomCard
-            imageSrc={rate}
-            title="Rating"
-            description="You can get your customers to give a review for you based on their experience with your business. "
-          />
-          <CustomCard
-            imageSrc={write}
-            title="Write Reviews"
-            description="As a customer, you can write review and give rating to businesses based on the experience you have while transacting with the vendors."
-          />
+          <motion.div
+            variants={fadeUp(0.5)}
+            initial="hidden"
+            whileInView={'show'}>
+            <CustomCard
+              imageSrc={write}
+              title="Product Score"
+              description="The product score reveals the authenticity of a vendor or business. This helps customers make right decisions."
+            />
+          </motion.div>
+          <motion.div
+            variants={fadeUp(0.8)}
+            initial="hidden"
+            whileInView={'show'}>
+            <CustomCard
+              imageSrc={rate}
+              title="Rating"
+              description="You can get your customers to give a review for you based on their experience with your business. "
+            />
+          </motion.div>
+          <motion.div
+            variants={fadeUp(1.1)}
+            initial="hidden"
+            whileInView={'show'}>
+            <CustomCard
+              imageSrc={write}
+              title="Write Reviews"
+              description="As a customer, you can write review and give rating to businesses based on the experience you have while transacting with the vendors."
+            />
+          </motion.div>
         </div>
       </div>
     </section>

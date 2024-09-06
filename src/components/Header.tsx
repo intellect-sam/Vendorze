@@ -45,8 +45,8 @@ const Header = () => {
       className={`w-screen flex items-center justify-center ${
         header ? 'bg-[#FAFAFA] fixed z-40 shadow-md ease-in-out' : 'bg-none'
       }`}>
-      <header className="container ease-in duration-300 top-0 left-0 z-10 ">
-        <nav className="mx-auto py-4 flex justify-between items-center p-4">
+      <header className=" container ease-in duration-300 top-0 left-0 z-10 ">
+        <nav className=" mx-auto py-4 flex justify-between items-center p-4">
           <div className="max-w-[110px]">
             <Link href="/">
               <Image
