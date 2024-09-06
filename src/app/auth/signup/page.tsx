@@ -110,15 +110,15 @@ const SignUp = () => {
         isOpen={showModal}
         onClose={closeModal}
       />
-      <div className="flex flex-col gap-5 justify-between items-center overflow-hidden text-[#5B5B5B] md:w-1/2 lg:flex-row lg:w-full">
-        <div className="hidden lg:block lg:w-1/2">
+      <div className="max-w-[1600px] flex flex-col lg:flex-row justify-between items-center overflow-hidden">
+        <div className="hidden lg:block">
           <Image
             src={Signup}
             alt=""
-            className="lg:w-[1500px]"
+            className="lg:w-[860px]"
           />
         </div>
-        <div className="w-full  h-screen flex flex-col  justify-center items-center gap-2  text-[14px] lg:w-1/3">
+        <div className="w-full px-[35px] flex flex-col h-screen   justify-center gap-2 md:w-[450px]">
           <div className=" flex item-start w-full">
             <Link href="/">
               <Image

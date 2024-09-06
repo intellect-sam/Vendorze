@@ -53,15 +53,15 @@ const Login = () => {
   };
 
   return (
-    <div className="max-w-[1600px] flex flex-col laptop:flex-row justify-between items-center overflow-hidden">
-      <div className="hidden laptop:block">
+    <div className="max-w-[1600px] flex flex-col lg:flex-row justify-between items-center overflow-hidden">
+      <div className="hidden lg:block">
         <Image
           src={Signup}
           alt=""
-          className="laptop:w-[860px]"
+          className="lg:w-[860px]"
         />
       </div>
-      <div className="w-full px-[35px] flex flex-col h-screen laptop:w-1/3  justify-center gap-2 tablet:w-[400px]">
+      <div className="w-full px-[35px] flex flex-col h-screen   justify-center gap-2 md:w-[450px]">
         <div className="py-3 flex w-full  ">
           <Link href="/">
             <Image
@@ -73,20 +73,20 @@ const Login = () => {
         </div>
 
         <h1 className="font-bold text-lg">Login</h1>
-        <p className="text-[6px] laptop:text-[15px]">
+        <p className="text-[6px] lg:text-[15px]">
           Enter your credentials to login in to your account
         </p>
 
         <form
           onSubmit={handleSubmit(onSubmit)}
-          className="flex flex-col laptop:pr-[100px]">
+          className="flex flex-col space-y-2 py-5 text-[12px] item-start w-full">
           <div>
             <label className="input-label">Email</label>
             <Input
               {...register('email')}
               type="email"
               placeholder="Enter Username"
-              className="custom-input"
+              className="custom-input placeholder:text-[10px]"
             />
             {errors.email && (
               <div className="text-error-col font-lighter text-[10px] ">
@@ -101,7 +101,7 @@ const Login = () => {
                 {...register('password')}
                 type={show ? 'text' : 'password'}
                 placeholder="Enter Password"
-                className="custom-input"
+                className="custom-input placeholder:text-[10px]"
               />
               <ShowPasswordText
                 onToggle={togglePassword}
@@ -119,11 +119,11 @@ const Login = () => {
               <Image
                 src={forgot}
                 alt=""
-                className="w-[10px] laptop:w-[15px]"
+                className="w-[10px] lg:w-[15px]"
               />
             </div>
 
-            <p className="text-[5px] laptop:text-[12px]">
+            <p className="text-[5px] lg:text-[12px]">
               <Link href="#"> Forgot Password?</Link>
             </p>
           </div>

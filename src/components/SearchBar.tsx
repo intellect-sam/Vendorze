@@ -47,7 +47,7 @@ const SearchBar = () => {
               </div>
               <input
                 type="text"
-                className="block rounded-md  py-[10px]  pr-10 laptop, tablet:w-[458px] text-[13px]   bg-gry  placeholder:text-gray-400"
+                className="block rounded-md  py-[10px] laptop, tablet:w-[458px] text-[13px]   bg-gry  placeholder:text-gray-400 px-5"
                 placeholder="Search"
               />
             </div>

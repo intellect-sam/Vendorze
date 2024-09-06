@@ -47,12 +47,12 @@ const Header = () => {
       }`}>
       <header className="container ease-in duration-300 top-0 left-0 z-10 ">
         <nav className="mx-auto py-4 flex justify-between items-center p-4">
-          <div className="min-w-[110px]">
+          <div className="max-w-[110px]">
             <Link href="/">
               <Image
                 src={Logo}
                 alt="logo"
-                className="w-2/3  md:full lg:full img-shadow"
+                className="w-1/2 md:w-full"
               />
             </Link>
           </div>
