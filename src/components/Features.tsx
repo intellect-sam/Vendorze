@@ -19,13 +19,13 @@ const Features = () => {
     description,
   }) => {
     return (
-      <div className="shadow-lg p-5 flex flex-col items-center lg:max-p-9 lg:space-y-5  gap-3 max-w-[250px] md:max-w-[373px] md:min-h-[279px] hover:bg-second-col rounded-lg hover:text-[#fff] ">
+      <div className="shadow-xl p-5 flex flex-col items-center lg:max-p-9 lg:space-y-5  gap-3 max-w-[250px] md:max-w-[373px] md:min-h-[279px] hover:bg-second-col rounded-lg hover:text-[#fff] ">
         <Image
           src={imageSrc}
           alt={title}
           className="md:w-[24px]"
         />
-        <h1 className="text-[#8F2396] hover:text-[#fff] font-bold text-[14px] lg:text-[24px] ">
+        <h1 className="text-[#8F2396] font-bold text-[14px] lg:text-[24px] ">
           {title}
         </h1>
 
@@ -36,7 +36,7 @@ const Features = () => {
     );
   };
   return (
-    <section className=" container md:my-[100px] text-gray-dark lg:mt-[400px]">
+    <section className=" container md:my-[100px] text-gray-dark lg:mt-[400px] max-h-[400px]">
       <div className="flex flex-col justify-center items-center space-y-3 lg:gap-[40px]">
         <motion.div
           variants={fadeUp(0.2)}

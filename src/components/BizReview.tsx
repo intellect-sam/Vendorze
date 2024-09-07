@@ -7,9 +7,9 @@ import { fadeUp } from '@/utils/animation';
 
 const BizReview = () => {
   return (
-    <section className="max-h-[100%]">
+    <section className="max-h-[600px]">
       <div className="bg-[#FAFAFA] lg:min-h-[696px] ">
-        <div className="lg, md:absolute left-0 z-0 md:max-w-[300px] lg:min-w-[544px]">
+        <div className="lg:absolute md:absolute left-0 z-0 md:max-w-[300px] lg:min-w-[544px]">
           <AnimatePresence mode="wait">
             <motion.div
               initial={{ opacity: 0, x: -100 }}
@@ -50,29 +50,29 @@ const BizReview = () => {
                 </p>
               </motion.div>
             </div>
-            <div className="lg:absolute md:absolute right-0  md:min-w-[150px] lg:min-w-[353px]">
-              <AnimatePresence mode="wait">
-                <motion.div
-                  initial={{ opacity: 0, x: 100 }}
-                  animate={{ opacity: 1, x: 0 }}
-                  transition={{ duration: 0.4, delay: 0, ease: easeInOut }}
-                  exit={{
-                    opacity: 0,
-                    // scale: 0.9,
-                    x: -100,
+          </div>
+          <div className="lg:absolute md:absolute right-0  md:max-w-[150px] lg:min-w-[353px]">
+            <AnimatePresence mode="wait">
+              <motion.div
+                initial={{ opacity: 0, x: 100 }}
+                animate={{ opacity: 1, x: 0 }}
+                transition={{ duration: 0.4, delay: 0, ease: easeInOut }}
+                exit={{
+                  opacity: 0,
+                  // scale: 0.9,
+                  x: -100,
 
-                    transition: {
-                      duration: 0.4,
-                    },
-                  }}>
-                  <Image
-                    src={review}
-                    alt=""
-                    className="w-full "
-                  />
-                </motion.div>
-              </AnimatePresence>
-            </div>
+                  transition: {
+                    duration: 0.4,
+                  },
+                }}>
+                <Image
+                  src={review}
+                  alt=""
+                  className="w-full "
+                />
+              </motion.div>
+            </AnimatePresence>
           </div>
         </div>
       </div>
