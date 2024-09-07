@@ -1,4 +1,4 @@
-import logo from './logo.svg';
+import logo from './Logo.svg';
 import circle from './circle.svg';
 import phone from './phone.png';
 import review from './review.png';
