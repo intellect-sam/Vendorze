@@ -20,7 +20,6 @@ const DownloadApp = () => {
               opacity: 0,
               // scale: 0.9,
               x: -100,
-
               transition: {
                 duration: 0.4,
               },
