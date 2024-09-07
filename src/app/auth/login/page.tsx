@@ -119,7 +119,7 @@ const Login = () => {
               <Image
                 src={forgot}
                 alt=""
-                className="w-[10px] lg:w-[15px]"
+                className="w-[15px]"
               />
             </div>
 
