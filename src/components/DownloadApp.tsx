@@ -9,7 +9,7 @@ import React from 'react';
 
 const DownloadApp = () => {
   return (
-    <section className="flex bg-[#FAFAFA] w-screen">
+    <section className="flex bg-[#FAFAFA] w-screen my-10">
       <div className=" container flex-col-reverse flex text-gray-dark my-10 items-center justify-center w-full md:flex-row">
         <AnimatePresence mode="wait">
           <motion.div
