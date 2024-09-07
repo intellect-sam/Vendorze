@@ -9,7 +9,7 @@ const Footer = () => {
     <div className="bg-second-col text-primary w-screen">
       <div className="container flex flex-col lg:flex-row lg:justify-between gap-5 rounded-t-[25px] p-5 space-y-5 md:justify-center md:items-center md:py-[80px]">
         <div className="flex flex-col  gap-4 md:items-center">
-          <div className="w-2/6 md:w-1/5 lg:w-1/6">
+          <div className="w-1/4 md:w-1/5 lg:w-1/6">
             <Image
               src={logoWhite}
               alt="footer-logo"
@@ -18,9 +18,9 @@ const Footer = () => {
           </div>
           <div>
             <div className="flex gap-3 text-primary text-lg ">
-              <FaFacebook className="text-lg md:text-2xl" />
-              <FaSquareXTwitter className="text-lg md:text-2xl" />
-              <FaInstagram className="text-lg md:text-2xl" />
+              <FaFacebook className="text-[14px] md:text-2xl" />
+              <FaSquareXTwitter className="text-[14px] md:text-2xl" />
+              <FaInstagram className="text-[14px] md:text-2xl" />
             </div>
           </div>
         </div>
