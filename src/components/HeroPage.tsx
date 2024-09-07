@@ -43,7 +43,7 @@ const HeroPage = () => {
         />
       </div>
 
-      <div className="w-full p-4  flex flex-col space-y-5  text-gray-dark  md:flex-row py-[80px] lg:my-[100px] ">
+      <div className="container w-full p-4  flex flex-col space-y-5  text-gray-dark  md:flex-row py-[80px] lg:my-[100px] ">
         <motion.div
           variants={SlideRight(0.4)}
           initial="hidden"
