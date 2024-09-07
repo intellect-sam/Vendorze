@@ -73,7 +73,7 @@ const Login = () => {
         </div>
 
         <h1 className="font-bold text-lg">Login</h1>
-        <p className="text-[6px] lg:text-[15px]">
+        <p className="text-[14px] lg:text-[15px]">
           Enter your credentials to login in to your account
         </p>
 
@@ -123,7 +123,7 @@ const Login = () => {
               />
             </div>
 
-            <p className="text-[5px] lg:text-[12px]">
+            <p className="text-[15px]">
               <Link href="#"> Forgot Password?</Link>
             </p>
           </div>
