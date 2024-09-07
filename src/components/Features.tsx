@@ -36,7 +36,7 @@ const Features = () => {
     );
   };
   return (
-    <section className=" container md:my-[100px] text-gray-dark lg:mt-[400px] max-h-[400px]">
+    <section className=" container md:my-[100px] text-gray-dark lg:mt-[400px] min-h-[400px]">
       <div className="flex flex-col justify-center items-center space-y-3 lg:gap-[40px]">
         <motion.div
           variants={fadeUp(0.2)}

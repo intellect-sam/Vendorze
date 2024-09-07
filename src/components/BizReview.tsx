@@ -7,7 +7,7 @@ import { fadeUp } from '@/utils/animation';
 
 const BizReview = () => {
   return (
-    <section className="max-h-[600px]">
+    <section className="min-h-[600px]">
       <div className="bg-[#FAFAFA] lg:min-h-[696px] ">
         <div className="lg:absolute md:absolute left-0 z-0 md:max-w-[300px] lg:min-w-[544px]">
           <AnimatePresence mode="wait">
@@ -43,7 +43,7 @@ const BizReview = () => {
                 <h1 className="text-center text-lg lg:text-5xl font-semibold md:text-2xl md:text-start lg:leading-normal text-shadow">
                   Write Reviews For Business.
                 </h1>
-                <p className="text-text-col text-sm text-justify lg:text-2xl">
+                <p className="text-text-col text-center text-sm md:text-justify lg:text-2xl ">
                   Write reviews for businesses you made contact with to improve
                   their trust score and their credibility. Your reviews also
                   help other users to find trustworthy businesses easily.
@@ -51,7 +51,7 @@ const BizReview = () => {
               </motion.div>
             </div>
           </div>
-          <div className="lg:absolute md:absolute right-0  md:max-w-[150px] lg:min-w-[353px]">
+          <div className="lg:absolute md:absolute right-0   md:min-w-[353px]">
             <AnimatePresence mode="wait">
               <motion.div
                 initial={{ opacity: 0, x: 100 }}
