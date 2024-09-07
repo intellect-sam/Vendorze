@@ -19,7 +19,7 @@ const Features = () => {
     description,
   }) => {
     return (
-      <div className="shadow-xl p-5 flex flex-col items-center lg:max-p-9 lg:space-y-5  gap-3 max-w-[250px] md:max-w-[373px] md:min-h-[279px] hover:bg-second-col rounded-lg hover:text-[#fff] ">
+      <div className="shadow-xl p-5 flex flex-col items-center lg:max-p-9 lg:space-y-5  gap-3 max-w-[250px] md:max-w-[373px] md:min-h-[279px] hover:shadow-md  rounded-lg hover:shadow-second-col ">
         <Image
           src={imageSrc}
           alt={title}
