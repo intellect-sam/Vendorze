@@ -1,30 +1,30 @@
-'use client';
+"use client";
 
-import { useForm, SubmitHandler } from 'react-hook-form';
-import { logo, Signup } from '@/assets/images';
-import Image from 'next/image';
-import { Input, InputGroup, Select, Spinner } from '@chakra-ui/react';
-import Link from 'next/link';
-import { unknown, z, ZodType } from 'zod';
-import { zodResolver } from '@hookform/resolvers/zod';
-import axios, { AxiosError } from 'axios';
-import { useEffect, useState } from 'react';
-import { _BASE_API_URL } from '@/constants';
-import Notification from '@/components/Notification';
-import { useRouter } from 'next/navigation';
-import SuccessModal from '@/components/SuccessModal';
-import { usePostRequest } from '@/core/hooks/usePostRequest';
-import ShowPasswordText from '@/core/hooks/ShowPasswordText';
-import { useVerifyResponse } from '@/contexts/VerifyContext';
+import { useForm, SubmitHandler } from "react-hook-form";
+import { logo, Signup } from "@/assets/images";
+import Image from "next/image";
+import { Input, InputGroup, Select, Spinner } from "@chakra-ui/react";
+import Link from "next/link";
+import { unknown, z, ZodType } from "zod";
+import { zodResolver } from "@hookform/resolvers/zod";
+import axios, { AxiosError } from "axios";
+import { useEffect, useState } from "react";
+import { _BASE_API_URL } from "@/constants";
+import Notification from "@/components/Notification";
+import { useRouter } from "next/navigation";
+import SuccessModal from "@/components/SuccessModal";
+import { usePostRequest } from "@/core/hooks/usePostRequest";
+import ShowPasswordText from "@/core/hooks/ShowPasswordText";
+import { useVerifyResponse } from "@/contexts/VerifyContext";
 
 const signUpSchema = z.object({
-  fullname: z.string().min(3, { message: 'Enter a full name' }),
-  emailAddress: z.string().email('Invalid email address'),
+  fullname: z.string().min(3, { message: "Enter a full name" }),
+  emailAddress: z.string().email("Invalid email address"),
   password: z
     .string()
-    .min(8, { message: 'Password must be at least 8 characters' }),
+    .min(8, { message: "Password must be at least 8 characters" }),
 
-  type: z.string().min(1, { message: 'Please select an option' }),
+  type: z.string().min(1, { message: "Please select an option" }),
 });
 
 type SignupInput = z.infer<typeof signUpSchema>;
@@ -60,7 +60,7 @@ const SignUp = () => {
         setVerifyResponse(response.data);
         setSuccessMessage(response.data.message);
       } else {
-        throw new Error('Unexpected response status');
+        throw new Error("Unexpected response status");
       }
       setErrorMessage(null);
       reset();
@@ -75,21 +75,21 @@ const SignUp = () => {
           if (errorData.isSuccessful === false && errorData.message) {
             setErrorMessage(errorData.message);
           } else {
-            setErrorMessage('An error occurred. Please try again.');
+            setErrorMessage("An error occurred. Please try again.");
           }
         } else if (error.request) {
-          setErrorMessage('No response received. Please try again later.');
+          setErrorMessage("No response received. Please try again later.");
         } else {
           setErrorMessage(error.message);
         }
-        console.error('Axios error:', error.message);
+        console.error("Axios error:", error.message);
       } else if (error instanceof Error) {
         setErrorMessage(error.message);
       } else {
         setErrorMessage(
-          'An unexpected error occurred. Please try again later.'
+          "An unexpected error occurred. Please try again later."
         );
-        console.error('Unknown error:', error);
+        console.error("Unknown error:", error);
       }
     }
   };
@@ -97,7 +97,7 @@ const SignUp = () => {
   const closeModal = () => {
     if (shouldRedirect) {
       const timer = setTimeout(() => {
-        router.push('/');
+        router.push("/");
       }, 1000);
 
       return () => clearTimeout(timer);
@@ -106,49 +106,32 @@ const SignUp = () => {
 
   return (
     <>
-      <SuccessModal
-        isOpen={showModal}
-        onClose={closeModal}
-      />
-      <div className="max-w-[1600px] flex flex-col lg:flex-row justify-between items-center overflow-hidden">
-        <div className="hidden lg:block">
+      <SuccessModal isOpen={showModal} onClose={closeModal} />
+      <div className="w-screen flex justify-center items-center overflow-hidden">
+        {/* <div className="hidden lg:block">
           <Image
             src={Signup}
             alt=""
             className="lg:w-[860px]"
           />
-        </div>
-        <div className="w-full px-[35px] flex flex-col h-screen   justify-center gap-2 md:w-[450px]">
-          <div className=" flex item-start w-full">
-            <Link href="/">
-              <Image
-                src={logo}
-                alt=""
-                className=""
-              />
-            </Link>
-          </div>
+        </div> */}
+        <div className="w-full px-[35px] flex flex-col  justify-center gap-2 md:w-[450px]">
           <div className="flex flex-col space-y-2 item-start w-full">
             <h1 className="font-bold text-lg">Sign Up</h1>
             <p className="text-[14px]">
-              Enter your credentials to sign up as a user.{' '}
+              Enter your credentials to sign up as a user.{" "}
             </p>
           </div>
 
           <form
             onSubmit={handleSubmit(onSubmit)}
-            className="flex flex-col space-y-5 py-5 text-[12px] item-start w-full">
+            className="flex flex-col space-y-5 py-5 text-[12px] item-start w-full"
+          >
             {errorMessage && (
-              <Notification
-                message={errorMessage}
-                type="error"
-              />
+              <Notification message={errorMessage} type="error" />
             )}
             {successMessage && (
-              <Notification
-                message={successMessage}
-                type="success"
-              />
+              <Notification message={successMessage} type="success" />
             )}
             <div>
               <label className="input-label">Full Name</label>
@@ -156,7 +139,7 @@ const SignUp = () => {
                 type="text"
                 placeholder="Enter Full Name"
                 className="custom-input placeholder:text-[10px]"
-                {...register('fullname')}
+                {...register("fullname")}
               />
               {errors.fullname && (
                 <div className="text-error-col font-lighter text-[10px] ">
@@ -170,7 +153,7 @@ const SignUp = () => {
                 type="email"
                 placeholder="Enter Email"
                 className="custom-input  placeholder:text-[10px]"
-                {...register('emailAddress')}
+                {...register("emailAddress")}
               />
               {errors.emailAddress && (
                 <div className="text-error-col font-lighter text-[10px] ">
@@ -182,8 +165,8 @@ const SignUp = () => {
               <label className="input-label">Password</label>
               <InputGroup>
                 <Input
-                  {...register('password')}
-                  type={show ? 'text' : 'password'}
+                  {...register("password")}
+                  type={show ? "text" : "password"}
                   placeholder="Enter Password"
                   className="custom-input placeholder:text-[10px]"
                 />
@@ -204,8 +187,9 @@ const SignUp = () => {
 
               <Select
                 placeholder="Choose"
-                {...register('type')}
-                className="bg-primary text-[10px] font-light placeholder:text-[10px]">
+                {...register("type")}
+                className="bg-primary text-[10px] font-light placeholder:text-[10px]"
+              >
                 <option>Vendor</option>
                 <option>Buyer</option>
               </Select>
@@ -219,8 +203,9 @@ const SignUp = () => {
             <button
               disabled={isSubmitting}
               type="submit"
-              className="bg-second-col p-3 text-[#fff] rounded-lg text-[14px] font-bold mt-5">
-              {isSubmitting ? <Spinner /> : 'Add to waiting list'}
+              className="bg-second-col p-3 text-[#fff] rounded-lg text-[14px] font-bold mt-5"
+            >
+              {isSubmitting ? <Spinner /> : "Add to waiting list"}
             </button>
           </form>
         </div>
