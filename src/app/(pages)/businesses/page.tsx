@@ -28,7 +28,7 @@ const BuzCard: React.FC<BuzCardProps> = ({
   return (
     <Link href="/businesses/profile">
       <div className="max-w-[387px] shadow-xl p-4 flex flex-col items-left gap-2 ">
-        <Image src={imgSrc} alt={name} width="100%" />
+        <Image src={imgSrc} alt={name} />
 
         <h1 className=" font-bold text-sm text-[#0E538C]">{name}</h1>
         <div className="text-gray-dark flex gap-5 text-[10px] ">
@@ -90,11 +90,11 @@ const Businesses = () => {
           ) : (
             <div className="grid grid-cols md:grid-cols-2 lg:grid-cols-3  gap-4 lg:py-10">
               {vendors.map((item, index) => (
-                <Link href={`/businesses/profile?profileId=${item.profileId}`}>
-                  <div
-                    key={index}
-                    className="max-w-[387px] max-h-[450px] shadow-xl p-2  flex flex-col items-left gap-2 w-full hover:shadow-second-col hover:shadow-sm rounded-lg"
-                  >
+                <Link
+                  key={index}
+                  href={`/businesses/profile?profileId=${item.profileId}`}
+                >
+                  <div className="max-w-[387px] max-h-[450px] shadow-xl p-2  flex flex-col items-left gap-2 w-full hover:shadow-second-col hover:shadow-sm rounded-lg">
                     <div className="w-full h-[300px] flex justify-center items-center">
                       <Image
                         src={item.businessImageLink || logo}

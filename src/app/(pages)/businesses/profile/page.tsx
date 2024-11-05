@@ -182,7 +182,7 @@ const Profile = () => {
                         <h1>FB handle</h1>
                       </div>
                     </Link>
-                    {/* // To do  */}
+
                     <Link href={`${whatsAppLink} ? `}>
                       <div className="flex gap-2 items-center">
                         <FaWhatsapp />
