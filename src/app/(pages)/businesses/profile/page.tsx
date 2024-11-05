@@ -5,8 +5,13 @@ import React, { useEffect, useState } from "react";
 import Image from "next/image";
 import { pic1 } from "@/assets/images";
 import bgg from "../../../../assets/images/bggg.png";
-import { FaStar, FaUser } from "react-icons/fa6";
-import { FaMapMarkerAlt } from "react-icons/fa";
+import { FaStar, FaUser, FaXTwitter } from "react-icons/fa6";
+import {
+  FaFacebook,
+  FaInstagram,
+  FaMapMarkerAlt,
+  FaWhatsapp,
+} from "react-icons/fa";
 import { MdEmail } from "react-icons/md";
 import { IoCall, IoChevronBack } from "react-icons/io5";
 import WriteReview from "@/components/WriteReview";
@@ -19,11 +24,13 @@ interface VendorDetails {
   fullname: string | null;
   businessName: string | null;
   averageRating: number;
-  trustScore: string; // Assuming this is a string representing a percentage
+  trustScore: string;
   address: string | null;
   businessEmail: string | null;
   phoneNumber: string | null;
   businessCategory: string | null;
+  whatsAppLink: string | null;
+  instagramHandle: string | null;
 }
 
 const Profile = () => {
@@ -62,6 +69,8 @@ const Profile = () => {
     businessEmail,
     phoneNumber,
     businessCategory,
+    whatsAppLink,
+    instagramHandle,
   } = vendorDetails || {};
   return (
     <>
@@ -164,9 +173,29 @@ const Profile = () => {
                 <div>
                   <div className="flex gap-2 items-center">
                     <FaUser />
-                    <p className="font-bold">Business Contact</p>
+                    <p className="font-bold">Social Media</p>
                   </div>
-                  <p className="font-normal text-sm">09132455678</p>
+                  <div className="flex flex-col text-xs gap-2 w-full text-center pl-5 py-3">
+                    <Link href={`facebook`}>
+                      <div className="flex gap-2 items-center">
+                        <FaFacebook />
+                        <h1>FB handle</h1>
+                      </div>
+                    </Link>
+                    {/* // To do  */}
+                    <Link href={`${whatsAppLink} ? `}>
+                      <div className="flex gap-2 items-center">
+                        <FaWhatsapp />
+                        <h1>X handle</h1>
+                      </div>
+                    </Link>
+                    <Link href={`instagram`}>
+                      <div className="flex gap-2 items-center">
+                        <FaInstagram />
+                        <h1>IG handle</h1>
+                      </div>
+                    </Link>
+                  </div>
                 </div>
               </div>
             </div>

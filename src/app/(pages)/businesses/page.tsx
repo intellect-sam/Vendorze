@@ -93,13 +93,13 @@ const Businesses = () => {
                 <Link href={`/businesses/profile?profileId=${item.profileId}`}>
                   <div
                     key={index}
-                    className="max-w-[387px] max-h-[450px] shadow-xl p-2 md:p-3 flex flex-col items-left gap-2 w-full"
+                    className="max-w-[387px] max-h-[450px] shadow-xl p-2  flex flex-col items-left gap-2 w-full hover:shadow-second-col hover:shadow-sm rounded-lg"
                   >
                     <div className="w-full h-[300px] flex justify-center items-center">
                       <Image
                         src={item.businessImageLink || logo}
                         alt={item.businessName || "none"}
-                        width={320}
+                        width={380}
                         height={1}
                         className="object-contain rounded-md"
                       />
