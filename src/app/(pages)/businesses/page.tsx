@@ -15,6 +15,7 @@ type BuzCardProps = {
   name: string;
   category: string;
   location: string;
+  trust: string;
   rate: string | JSX.Element;
 };
 
@@ -23,6 +24,7 @@ const BuzCard: React.FC<BuzCardProps> = ({
   name,
   category,
   location,
+  trust,
   rate,
 }) => {
   return (
@@ -35,13 +37,13 @@ const BuzCard: React.FC<BuzCardProps> = ({
           <div>
             <p>Category: </p>
             <p>Location: </p>
-            <p>Rate: </p>
+            <p>TrustScrore: </p>
           </div>
           <div>
             <p>{category} </p>
             <p>{location} </p>
 
-            <p className="flex gap-2 text-str">{rate}</p>
+            <p className="flex gap-2 text-str">{trust}</p>
           </div>
         </div>
       </div>
@@ -88,13 +90,13 @@ const Businesses = () => {
           {loading ? (
             <Spinner />
           ) : (
-            <div className="grid grid-cols md:grid-cols-2 lg:grid-cols-3  gap-4 lg:py-10">
+            <div className="grid grid-cols md:grid-cols-2 lg:grid-cols-3  gap-4 lg:py-2">
               {vendors.map((item, index) => (
                 <Link
                   key={index}
                   href={`/businesses/profile?profileId=${item.profileId}`}
                 >
-                  <div className="max-w-[387px] max-h-[450px] shadow-xl p-2  flex flex-col items-left gap-2 w-full hover:shadow-second-col hover:shadow-sm rounded-lg">
+                  <div className="max-w-[387px] shadow-xl p-2  flex flex-col items-left gap-1 w-full hover:shadow-second-col hover:shadow-sm rounded-lg">
                     <div className="w-full h-[300px] flex justify-center items-center">
                       <Image
                         src={item.businessImageLink || logo}
@@ -109,19 +111,20 @@ const Businesses = () => {
                       {item.businessName || " No Business Name"}
                     </h1>
                     <div className="text-gray-dark flex gap-3 text-[10px] md:text-[12px] ">
-                      <div className="flex flex-col md:gap-[3px]">
-                        <p>
-                          Category: {item.businessCategory || "Not specified"}
-                        </p>
-                        <p>
-                          Location:{" "}
+                      <div className="flex flex-col md:gap-[2px]">
+                        <div className="flex gap-2 items-center">
+                          <p className="font-bold">Category: </p>
+                          {item.businessCategory || "Not specified"}
+                        </div>
+                        <div className="flex gap-2 items-center">
+                          <p className="font-bold">Location: </p>
                           {item.city && item.country
                             ? `${item.city}, ${item.country}`
                             : "Not specified"}
-                        </p>
-                        <div className="flex gap-5 items-center">
-                          <p>Rate: </p>
-                          {renderStars()}
+                        </div>
+                        <div className="flex gap-2 items-center">
+                          <p className="font-bold">Trust Score: </p>
+                          {item.trustScore || "No Trust Score"}
                         </div>
                       </div>
                     </div>

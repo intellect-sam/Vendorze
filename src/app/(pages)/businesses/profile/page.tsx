@@ -5,19 +5,14 @@ import React, { useEffect, useState } from "react";
 import Image from "next/image";
 import { pic1 } from "@/assets/images";
 import bgg from "../../../../assets/images/bggg.png";
-import { FaStar, FaUser, FaXTwitter } from "react-icons/fa6";
-import {
-  FaFacebook,
-  FaInstagram,
-  FaMapMarkerAlt,
-  FaWhatsapp,
-} from "react-icons/fa";
+import { FaStar, FaUser } from "react-icons/fa6";
+import { PiFacebookLogo } from "react-icons/pi";
+import { FaInstagram, FaMapMarkerAlt, FaWhatsapp } from "react-icons/fa";
 import { MdEmail } from "react-icons/md";
 import { IoCall, IoChevronBack } from "react-icons/io5";
 import WriteReview from "@/components/WriteReview";
 import Link from "next/link";
 import { useRouter, useSearchParams } from "next/navigation";
-import axios from "axios";
 import { FetchAllVendors } from "@/api/vendorsService";
 
 interface VendorDetails {
@@ -178,7 +173,7 @@ const Profile = () => {
                   <div className="flex flex-col text-xs gap-2 w-full text-center pl-5 py-3">
                     <Link href={`facebook`}>
                       <div className="flex gap-2 items-center">
-                        <FaFacebook />
+                        <PiFacebookLogo />
                         <h1>FB handle</h1>
                       </div>
                     </Link>
