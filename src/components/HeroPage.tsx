@@ -1,5 +1,5 @@
 'use client';
-import { circle, phone } from '@/assets/images';
+import { heroBg, phone } from '@/assets/images';
 import Image from 'next/image';
 import React from 'react';
 import { AnimatePresence, easeInOut, motion } from 'framer-motion';
@@ -33,34 +33,30 @@ const SlideRight = (delay: any) => {
 const HeroPage = () => {
   return (
     <>
-      <div
-        data-aos="fade-up"
-        className=" flex top-0 right-0 justify-end w-screen absolute -z-20 ">
-        <Image
-          src={circle}
-          alt=""
-          className="min-w-80 lg:min-w-[800px] md:max-w-[400px]"
-        />
-      </div>
 
-      <div className="container w-full  flex flex-col space-y-5  text-gray-dark  md:flex-row py-[80px] lg:my-[100px] ">
+    <div className='absolute'>
+      <Image src={heroBg} alt='' />
+    </div>
+
+      <div className="container w-full  flex flex-col space-y-5  text-gray-dark  md:flex-row py-[80px] lg:my-[100px] relative">
         <motion.div
           variants={SlideRight(0.4)}
           initial="hidden"
           animate="show"
           exit="exit"
           className=" flex flex-col md:items-start  space-y-3 md:w-1/2  ">
-          <h2 className="text-center  text-2xl font-bold leading-relaxed md:text-start md:text-3xl md:leading-normal lg:text-5xl lg:leading-[60px] text-shadow">
-            Show your Trust Score.
-            <br /> Write Reviews. <br />
-            Find Trustworthy Business.
-          </h2>
-          <p className="text-center text-sm  md:text-start lg:text-2xl lg:max-w-[500px] md:max-w-[250px] lg:font-extralight lg:leading-normal">
-            Never get scammed again. Ask for their trust worthy vendors. Check
-            their trust score before sliding into their DM
-          </p>
+              <div className='bg-[#FFF1EF] inline-block max-w-[188px] text-[16px] font-semibold'>
+                <h2>I Transform Businesses</h2>
+              </div>
+              
+            <div className='flex flex-col text-[#727272] text-sm gap-2 '>
+
+            <h1 className='text-[#5B5B5B] text-2xl font-bold'>I Build Trust. I Boost Sales.</h1>
+            <p>Vendorze is your AI-powered companion for credibility, growth, and safe online shopping</p>
+            <p>Whether you’re a vendor seeking trust or a buyer seeking assurance, Vendorze is your trusted partner in the online buying and selling.</p>
+            </div>
         </motion.div>
-        <div className="lg, md:w-1/2 ">
+        <div className="flex justify-center items-center">
           <AnimatePresence mode="wait">
             <motion.div
               initial={{ opacity: 0, x: 100 }}
@@ -74,11 +70,11 @@ const HeroPage = () => {
                 transition: {
                   duration: 0.4,
                 },
-              }}>
+              }} className='max-w-[435px]'>
               <Image
                 src={phone}
                 alt=""
-                className="w-full img-shadow md:w-full"
+                className="img-shadow md:w-full"
               />
             </motion.div>
           </AnimatePresence>

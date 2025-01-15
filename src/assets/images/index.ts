@@ -1,6 +1,5 @@
 import logo from './Logo.svg';
-import circle from './circle.svg';
-import phone from './phone.png';
+import phone from './phone.svg';
 import review from './review.png';
 import google from './google.svg';
 import iphone from './iphone.svg';
@@ -17,10 +16,12 @@ import b5 from './biz5.png';
 import b6 from './biz6.png';
 import pic1 from './pic1.svg';
 import bgg from './bggg.png';
+import heroBg from "./hero-background.png"
+
 
 export {
   logo,
-  circle,
+  heroBg,
   phone,
   review,
   google,
