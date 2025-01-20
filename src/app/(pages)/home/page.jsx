@@ -14,9 +14,9 @@ export default function Hero() {
       <HeroPage />
       <BizReview />
       <Features />
-      <DownloadApp />
-      <Reviews />
-      <Footer />
+      {/* <DownloadApp /> */}
+      {/* <Reviews /> */}
+      {/* <Footer /> */}
     </main>
   );
 }

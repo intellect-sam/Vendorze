@@ -17,6 +17,14 @@ import b6 from './biz6.png';
 import pic1 from './pic1.svg';
 import bgg from './bggg.png';
 import heroBg from "./hero-background.png"
+import phone3 from "./phone3.svg"
+import work from "./work.png"
+import ven1 from "./ven1.png"
+import ven2 from "./ven2.png"
+import ven3 from "./ven3.png"
+import buy1 from "./buy1.png"
+import buy2 from "./buy2.png"
+import buy3 from "./buy3.png"
 
 
 export {
@@ -39,4 +47,12 @@ export {
   b6,
   pic1,
   bgg,
+  phone3,
+  work,
+  ven1,
+  ven2,
+  ven3,
+  buy1,
+  buy2,
+  buy3
 };

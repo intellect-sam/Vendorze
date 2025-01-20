@@ -34,11 +34,11 @@ const HeroPage = () => {
   return (
     <>
 
-    <div className='absolute'>
-      <Image src={heroBg} alt='' />
+    <div className='relative'>
+      <Image src={heroBg} alt='' className='min-h-[672px]' />
     </div>
 
-      <div className="container w-full  flex flex-col space-y-5  text-gray-dark  md:flex-row py-[80px] lg:my-[100px] relative">
+      <div className="container w-full  flex flex-col gap-10  text-gray-dark  md:flex-row py-[100px] lg:my-[100px] absolute">
         <motion.div
           variants={SlideRight(0.4)}
           initial="hidden"
@@ -74,10 +74,14 @@ const HeroPage = () => {
               <Image
                 src={phone}
                 alt=""
-                className="img-shadow md:w-full"
+                className="md:w-full"
               />
             </motion.div>
           </AnimatePresence>
+        </div>
+        <div className='flex justify-between px-10'>
+          <button className='bg-[#B40FBF] text-[#FCFAFA] rounded-md p-3 text-sm font-bold shadow-md'>Get Trust Score</button>
+          <button className='border-[1px] border-[#339999] rounded-md text-[#339999] p-3 text-sm font-bold'>Rate a Vendor</button>
         </div>
       </div>
     </>
