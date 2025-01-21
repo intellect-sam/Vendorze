@@ -1,7 +1,7 @@
 "use client";
 
 import { SubmitHandler, useForm } from "react-hook-form";
-import { logo, Signup } from "@/assets/images";
+import { login, logo, signup,  } from "@/assets/images";
 import Image from "next/image";
 import {
   FormLabel,
@@ -53,12 +53,24 @@ const Login = () => {
   };
 
   return (
-    <div className="w-screen flex justify-center items-center overflow-hidden">
-      <div className="flex justify-center items-center max-w-[1440px]">
+    <div className="w-screen flex justify-center items-center overflow-hidden gap-10">
+        <div className="hidden lg:block">
+                <Image
+                  src={login}
+                  alt=""
+                  className="lg:w-[666px]"
+                />
+              </div>
+      <div className="flex justify-center items-center max-w-[479px]">
         <div className="w-full px-[35px] flex flex-col justify-center gap-2 md:w-full">
+        <div className="py-10">
+          <Link href="/">
+            <Image src={logo} alt="" className="" />
+          </Link>
+        </div>
           <h1 className="font-bold text-lg">Login</h1>
           <p className="text-[14px] lg:text-[15px]">
-            Enter your credentials to login in to your account
+          Welcome back! I’m excited to see you again.  Log in now and let’s make things happen!
           </p>
 
           <form

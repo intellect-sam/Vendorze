@@ -1,7 +1,7 @@
 "use client";
 
 import { useForm, SubmitHandler } from "react-hook-form";
-import { logo, Signup } from "@/assets/images";
+import { logo, signup } from "@/assets/images";
 import Image from "next/image";
 import { Input, InputGroup, Select, Spinner } from "@chakra-ui/react";
 import Link from "next/link";
@@ -107,19 +107,24 @@ const SignUp = () => {
   return (
     <>
       <SuccessModal isOpen={showModal} onClose={closeModal} />
-      <div className="w-screen flex justify-center items-center overflow-hidden">
-        {/* <div className="hidden lg:block">
+      <div className="w-screen flex justify-center items-center overflow-hidden gap-10">
+        <div className="hidden lg:block">
           <Image
-            src={Signup}
+            src={signup}
             alt=""
-            className="lg:w-[860px]"
+            className="lg:w-[666px]"
           />
-        </div> */}
+        </div>
         <div className="w-full px-[35px] flex flex-col  justify-center gap-2 md:w-[450px]">
+        <div className="py-10">
+          <Link href="/">
+            <Image src={logo} alt="" className="" />
+          </Link>
+        </div>
           <div className="flex flex-col space-y-2 item-start w-full">
-            <h1 className="font-bold text-lg">Sign Up</h1>
+            <h1 className="font-bold text-lg">Get Started with Vendorze</h1>
             <p className="text-[14px]">
-              Enter your credentials to sign up as a user.{" "}
+            Welcome to Vendorze! I’m excited to have you here. Let’s get you started:.{" "}
             </p>
           </div>
 
@@ -167,7 +172,27 @@ const SignUp = () => {
                 <Input
                   {...register("password")}
                   type={show ? "text" : "password"}
-                  placeholder="Enter Password"
+                  placeholder="***********"
+                  className="custom-input placeholder:text-[10px]"
+                />
+                <ShowPasswordText
+                  onToggle={togglePassword}
+                  showPassword={show}
+                />
+              </InputGroup>
+              {errors.password && (
+                <div className="text-error-col font-lighter text-[10px]">
+                  {errors.password.message}
+                </div>
+              )}
+            </div>
+            <div>
+              <label className="input-label">Confirm Password</label>
+              <InputGroup>
+                <Input
+                  {...register("password")}
+                  type={show ? "text" : "password"}
+                  placeholder="***********"
                   className="custom-input placeholder:text-[10px]"
                 />
                 <ShowPasswordText
@@ -205,7 +230,7 @@ const SignUp = () => {
               type="submit"
               className="bg-second-col p-3 text-[#fff] rounded-lg text-[14px] font-bold mt-5"
             >
-              {isSubmitting ? <Spinner /> : "Add to waiting list"}
+              {isSubmitting ? <Spinner /> : "Sign Up"}
             </button>
           </form>
         </div>

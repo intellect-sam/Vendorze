@@ -168,7 +168,7 @@ const BizReview = () => {
                 {
                   playstore.map((item) => (
              
-                      <button className='bg-[#007474] p-2 rounded-full'>
+                      <button key={item.id} className='bg-[#007474] p-2 rounded-full'>
                         <Image src={item.img} alt="store icon" />
                       </button>
         
@@ -232,8 +232,8 @@ const BizReview = () => {
         <h1 className='text-center text-2xl font-semibold text-[#5B5B5B] lg:text-6xl'>My Key Features</h1> 
         <div className='grid grid-cols-2 md:grid-cols-3 md:p-5 gap-10 p-3 lg:py-10'>
           {
-            features.map((item, index) => (
-              <div className='flex flex-col gap-3 lg:gap-8  mb-1 lg:px-10'>
+            features.map((item) => (
+              <div key={item.id} className='flex flex-col gap-3 lg:gap-8  mb-1 lg:px-10'>
                 <div>
                   <Image src={item.icon} alt='' />
                 </div>

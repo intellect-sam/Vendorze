@@ -5,8 +5,8 @@ import google from './google.svg';
 import iphone from './iphone.svg';
 import phone2 from './Phone2.png';
 import BizRev from './BizRev.png';
-import Signup from './signup.jpg';
-import Login from './login.png';
+import signup from './signup.svg';
+import login from './login.svg';
 import logoWhite from './logo-white.png';
 import b1 from './biz1.png';
 import b2 from './biz2.png';
@@ -36,8 +36,8 @@ export {
   iphone,
   phone2,
   BizRev,
-  Signup,
-  Login,
+  signup,
+  login,
   logoWhite,
   b1,
   b2,

@@ -35,7 +35,7 @@ const HeroPage = () => {
     <>
 
     <div className='relative w-screen'>
-      <Image src={heroBg} alt='' className='object-fill w-screen  max-h-[772px] h-[710px] md:h-full' />
+      <Image src={heroBg} alt='' className='object-fill w-full  max-h-[772px] h-[710px] md:h-full' />
     </div>
 
       <div className="container w-full  flex flex-col gap-10  text-gray-dark  md:flex-row py-[100px] md:py-[150px] lg:my-[100px] absolute">
@@ -51,7 +51,7 @@ const HeroPage = () => {
               
             <div className='flex flex-col text-[#727272] text-sm gap-2 lg:gap-6 '>
 
-            <h1 className='text-[#5B5B5B] text-2xl font-bold lg:text-[54px]'>I Build Trust. I Boost Sales.</h1>
+            <h1 className='text-[#5B5B5B] text-2xl font-bold lg:text-5xl'>I Build Trust. I Boost Sales.</h1>
             <p className='lg:text-2xl font-semibold'>Vendorze is your AI-powered companion for credibility, growth, and safe online shopping</p>
             <p className='lg:text-xl'>Whether you’re a vendor seeking trust or a buyer seeking assurance, Vendorze is your trusted partner in the online buying and selling.</p>
             </div>
