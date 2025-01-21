@@ -1,4 +1,4 @@
-import { logoWhite } from '@/assets/images';
+import { logo, logoWhite } from '@/assets/images';
 import Image from 'next/image';
 import React from 'react';
 import { FaFacebook } from 'react-icons/fa';
@@ -6,12 +6,14 @@ import { FaSquareXTwitter, FaInstagram, FaRegCopyright } from 'react-icons/fa6';
 
 const Footer = () => {
   return (
-    <div className="bg-second-col text-primary w-screen">
-      <div className="container flex flex-col lg:flex-row lg:justify-between gap-5 rounded-t-[25px] p-5 space-y-5 md:justify-center md:items-center md:py-[80px]">
+    <div className="bg-[#000000] text-primary w-full">
+      <div className="container py-10">
+   
+      <div className="space-y-5 md:space-y-0 md:flex md:justify-between w-full">
         <div className="flex flex-col  gap-4 md:items-center">
-          <div className="w-1/4 md:w-1/5 lg:w-1/6">
+          <div className="max-w-[128px]">
             <Image
-              src={logoWhite}
+              src={logo}
               alt="footer-logo"
               className="img-shadow"
             />
@@ -24,7 +26,6 @@ const Footer = () => {
             </div>
           </div>
         </div>
-        <div className="space-y-5 md:space-y-0 md:flex md:justify-between w-full">
           <div className="text-[10px] flex flex-col gap-2">
             <h3 className="font-bold md:text-lg text-[14px]  tracking-tighter">
               Address
@@ -52,7 +53,7 @@ const Footer = () => {
             <p>ONE Education</p>
             <p>Agriculture</p>
           </div>
-        </div>
+      </div>
       </div>
       <div className="w-full flex font-lighter text-[10px] justify-center gap-2 font-lighter py-10 items-center ">
         <FaRegCopyright />

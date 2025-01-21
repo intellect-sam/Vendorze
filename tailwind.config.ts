@@ -10,7 +10,7 @@ const config: Config = {
     colors: {
       primary: '#D2D2D2',
       'text-col': '#727272',
-      'second-col': '#73008F',
+      'second-col': '#B40FBF',
       orange: '#ff7849',
       'error-col': '#b91c1c',
       'success-col': '#16a34a',

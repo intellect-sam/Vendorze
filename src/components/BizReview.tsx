@@ -136,11 +136,11 @@ const BizReview = () => {
   return (
     <>
     
-    <section className=" container flex flex-col justify-center items-center text-center gap-10 mt-10">
+    <section className=" container flex flex-col justify-center items-center text-center gap-10 lg:gap-12 mt-10 max-w-[821px]">
       <div className='flex bg-[#E6F2F2] p-2 rounded-3xl gap-5 text-[#007474]'>
         {
           businessButton.map((item) => (
-            <button key={item.id}   className={`px-6 py-2 rounded-2xl ${
+            <button key={item.id}   className={`px-6 py-2 rounded-2xl md:text-base lg:px-10 ${
               activeButton === item.id ? "bg-[#007474] text-[#FFFFFF]" : "bg-transparent"
             }`}
             onClick={() => handleButtonClick(item.id)}
@@ -148,13 +148,13 @@ const BizReview = () => {
           ))
         }
       </div>
-      <div className='flex flex-col gap-4'>
-        <h1 className='text-2xl font-bold text-[#008080]'> 
+      <div className='flex flex-col gap-4 md:px-24 lg:px-0'>
+        <h1 className='text-2xl font-bold text-[#008080] md:text-3xl lg:text-4xl'> 
         {
               activeButton === 1 ? (<><span className='text-[#5B5B5B]'>Your</span> <span className='text-[#E86558]'>Business</span>  + <span className='text-[#B40FBF]'>Vendorze</span>  = Growth</>) : (`Shop Smart! Shop Safe!`)
         }
         </h1>
-        <p className='text-[#898989] text-base'> {
+        <p className='text-[#898989] text-base lg:text-xl'> {
          activeButton === 1 ? (` I help gain credibility with your unique Trust Score and badges. Manage customer reviews in one place. Attract new customers and drive more sales.`):(`Verify vendors instantly with Trust Scores and reviews. Avoid scams and enjoy stress-free shopping. Leave reviews and shape a safer online shopping world. `)
           } 
           </p>
@@ -163,7 +163,7 @@ const BizReview = () => {
           {
             activeButton === 1 ? (
               <>     
-              <p className='text-[#727272] text-sm'>Download our app</p>
+              <p className='text-[#727272] text-sm md:text-base lg:text-xl'>Download our app</p>
               <div className='flex gap-6'>
                 {
                   playstore.map((item) => (
@@ -190,32 +190,33 @@ const BizReview = () => {
         <Image src={phone3} alt='' />
       </div>
     </section>
-      <div>
-        <div className='relative'>
-          <div>
-          <Image src={work} alt='' className='h-[800px]' />
-          </div>
+      <div className='flex justify-center items-center relative'>
+
+              <div className='  w-screen'>
+                <Image src={work} alt='' className='object-fill w-screen  max-h-[872px] h-[710px] md:h-full ' />
+              </div>
+       
           <div className='container absolute flex flex-col items-center justify-center top-16 w-full gap-5'>
-            <div className='flex flex-col text-center'>
-              <h1 className='text-[#5B5B5B] text-2xl font-bold'>How I Work</h1>
-              <p className='text-[#727272] text-base'>Getting started on Vendorze is easy</p>
+            <div className='flex flex-col text-center md:gap-2'>
+              <h1 className='text-[#5B5B5B] text-2xl font-bold md:text-3xl lg:text-6xl'>How I Work</h1>
+              <p className='text-[#727272] text-base lg:text-xl'>Getting started on Vendorze is easy</p>
             </div>
-            <div>
-              <div className='grid grid-cols-2 gap-4'>
+            <div className='md:py-[120px]'>
+              <div className='grid grid-cols-2 md:grid-cols-3 gap-4 '>
                 {
                   (activeButton === 1 ? vendor : buyer).map((item, index) => (
                     <div
                     key={index}
-                    className={`bg-[#FFFFFF] p-5 rounded-lg shadow-md flex flex-col gap-4 ${
-                      index === 2 ? "md:col-span-2 md:mx-auto" : ""
+                    className={`bg-[#FFFFFF] p-5 rounded-lg shadow-xl flex flex-col max-w-[300px] gap-4 ${
+                      index === 1 ? "md:top-[-100px] md:relative" : ""
                     }`}
                   >
                       <div className='max-w-[339px]'>
                         <Image src={item.img} alt='' className='' />
                       </div>
-                      <div className='flex flex-col gap-2'>
-                        <h1 className='text-[#007474] font-semibold text-sm'>{item.title}</h1>
-                        <p className='text-[#5B5B5B] text-xs'>{item.details}</p>
+                      <div className='flex flex-col gap-2 lg:gap-4'>
+                        <h1 className='text-[#007474] font-semibold text-sm lg:text-2xl'>{item.title}</h1>
+                        <p className='text-[#5B5B5B] text-xs lg:text-lg'>{item.details}</p>
                       </div>
                     </div>
                   ))
@@ -223,22 +224,22 @@ const BizReview = () => {
               </div>
             </div>
           </div>
-        </div>
+
 
       </div>
       <div className='container'>
-      <div className='relative border-2 border-[#727272] w-full top-[-50px] bg-[#FFFFFF] rounded-3xl px-2  py-7 flex flex-col gap-5'>
-        <h1 className='text-center text-2xl font-semibold text-[#5B5B5B]'>My Key Features</h1> 
-        <div className='grid grid-cols-2 gap-10 p-3'>
+      <div className='relative border-2 border-[#727272] w-full top-[-50px] md:top-[-30px] lg:top-[-80px] bg-[#FFFFFF] rounded-3xl px-2  py-7 flex flex-col gap-5'>
+        <h1 className='text-center text-2xl font-semibold text-[#5B5B5B] lg:text-6xl'>My Key Features</h1> 
+        <div className='grid grid-cols-2 md:grid-cols-3 md:p-5 gap-10 p-3 lg:py-10'>
           {
             features.map((item, index) => (
-              <div className='flex flex-col gap-3  mb-1'>
+              <div className='flex flex-col gap-3 lg:gap-8  mb-1 lg:px-10'>
                 <div>
                   <Image src={item.icon} alt='' />
                 </div>
-                <h1 className='text-[#434343] text-base font-semibold'>{item.title}</h1>
+                <h1 className='text-[#434343] text-base font-semibold lg:text-2xl'>{item.title}</h1>
                 <hr />
-                <p className='text-sm text-[#727272]'>{item.details}</p>
+                <p className='text-sm text-[#727272] lg:text-xl'>{item.details}</p>
               </div>
             ))
           }

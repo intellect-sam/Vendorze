@@ -19,12 +19,12 @@ import bgg from './bggg.png';
 import heroBg from "./hero-background.png"
 import phone3 from "./phone3.svg"
 import work from "./work.png"
-import ven1 from "./ven1.png"
-import ven2 from "./ven2.png"
-import ven3 from "./ven3.png"
-import buy1 from "./buy1.png"
-import buy2 from "./buy2.png"
-import buy3 from "./buy3.png"
+import ven1 from "./ven1.svg"
+import ven2 from "./ven2.svg"
+import ven3 from "./ven3.svg"
+import buy1 from "./buy1.svg"
+import buy2 from "./buy2.svg"
+import buy3 from "./buy3.svg"
 
 
 export {

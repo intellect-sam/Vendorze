@@ -56,12 +56,15 @@ const Header = () => {
 
           {/* larger screen */}
           <div className="hidden md:block md:flex gap-20 md:text-[12px] items-center">
-            <ul className="items-center text-gray-dark gap-10 md:flex text-[16px]">
+            <ul className="items-center text-[#339999] gap-5 md:flex text-sm">
               <li>
                 <Link href="#">About</Link>
               </li>
               <li>
-                <Link href="/businesses">Businesses</Link>
+                <Link href="/businesses">Vendors</Link>
+              </li>
+              <li>
+                <Link href="/businesses">FAQ</Link>
               </li>
 
               <Link href="/auth/signup">
@@ -74,7 +77,7 @@ const Header = () => {
               </Link>
 
               <Link href="/auth/login">
-                <button className="border-[1px] border-second-col text-second-col  rounded-[7px] min-w-[112px] text-sm  p-3">
+                <button className="border-[1px] border-second-col text-[#339999]  rounded-[7px] min-w-[112px] text-sm  p-3">
                   Login
                 </button>
               </Link>

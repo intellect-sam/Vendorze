@@ -12,61 +12,39 @@ import {
 } from "@chakra-ui/react";
 
 const items = [
-  { value: "a", title: "First Item", text: "Some value 1..." },
-  { value: "b", title: "Second Item", text: "Some value 2..." },
-  { value: "c", title: "Third Item", text: "Some value 3..." },
+  { value: "a", title: "Can Vendorze guarantee I won’t be scammed?", text: "Some value 1..." },
+  { value: "b", title: "Why should i choose an AI credibility rating over my full intuition?", text: "Some value 2..." },
+  { value: "c", title: "How do I share my review link with customers?", text: "Some value 3..." },
+  { value: "d", title: "Can I leave a review for a seller not yet listed on Vendorze?", text: "Some value 3..." },
+  { value: "e", title: "Why didn’t I receive the validation token during signup?", text: "Some value 3..." },
+  { value: "f", title: "What is the Trust Score, and how is it calculated?", text: "Some value 3..." },
+  { value: "g", title: "Can I access Vendorze on both mobile and desktop?", text: "Some value 3..." },
+
 ];
 
 const Features = () => {
-  // Define a type for the CustomCard props
-  type CustomCardProps = {
-    imageSrc: string; // Assuming you're using static images
-    title: string;
-    description: string;
-  };
-
-  const CustomCard: React.FC<CustomCardProps> = ({
-    imageSrc,
-    title,
-    description,
-  }) => {
-    return (
-      <div className="shadow-xl p-5 flex flex-col items-center gap-3 max-w-[250px] md:max-w-[373px] md:min-h-[279px] hover:shadow-md rounded-lg hover:shadow-second-col">
-        <Image
-          src={imageSrc}
-          alt={title}
-          className="md:w-[24px]"
-        />
-        <h1 className="text-[#8F2396] font-bold text-[14px] lg:text-[24px]">
-          {title}
-        </h1>
-        <p className="flex w-full text-[10px] lg:text-[16px] text-center">
-          {description}
-        </p>
-      </div>
-    );
-  };
+  
 
   return (
-    <section className="bg-[#F8F9FA] w-full">
-      <div className="container">
-        <div className="flex flex-col gap-5">
-          <h1 className="text-[#434343] text-2xl font-bold">
+    <section className="bg-[#F8F9FA] w-full py-5 md:py-20">
+      <div className="container flex flex-col gap-5 md:flex-row md:justify-between">
+        <div className="flex flex-col gap-5 md:w-1/2 max-w-[504px] lg:gap-14">
+          <h1 className="text-[#434343] text-2xl font-bold md:text-3xl lg:text-5xl">
             Frequently Asked Questions
           </h1>
-          <p className="text-[#5B5B5B] text-sm">
+          <p className="text-[#5B5B5B] text-sm lg:text-base">
             I’m here to guide you every step of the way, ensuring that your
             business and transaction is built on trust, transparency, and a
             shared commitment to excellence
           </p>
-          <h3 className="text-[#8F2396]">View All FAQ</h3>
+          <h3 className="text-[#8F2396] text-sm font-bold">View All FAQ</h3>
         </div>
-        <Accordion allowToggle defaultIndex={[1]}>
+        <Accordion allowToggle defaultIndex={[1]} className='flex flex-col gap-4'>
           {items.map((item, index) => (
             <AccordionItem key={index}>
               <h2>
-                <AccordionButton>
-                  <Box flex="1" textAlign="left">
+                <AccordionButton className='bg-[#FEFFFF] rounded-md max-w-[504px] flex justify-between w-full lg:gap-10'>
+                  <Box flex="1" textAlign="left" className='py-3 text-[#898989] pr-7 text-xs lg:text-base lg:pr-14'>
                     {item.title}
                   </Box>
                   <AccordionIcon />

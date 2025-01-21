@@ -16,7 +16,7 @@ export default function Hero() {
       <Features />
       {/* <DownloadApp /> */}
       {/* <Reviews /> */}
-      {/* <Footer /> */}
+      <Footer />
     </main>
   );
 }
