@@ -25,9 +25,11 @@ import ven3 from "./ven3.svg"
 import buy1 from "./buy1.svg"
 import buy2 from "./buy2.svg"
 import buy3 from "./buy3.svg"
+import medal from "./medal.svg"
 
 
 export {
+  medal,
   logo,
   heroBg,
   phone,
