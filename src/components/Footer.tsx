@@ -6,10 +6,10 @@ import { FaSquareXTwitter, FaInstagram, FaRegCopyright } from 'react-icons/fa6';
 
 const Footer = () => {
   return (
-    <div className="bg-[#000000] text-primary w-full">
+    <div className="bg-[#000000] text-[#FDF5FB] w-full">
       <div className="container py-10">
    
-      <div className="space-y-5 md:space-y-0 md:flex md:justify-between w-full">
+      <div className="space-y-5 md:space-y-0 md:flex md:justify-between w-full ">
         <div className="flex flex-col  gap-4 md:items-center">
           <div className="max-w-[128px]">
             <Image
@@ -19,7 +19,7 @@ const Footer = () => {
             />
           </div>
           <div>
-            <div className="flex gap-3 text-primary text-lg ">
+            <div className="flex gap-3 text-[#FDF5FB] text-lg ">
               <FaFacebook className="text-[14px] md:text-2xl" />
               <FaSquareXTwitter className="text-[14px] md:text-2xl" />
               <FaInstagram className="text-[14px] md:text-2xl" />

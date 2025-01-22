@@ -228,7 +228,7 @@ const BizReview = () => {
 
       </div>
       <div className='container'>
-      <div className='relative border-2 border-[#727272] w-full top-[-50px] md:top-[-30px] lg:top-[-80px] bg-[#FFFFFF] rounded-3xl px-2  py-7 flex flex-col gap-5'>
+      <div className='relative border-2 border-[#727272] w-full top-[-20px] md:top-[-30px] lg:top-[-80px] bg-[#FFFFFF] rounded-3xl px-2  py-7 flex flex-col gap-5'>
         <h1 className='text-center text-2xl font-semibold text-[#5B5B5B] lg:text-6xl'>My Key Features</h1> 
         <div className='grid grid-cols-2 md:grid-cols-3 md:p-5 gap-10 p-3 lg:py-10'>
           {

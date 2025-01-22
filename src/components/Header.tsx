@@ -96,7 +96,8 @@ const Header = () => {
                 <DrawerCloseButton />
                 <nav className="min-h-screen flex flex-col p-5 justify-center gap-5">
                   <Link href="#">About</Link>
-                  <Link href="/businesses">Businesses</Link>
+                  <Link href="/businesses">Vendors</Link>
+                  <Link href="/businesses">FAQ</Link>
 
                   <Link href="/auth/signup">
                     <button

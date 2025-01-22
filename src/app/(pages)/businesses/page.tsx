@@ -127,24 +127,24 @@ const Businesses = () => {
 
 
         <div className="container">
-          <SearchBar />
+          {/* <SearchBar /> */}
           <div className="flex flex-col gap-4 lg:gap-8  my-5"> 
 
                 <div className="flex w-full justify-between text-[#5B5B5B] text-xs md:text-sm items-center">
-                  <h1 className="font-semibold text-xl">Top Ranking Vendors</h1>
+                  <h1 className="font-semibold text-sm lg:text-lg">Top Ranking Vendors</h1>
 
                   <p>See More</p>
 
                 </div>
 
-                <div className="overflow-x-auto bg-[#F3E7F3] p-5 py-10 rounded-xl no-scrollbar shadow-xl">
+                <div className="overflow-x-auto bg-[#F3E7F3] p-3 py-7 rounded-xl no-scrollbar shadow-xl">
                   <div className="flex gap-4 lg:gap-10">
                     {topRankingVendors.map((item) => (
                       <div
                         key={item.id}
-                        className="lg:min-w-[300px] min-w-[250px]   bg-[#FFFFFF] p-4 shadow-xl rounded-lg flex flex-col gap-4 lg:p-6"
+                        className="lg:min-w-[300px] min-w-[250px] bg-[#FFFFFF] p-4 shadow-xl rounded-lg flex flex-col gap-4 lg:p-6"
                       >
-                        <div className="flex justify-between items-center border-2 rounded-xl p-2 bg-[#F0CFF2]">
+                        <div className="flex justify-between items-center rounded-xl p-2 bg-[#F0CFF2]">
                           <div className="flex flex-col gap-3">
                             <div>
                               <Image src={logo} alt="logo" />
