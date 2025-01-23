@@ -12,8 +12,8 @@ import {
 } from "@chakra-ui/react";
 
 const items = [
-  { value: "a", title: "Can Vendorze guarantee I won’t be scammed?", text: "Some value 1..." },
-  { value: "b", title: "Why should i choose an AI credibility rating over my full intuition?", text: "Some value 2..." },
+  { value: "a", title: "Can Vendorze guarantee I won’t be scammed?", text: "No, Vendorze cannot guarantee you won’t be scammed, but it significantly reduces the risk by providing tools like Trust Scores®, real customer reviews, and seller verification to help you make safer shopping decisions." },
+  { value: "b", title: "Why should i choose an AI credibility rating over my full intuition?", text: "" },
   { value: "c", title: "How do I share my review link with customers?", text: "Some value 3..." },
   { value: "d", title: "Can I leave a review for a seller not yet listed on Vendorze?", text: "Some value 3..." },
   { value: "e", title: "Why didn’t I receive the validation token during signup?", text: "Some value 3..." },
@@ -43,8 +43,8 @@ const Features = () => {
           {items.map((item, index) => (
             <AccordionItem key={index}>
               <h2>
-                <AccordionButton className='bg-[#FEFFFF] rounded-md max-w-[504px] flex justify-between w-full lg:gap-10'>
-                  <Box flex="1" textAlign="left" className='py-3 text-[#898989] pr-7 text-xs lg:text-base lg:pr-14'>
+                 <AccordionButton className='bg-[#FEFFFF] rounded-md  flex justify-between w-full lg:gap-10  border-1 shadow-md'>
+                    <Box flex="1" textAlign="left" className='py-1 text-[#898989] pr-7 text-sm lg:text-base lg:pr-14  md:py-3'>
                     {item.title}
                   </Box>
                   <AccordionIcon />

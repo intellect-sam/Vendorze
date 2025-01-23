@@ -7,6 +7,7 @@ import { fadeUp } from '@/utils/animation';
 import { useState } from 'react';
 import { it } from 'node:test';
 import { apple, f1, f2, f3, f4, f5, google } from '@/assets/icons';
+import Download from './Download';
 
 interface businessHeader {
   id: number;
@@ -163,18 +164,7 @@ const BizReview = () => {
           {
             activeButton === 1 ? (
               <>     
-              <p className='text-[#727272] text-sm md:text-base lg:text-xl'>Download our app</p>
-              <div className='flex gap-6'>
-                {
-                  playstore.map((item) => (
-             
-                      <button key={item.id} className='bg-[#007474] p-2 rounded-full'>
-                        <Image src={item.img} alt="store icon" />
-                      </button>
-        
-                  ))
-                }
-              </div>
+              <Download />
               </>
             ):(
               <>

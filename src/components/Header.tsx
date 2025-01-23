@@ -64,7 +64,7 @@ const Header = () => {
                 <Link href="/businesses">Vendors</Link>
               </li>
               <li>
-                <Link href="/businesses">FAQ</Link>
+                <Link href="/faq">FAQ</Link>
               </li>
 
               <Link href="/auth/signup">
@@ -86,7 +86,7 @@ const Header = () => {
 
           <div onClick={handleSmallScreen} className="flex md:hidden">
             {
-              <button onClick={onOpen}>
+              <button onClick={onOpen} className="p-2 shadow-md">
                 <GiHamburgerMenu size="20px" className="text-second-col" />
               </button>
             }
@@ -97,7 +97,7 @@ const Header = () => {
                 <nav className="min-h-screen flex flex-col p-5 justify-center gap-5">
                   <Link href="#">About</Link>
                   <Link href="/businesses">Vendors</Link>
-                  <Link href="/businesses">FAQ</Link>
+                  <Link href="/faq">FAQ</Link>
 
                   <Link href="/auth/signup">
                     <button

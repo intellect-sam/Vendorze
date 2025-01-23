@@ -33,6 +33,9 @@ const config: Config = {
   		}
   	},
   	extend: {
+		backgroundImage: {
+			'emerald-to-gray': 'linear-gradient(to bottom right, #011616, #013736)',
+		},
   		borderRadius: {
   			lg: 'var(--radius)',
   			md: 'calc(var(--radius) - 2px)',

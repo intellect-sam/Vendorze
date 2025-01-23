@@ -26,9 +26,17 @@ import buy1 from "./buy1.svg"
 import buy2 from "./buy2.svg"
 import buy3 from "./buy3.svg"
 import medal from "./medal.svg"
+import faq from "./faq.svg"
+import faq2 from "@/assets/images/faq2.svg"
+import faq3 from "@/assets/images/faq3.png"
+import footer from "./footer.png"
 
 
 export {
+  footer,
+  faq3,
+  faq2,
+  faq,
   medal,
   logo,
   heroBg,
