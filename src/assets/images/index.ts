@@ -30,9 +30,16 @@ import faq from "./faq.svg"
 import faq2 from "@/assets/images/faq2.svg"
 import faq3 from "@/assets/images/faq3.png"
 import footer from "./footer.png"
+import about1 from "./aboutus1.svg"
+import about2 from "./aboutus2.svg"
+import aboutPhone from "./aboutPhone.svg"
+
 
 
 export {
+  aboutPhone,
+  about1,
+  about2,
   footer,
   faq3,
   faq2,

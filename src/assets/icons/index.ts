@@ -9,5 +9,8 @@ import f2 from '@/assets/icons/feat2.svg'
 import f3 from '@/assets/icons/feat3.svg'
 import f4 from '@/assets/icons/feat4.svg'
 import f5 from '@/assets/icons/feat5.svg'
+import aboutunder from "@/assets/icons/aboutunderline.svg"
+import vision from "@/assets/icons/aboutvision.svg"
+import mission from "@/assets/icons/aboutmission.svg"
 
-export { rate, review, write, forgot, apple, google, f1, f2, f3, f4, f5 };
+export {vision, mission, aboutunder, rate, review, write, forgot, apple, google, f1, f2, f3, f4, f5 };

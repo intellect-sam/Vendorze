@@ -55,10 +55,10 @@ const Header = () => {
           </div>
 
           {/* larger screen */}
-          <div className="hidden md:block md:flex gap-20 md:text-[12px] items-center">
-            <ul className="items-center text-[#339999] gap-5 md:flex text-sm">
+          <div className="hidden md:block md:text-[12px] items-center">
+            <ul className="items-center text-[#339999] gap-5 md:flex text-sm lg:gap-8">
               <li>
-                <Link href="#">About</Link>
+                <Link href="/about">About</Link>
               </li>
               <li>
                 <Link href="/businesses">Vendors</Link>
@@ -67,20 +67,22 @@ const Header = () => {
                 <Link href="/faq">FAQ</Link>
               </li>
 
+              <Link href="/auth/login">
+                <button className="border-[1px] border-[#339999] text-[#339999]  rounded-[7px] min-w-[112px] text-sm  p-3">
+                  Login
+                </button>
+              </Link>
+
               <Link href="/auth/signup">
                 <button
-                  className="bg-second-col text-primary  rounded-[7px] min-w-[112px] text-sm  p-3"
+                  className="bg-second-col text-[#FCFAFA]  rounded-[7px] min-w-[112px] text-sm  p-3"
                   onClick={() => console.log("Clicked!")}
                 >
                   Join
                 </button>
               </Link>
 
-              <Link href="/auth/login">
-                <button className="border-[1px] border-second-col text-[#339999]  rounded-[7px] min-w-[112px] text-sm  p-3">
-                  Login
-                </button>
-              </Link>
+            
             </ul>
           </div>
 
@@ -95,7 +97,7 @@ const Header = () => {
               <DrawerContent>
                 <DrawerCloseButton />
                 <nav className="min-h-screen flex flex-col p-5 justify-center gap-5">
-                  <Link href="#">About</Link>
+                  <Link href="/about">About</Link>
                   <Link href="/businesses">Vendors</Link>
                   <Link href="/faq">FAQ</Link>
 

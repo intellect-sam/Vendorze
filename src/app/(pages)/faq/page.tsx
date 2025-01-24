@@ -29,11 +29,11 @@ const Faq = () => {
   return (
     <section>
       <Header />
-      <div className='container flex flex-col gap-24 md:gap-0'>
+      <div className='container flex flex-col gap-24 md:gap-0 lg:mb-40'>
         <div className='flex flex-col gap-10 md:flex-row md:justify-between md:items-center md:gap-10 md:py-20 lg:py-[150px]'>
           <div className='md:w-1/2 md:flex md:flex-col md:gap-10 max-w-[443px] lg:gap-20'>
 
-            <h1 className='text-2xl text-[#5B5B5B] italic font-semibold md:text-4xl lg:text-6xl'>How do i help you ?</h1>
+            <h1 className='text-2xl text-[#5B5B5B] italic font-medium md:text-4xl lg:text-6xl'>How do i help you ?</h1>
             <Input placeholder='Enter keywords to find answers' style={{padding: "20px"}} className=' text-xs shadow-md hidden md:block' />
             <div className=' absolute container top-[420px] md:top-[350px] lg:top-[450px] right-[100px] -z-50'>
               <Image src={faq3} alt='' className='w-[1563px]' />
@@ -48,13 +48,13 @@ const Faq = () => {
           </div>
         </div>
         <div className='flex flex-col gap-8 lg:gap-16'>
-          <h1 className='text-2xl text-[#5B5B5B] italic font-semibold md:text-center md:text-4xl lg:text-6xl'>Frequently Asked Questions</h1>
+          <h1 className='text-2xl text-[#5B5B5B] italic font-medium md:text-center md:text-4xl lg:text-6xl'>Frequently Asked Questions</h1>
              <Accordion allowToggle defaultIndex={[1]} className='flex flex-col gap-4'>
                     {items.map((item, index) => (
                       <AccordionItem key={index}>
                         <h2>
                           <AccordionButton className='bg-[#FEFFFF] rounded-md  flex justify-between w-full lg:gap-10  border-1 shadow-md'>
-                            <Box flex="1" textAlign="left" className='py-1 text-[#898989] pr-7 text-sm lg:pr-14 md:text-lg lg:text-2xl md:py-3'>
+                            <Box flex="1" textAlign="left" className='py-1 text-[#898989] pr-7 text-sm lg:pr-14 md:text-lg md:py-3 font-medium'>
                               {item.title}
                             </Box>
                             <AccordionIcon />
@@ -66,18 +66,20 @@ const Faq = () => {
               </Accordion>
 
         </div>
-        <div className='flex flex-col justify-center items-center gap-10 bg-[#FAEBF8] py-10 rounded-lg md:flex-row md:my-10'>
-          <div className='max-w-[446px]'>
-            <Image src={faq2} alt="faq2" className='w-full' />
-          </div>
-          <div className='flex flex-col gap-4 justify-center items-center md:w-1/2 lg:gap-10'>
-         
-            <h1 className='text-xl text-center font-semibold md:text-3xl lg:text-5xl'>Can’t find what you’re looking for?</h1>
-            <button className='bg-[#B40FBF] p-1 font-semibold px-2 text-[#FCFAFA] rounded-md'>Contact us</button>
+      </div>
+        <div className=' bg-[#FAEBF8] md:my-10 w-full'>
+          <div className=' container flex flex-col justify-center items-center gap-10 py-10 rounded-lg md:flex-row md:py-10 '>
+            <div className='max-w-[446px]'>
+              <Image src={faq2} alt="faq2" className='w-full' />
+            </div>
+            <div className='flex flex-col gap-4 justify-center items-center md:w-1/2 lg:gap-10'>
+          
+              <h1 className='text-xl text-center font-semibold text-[#5B5B5B] md:text-3xl lg:text-5xl'>Can’t find what you’re looking for?</h1>
+              <button className='bg-[#B40FBF] p-1 font-semibold px-2 text-[#FCFAFA] rounded-md'>Contact us</button>
+            </div>
           </div>
         </div>
-      </div>
-      <div className='py-5  flex flex-col items-center justify-center lg:gap-20 text-[#727272] w-full gap-3 md:flex-row'>
+      <div className='py-5 lg:py-10  flex flex-col items-center justify-center lg:gap-20 text-[#727272] w-full gap-3 md:flex-row'>
       <h1 className='lg:text-4xl'>Want to experience more?</h1>
         <Download />
       </div>

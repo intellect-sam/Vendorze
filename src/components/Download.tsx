@@ -21,7 +21,7 @@ const playstore:store[] = [
 const Download = () => {
   return (
     <div className='flex flex-col items-center justify-center gap-3'>
-           <p className='text-[#727272] text-sm md:text-base lg:text-xl'>Download our app</p>
+           <p className='text-[#727272] text-sm md:text-base'>Download our app</p>
                       <div className='flex gap-6'>
                         {
                           playstore.map((item) => (

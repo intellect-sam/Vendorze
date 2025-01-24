@@ -39,12 +39,12 @@ const Features = () => {
           </p>
           <h3 className="text-[#8F2396] text-sm font-bold">View All FAQ</h3>
         </div>
-        <Accordion allowToggle defaultIndex={[1]} className='flex flex-col gap-4'>
+        <Accordion allowToggle defaultIndex={[1]} className='flex flex-col gap-2 max-w-[504px]'>
           {items.map((item, index) => (
             <AccordionItem key={index}>
               <h2>
                  <AccordionButton className='bg-[#FEFFFF] rounded-md  flex justify-between w-full lg:gap-10  border-1 shadow-md'>
-                    <Box flex="1" textAlign="left" className='py-1 text-[#898989] pr-7 text-sm lg:text-base lg:pr-14  md:py-3'>
+                    <Box flex="1" textAlign="left" className='py-1 text-[#898989] pr-7 text-sm lg:pr-14  md:py-3'>
                     {item.title}
                   </Box>
                   <AccordionIcon />

@@ -137,7 +137,7 @@ const Businesses = () => {
 
                 </div>
 
-                <div className="overflow-x-auto bg-[#F3E7F3] p-3 py-7 rounded-xl no-scrollbar shadow-xl">
+                <div className="overflow-x-auto bg-[#F3E7F3] p-3 py-7 rounded-xl no-scrollbar shadow-lg">
                   <div className="flex gap-4 lg:gap-10">
                     {topRankingVendors.map((item) => (
                       <div

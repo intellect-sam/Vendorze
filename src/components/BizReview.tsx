@@ -150,12 +150,12 @@ const BizReview = () => {
         }
       </div>
       <div className='flex flex-col gap-4 md:px-24 lg:px-0'>
-        <h1 className='text-2xl font-bold text-[#008080] md:text-3xl lg:text-4xl'> 
+        <h1 className='text-2xl font-bold text-[#008080] md:text-3xl'> 
         {
               activeButton === 1 ? (<><span className='text-[#5B5B5B]'>Your</span> <span className='text-[#E86558]'>Business</span>  + <span className='text-[#B40FBF]'>Vendorze</span>  = Growth</>) : (`Shop Smart! Shop Safe!`)
         }
         </h1>
-        <p className='text-[#898989] text-base lg:text-xl'> {
+        <p className='text-[#898989] text-base lg:text-base'> {
          activeButton === 1 ? (` I help gain credibility with your unique Trust Score and badges. Manage customer reviews in one place. Attract new customers and drive more sales.`):(`Verify vendors instantly with Trust Scores and reviews. Avoid scams and enjoy stress-free shopping. Leave reviews and shape a safer online shopping world. `)
           } 
           </p>
@@ -188,7 +188,7 @@ const BizReview = () => {
        
           <div className='container absolute flex flex-col items-center justify-center top-16 w-full gap-5'>
             <div className='flex flex-col text-center md:gap-2'>
-              <h1 className='text-[#5B5B5B] text-2xl font-bold md:text-3xl lg:text-6xl'>How I Work</h1>
+              <h1 className='text-[#5B5B5B] text-2xl font-semibold md:text-3xl lg:text-6xl'>How I Work</h1>
               <p className='text-[#727272] text-base lg:text-xl'>Getting started on Vendorze is easy</p>
             </div>
             <div className='md:py-[120px]'>
@@ -197,7 +197,7 @@ const BizReview = () => {
                   (activeButton === 1 ? vendor : buyer).map((item, index) => (
                     <div
                     key={index}
-                    className={`bg-[#FFFFFF] p-5 rounded-lg shadow-xl flex flex-col max-w-[300px] gap-4 ${
+                    className={`bg-[#FFFFFF] p-5 rounded-lg shadow-xl flex flex-col max-w-[387px] gap-4 ${
                       index === 1 ? "md:top-[-100px] md:relative" : ""
                     }`}
                   >
@@ -218,7 +218,7 @@ const BizReview = () => {
 
       </div>
       <div className='container'>
-      <div className='relative border-2 border-[#727272] w-full top-[-20px] md:top-[-30px] lg:top-[-80px] bg-[#FFFFFF] rounded-3xl px-2  py-7 flex flex-col gap-5'>
+      <div className='relative border-2 border-[#727272] w-full top-[-20px] md:top-[-30px] lg:top-[-40px] bg-[#FFFFFF] rounded-3xl px-2  py-7 flex flex-col gap-5'>
         <h1 className='text-center text-2xl font-semibold text-[#5B5B5B] lg:text-6xl'>My Key Features</h1> 
         <div className='grid grid-cols-2 md:grid-cols-3 md:p-5 gap-10 p-3 lg:py-10'>
           {
@@ -227,9 +227,9 @@ const BizReview = () => {
                 <div>
                   <Image src={item.icon} alt='' />
                 </div>
-                <h1 className='text-[#434343] text-base font-semibold lg:text-2xl'>{item.title}</h1>
+                <h1 className='text-[#434343] text-base font-semibold lg:text-xl'>{item.title}</h1>
                 <hr />
-                <p className='text-sm text-[#727272] lg:text-xl'>{item.details}</p>
+                <p className='text-sm text-[#727272] lg:text-base'>{item.details}</p>
               </div>
             ))
           }

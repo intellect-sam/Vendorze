@@ -6,8 +6,8 @@ import { FaSquareXTwitter, FaInstagram, FaRegCopyright } from 'react-icons/fa6';
 
 const Footer = () => {
   return (
-    <div className=" bg-emerald-to-gray text-[#FDF5FB] w-full">
-      <div className='lg:pt-[150px]'>
+    <div className=" bg-emerald-to-gray text-[#E7E7E7] w-full">
+      <div className='lg:pt-[250px] lg:pb-[100px]'>
       
           <div className=" container space-y-5 md:space-y-0 md:flex md:justify-between w-full ">
             <div className="flex flex-col  gap-4 md:items-center py-10">

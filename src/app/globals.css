@@ -121,3 +121,10 @@
 .no-scrollbar::-webkit-scrollbar {
   display: none; /* Safari and Chrome */
 }
+
+
+.hexagon {
+  width: 180.18px; /* Adjust width */
+  height: 264.76px; /* Adjust height for aspect ratio */
+  clip-path: polygon(50% 0%, 100% 25%, 100% 75%, 50% 100%, 0% 75%, 0% 25%);
+}

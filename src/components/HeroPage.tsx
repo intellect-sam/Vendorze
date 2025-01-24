@@ -45,15 +45,15 @@ const HeroPage = () => {
           animate="show"
           exit="exit"
           className=" flex flex-col md:items-start  space-y-3 md:w-1/2    ">
-              <div className='bg-[#FFF1EF] inline-block max-w-[188px] text-base font-semibold'>
+              <div className='bg-[#FFF1EF] inline-block max-w-[188px] text-base font-normal'>
                 <h2>I Transform Businesses</h2>
               </div>
-              
+            
             <div className='flex flex-col text-[#727272] text-sm gap-2 lg:gap-6 '>
 
             <h1 className='text-[#5B5B5B] text-2xl font-bold lg:text-5xl'>I Build Trust. I Boost Sales.</h1>
-            <p className='lg:text-2xl font-semibold'>Vendorze is your AI-powered companion for credibility, growth, and safe online shopping</p>
-            <p className='lg:text-xl'>Whether you’re a vendor seeking trust or a buyer seeking assurance, Vendorze is your trusted partner in the online buying and selling.</p>
+            <p className='lg:text-xl font-normal'>Vendorze is your AI-powered companion for credibility, growth, and safe online shopping</p>
+            <p className='lg:text-lg'>Whether you’re a vendor seeking trust or a buyer seeking assurance, Vendorze is your trusted partner in the online buying and selling.</p>
             </div>
             <div className='flex justify-between hidden md:block md:gap-5 md:space-x-5'>
           <button className='bg-[#B40FBF] text-[#FCFAFA] rounded-md p-3 text-sm font-bold shadow-md'>Get Trust Score</button>
