@@ -28,6 +28,29 @@ interface VendorDetails {
   instagramHandle: string | null;
 }
 
+const Contact = [
+  {
+    id: 1,
+    title: "Email Address",
+    details: "Rayzclothings@gmail.com"
+  },
+  {
+    id: 2,
+    title: "Address",
+    details: "8, Olumo street, Oke Agba, Ibadan"
+  },
+  {
+    id: 3,
+    title: "Contact Number",
+    details: "08132414152"
+  },
+  {
+    id: 4,
+    title: "State/Country",
+    details: "Oyo/Nigeria"
+  },
+]
+
 const Profile = () => {
   const router = useRouter();
   const searchParams = useSearchParams();
@@ -79,7 +102,7 @@ const Profile = () => {
           </div>
           <div className="bg-[#F0CFF2] w-full p-4 laptop:p-7 flex flex-col rounded-md  laptop, tablet:flex-row justify-between rounded-laptop bg-cover bg-center">
             <div className="absolute right-0 laptop:w-full ">
-              <Image className=" object-contain " src={bgg} alt="" />
+              {/* <Image className=" object-contain " src={bgg} alt="" /> */}
             </div>
             <div className="md:flex md:items-center md:justify-between lg:p-7">
               <div className="flex gap-5 items-center">
@@ -111,6 +134,21 @@ const Profile = () => {
             </div>
           </div>
           <div className="flex flex-col  w-full md:flex-row md:justify-between md:space-x-5">
+                    <div className="bg-white border-[1px] rounded-xl shadow-md flex flex-col gap-5 p-5">
+                      <h1 className="text-[#2C2C2C] font-semibold text-sm">Brief Description</h1>
+                      <p className="text-[#727272] text-xs">At Rayz, we offer a curated selection of stylish and affordable apparel for men, women, and children. Our collections are inspired by the latest trends and designed for every occasion, from casual outings to special events. Visit us today and elevate your wardrobe!" 
+                      </p>
+                    </div>
+                    <div className="bg-white border-[1px] rounded-xl shadow-md flex flex-col gap-5 p-5">
+                      {
+                        Contact.map((item) => (
+                          <div key={item.id}>
+                            <p className="text-[#727272] text-xs">{item.title}</p>
+                            <h1 className="text-[#2C2C2C] font-semibold text-sm">{item.details}</h1>
+                          </div>
+                        ))
+                      }
+                    </div>
             <div className="flex text-[10px] lg:text-[18px]  text-[#727272] justify-between   w-full md:w-1/2  h-full p-4 shadow-lg rounded-lg mt-8 lg:p-6 ">
               <div className="flex flex-col gap-5 lg:gap-10">
                 <h1 className="text-[13px] font-bold text-[#B40FBF]  lg:text-[24px]">
